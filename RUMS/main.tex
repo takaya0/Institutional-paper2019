@@ -1,4 +1,16 @@
+% -----------------------
+% preamble
+% -----------------------
+% Don't change preamble code yourself. If you add something(usepackage, newtheorem, newcommand, renewcommand),
+% please tell them editor of institutional paper of RUMS.
+
+%documentclass
+%------------------------
 \documentclass[11pt, a4paper, dvipdfmx]{jsarticle}
+
+
+%usepackage
+%------------------------
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage[psamsfonts]{amssymb}
@@ -15,17 +27,22 @@
 \usepackage{proof}
 \usepackage{listings}
 \usepackage{otf}
+\usepackage{tikz}
+\usepackage[all]{xy}
+\usepackage{amscd}
+\usetikzlibrary{cd}
 
+%theoremstyle
+%--------------------------
 \theoremstyle{definition}
 
-%
-%%%%%%%%%%%%%%%%%%%%%%
-%ここにないパッケージを入れる人は，必ずここに記載すること.
-%
-%%%%%%%%%%%%%%%%%%%%%%
-%ここからはコード表です.
-%
 
+%newtheoem
+%--------------------------
+%If you want to use theorem environment in Japanece, You can use these code. 
+%Attention
+%--------------------------
+%all theorem enivironment number depend on only section number.
 \newtheorem{Axiom}{公理}[section]
 \newtheorem{Definition}[Axiom]{定義}
 \newtheorem{Theorem}[Axiom]{定理}
@@ -41,8 +58,9 @@
 \newtheorem{Consideration}[Axiom]{考察}
 \newtheorem{Alert}[Axiom]{警告}
 
-%%%%%%%%%%%%%%%%%%%%
 
+%----------------------------
+%If you want to use theorem environment with no number in Japanese, You can use these code.
 \newtheorem*{Axiom*}{公理}
 \newtheorem*{Definition*}{定義}
 \newtheorem*{Theorem*}{定理}
@@ -57,16 +75,11 @@
 \newtheorem*{Problem*}{問題}
 \newtheorem*{Consideration*}{考察}
 \newtheorem*{Alert*}{警告}
-\renewcommand{\proofname}{\bfseries Proof}
 
-%%%%%%%%%%%%%%%%%%%%%%
-%%
-
-\newcommand{\A}{\bf 証明}
-\newcommand{\B}{\it Proof}
-
-%英語で定義や定理を書きたい場合こっちのコードを使うこと.
-
+%--------------------------
+%If you want to use theorem environment in English, You can use these code.
+%--------------------------
+%all theorem enivironment number depend on only section number.
 \newtheorem{Axiom+}{Axiom}[section]
 \newtheorem{Definition+}[Axiom+]{Definition}
 \newtheorem{Theorem+}[Axiom+]{Theorem}
@@ -83,20 +96,22 @@
 \newtheorem{Alert+}{Alert}
 
 %commmand
-
+%----------------------------
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
-\newcommand{\W}{{\cal W}}
-\newcommand{\cS}{{\cal S}}
-\newcommand{\Wpm}{W^{\pm}}
-\newcommand{\Wp}{W^{+}}
-\newcommand{\Wm}{W^{-}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\Hil}{\mathcal{H}}
+\newcommand{\RKHS}{\Hil_{k}}
+\newcommand{\Loss}{\mathcal{L}_{D}}
+\newcommand{\MLsp}{(\X, \Y, D, \Hil, \Loss)}
 \newcommand{\p}{\partial}
-\newcommand{\Dx}{D_{x}}
-\newcommand{\Dxi}{D_{\xi}}
+\newcommand{\h}{\mathscr}
+\newcommand{\mcal}{\mathcal}
 \newcommand{\lan}{\langle}
 \newcommand{\ran}{\rangle}
 \newcommand{\pal}{\parallel}
@@ -105,9 +120,27 @@
 \newcommand{\dl}{\delta}
 \newcommand{\pphi}{\varphi}
 \newcommand{\ti}{\tilde}
-\title{Universal Approximation Theorem of Neural Network}
-\author{数理科学科 3回生 小泉 孝弥}
+
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Probsp}{(\Omega, \F, \P)}
+
+%new definition macro
+%-------------------------
+\def\inner<#1>{\langle #1 \rangle}
+%----------------------------
+%documenet 
+%----------------------------
+% Your main code must be written between begin document and end document.
+\title{Generative Adversarial Networks}
+\author{小泉 孝弥}
 \date{}
 \begin{document}
 \maketitle
+
+
+
+\begin{thebibliography}{20}
+    \bibitem{a} 
+\end{thebibliography}
+
 \end{document}
