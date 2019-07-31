@@ -1,13 +1,12 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.7.16)  15 JUL 2019 21:16
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  1 AUG 2019 00:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/Users/takaya/Institutional-paper2019/ReMakers/RM2019
-(/Users/takaya/Institutional-paper2019/ReMakers/RM2019.tex
-pLaTeX2e <2018-04-01>+1 (based on LaTeX2e <2018-04-01> patch level 2)
-Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
-(/usr/local/texlive/2018/texmf-dist/tex/platex/jsclasses/jsarticle.cls
-Document Class: jsarticle 2018/03/11 jsclasses (okumura, texjporg)
+**/Users/yataka/Institutional-paper2019/ReMakers/RM2019
+(/Users/yataka/Institutional-paper2019/ReMakers/RM2019.tex
+pLaTeX2e <2019-04-06> (based on LaTeX2e <2018-12-01>)
+(/usr/local/texlive/2019/texmf-dist/tex/platex/jsclasses/jsarticle.cls
+Document Class: jsarticle 2019/04/06 jsclasses (okumura, texjporg)
 \jsc@mpt=\dimen118
 \jsc@mmm=\dimen119
 \jsc@smallskipamount=\skip41
@@ -34,7 +33,7 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 \c@subsubsection=\count86
 \c@paragraph=\count87
 \c@subparagraph=\count88
-\@abstractbox=\box42
+\@abstractbox=\box43
 \c@figure=\count89
 \c@table=\count90
 \abovecaptionskip=\skip42
@@ -42,45 +41,45 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 \jsc@tocl@width=\dimen121
 \@lnumwidth=\dimen122
 \bibindent=\dimen123
-(/usr/local/texlive/2018/texmf-dist/tex/platex/jsclasses/jslogo.sty
+(/usr/local/texlive/2019/texmf-dist/tex/platex/jsclasses/jslogo.sty
 Package: jslogo 2017/02/24 okumura, texjporg
 LaTeX Info: Redefining \TeX on input line 94.
 LaTeX Info: Redefining \LaTeX on input line 147.
 LaTeX Info: Redefining \LaTeXe on input line 200.
 )
 \heisei=\count91
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2017/09/02 v2.17a AMS math features
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2018/12/01 v2.17b AMS math features
 \@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
- (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks15
 \ex@=\dimen124
-)) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen125
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count92
-LaTeX Info: Redefining \frac on input line 213.
+LaTeX Info: Redefining \frac on input line 223.
 \uproot@=\count93
 \leftroot@=\count94
-LaTeX Info: Redefining \overline on input line 375.
+LaTeX Info: Redefining \overline on input line 385.
 \classnum@=\count95
 \DOTSCASE@=\count96
-LaTeX Info: Redefining \ldots on input line 472.
-LaTeX Info: Redefining \dots on input line 475.
-LaTeX Info: Redefining \cdots on input line 596.
-\Mathstrutbox@=\box43
-\strutbox@=\box44
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box44
+\strutbox@=\box45
 \big@size=\dimen126
-LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \macc@depth=\count97
 \c@MaxMatrixCols=\count98
 \dotsspace@=\muskip10
@@ -101,9 +100,9 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \multlinegap=\skip45
 \multlinetaggap=\skip46
 \mathdisplay@stack=\toks19
-LaTeX Info: Redefining \[ on input line 2817.
-LaTeX Info: Redefining \] on input line 2818.
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/amscls/amsthm.sty
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
 \thm@style=\toks20
 \thm@bodyfont=\toks21
@@ -114,9 +113,9 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@postskip=\skip48
 \thm@headsep=\skip49
 \dth@everypar=\toks25
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 
 
@@ -126,78 +125,78 @@ Package amsfonts Warning: The 'psamsfonts' option is obsolete in AMSFonts v3.
 \symAMSb=\mathgroup6
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/color.sty
+)) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
- (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: dvipdfmx.def on input line 147.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
 File: dvipdfmx.def 2017/06/24 v5.0g Graphics/color driver for dvipdfmx
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/dvipsnam.def
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-)) (/usr/local/texlive/2018/texmf-dist/tex/latex/ascmac/ascmac.sty
+)) (/usr/local/texlive/2019/texmf-dist/tex/latex/ascmac/ascmac.sty
 Package: ascmac 2018/03/09 v2.0h ascmac wrapper (community edition) 
- (/usr/local/texlive/2018/texmf-dist/tex/latex/ascmac/tascmac.sty
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/ascmac/tascmac.sty
 Package: tascmac 2018/03/09 v2.0h ascmac package (community edition) 
 \@savetbaselineshift=\dimen133
 \@saveybaselineshift=\dimen134
-\scb@x=\box45
-\scscb@x=\box46
+\scb@x=\box46
+\scscb@x=\box47
 \@bw=\dimen135
-\@nbox=\box47
-\@nbody=\box48
+\@nbox=\box48
+\@nbody=\box49
 \@scw=\dimen136
-\ascmac@hoboxa=\box49
-\ascmac@hoboxb=\box50
+\ascmac@hoboxa=\box50
+\ascmac@hoboxb=\box51
 \@itemh=\dimen137
 \@iboxpos=\toks26
-\@iboxstr=\box51
-\@bwsp=\box52
-\@@bwsp=\box53
+\@iboxstr=\box52
+\@bwsp=\box53
+\@@bwsp=\box54
 \@bcal=\count104
 \shaderule=\dimen138
-)) (/usr/local/texlive/2018/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+)) (/usr/local/texlive/2019/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup7
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks27
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: dvipdfmx.def on input line 99.
 )
 \Gin@req@height=\dimen139
 \Gin@req@width=\dimen140
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/fancybox/fancybox.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/fancybox/fancybox.sty
 Package: fancybox 2010/05/15 1.4
 
 Style option: `fancybox' v1.4 <2010/05/15> (tvz)
-\@fancybox=\box54
+\@fancybox=\box55
 \shadowsize=\dimen141
-\@Sbox=\box55
+\@Sbox=\box56
 \do@VerbBox=\toks28
 \the@fancyput=\toks29
 \this@fancyput=\toks30
 \EndVerbatimTokens=\toks31
 \Verbatim@Outfile=\write3
 \Verbatim@Infile=\read1
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/enumerate.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks32
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks33
 \verbatim@line=\toks34
 \verbatim@in@stream=\read2
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip50
 \subfigcapskip=\skip51
@@ -213,10 +212,10 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-(/usr/local/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip54
 \subfig@bottom=\skip55
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/lkproof/proof.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/lkproof/proof.sty
 \inferLineSkip=\dimen144
 \inferLabelSkip=\dimen145
 \@LeftOffset=\dimen146
@@ -236,13 +235,13 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \HLabelAdjust=\dimen160
 \VLabelAdjust=\dimen161
 \WidthAdjust=\dimen162
-\@UpperPart=\box56
-\@LowerPart=\box57
-\@LabelPart=\box58
-\ResultBox=\box59
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
+\@UpperPart=\box57
+\@LowerPart=\box58
+\@LabelPart=\box59
+\ResultBox=\box60
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count109
-\lst@gtempboxa=\box60
+\lst@gtempboxa=\box61
 \lst@token=\toks35
 \lst@length=\count110
 \lst@currlwidth=\dimen163
@@ -253,17 +252,17 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \lst@newlines=\count113
 \lst@lineno=\count114
 \lst@maxwidth=\dimen166
- (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2019/02/27 1.8b (Carsten Heinz)
 \c@lstnumber=\count115
 \lst@skipnumbers=\count116
-\lst@framebox=\box61
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2015/06/04 1.6 listings configuration
+\lst@framebox=\box62
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2019/02/27 1.8b listings configuration
 ))
-Package: listings 2015/06/04 1.6 (Carsten Heinz)
- (/usr/local/texlive/2018/texmf-dist/tex/platex/japanese-otf-uptex/otf.sty
-Package: otf 2018/02/01 v1.7b7 psitau, u0.20 ttk
+Package: listings 2019/02/27 1.8b (Carsten Heinz)
+ (/usr/local/texlive/2019/texmf-dist/tex/platex/japanese-otf-uptex/otf.sty
+Package: otf 2019/04/01 v1.7b8 psitau, u0.23 ttk
 LaTeX Font Info:    Redeclaring symbol font `mincho' on input line 314.
 LaTeX Font Info:    Overwriting symbol font `mincho' in version `normal'
 (Font)                  JY1/mc/m/n --> JY1/hmc/m/n on input line 314.
@@ -278,73 +277,105 @@ LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
 (Font)                  JY1/gt/m/n --> JY1/hgt/m/n on input line 317.
 LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
 (Font)                  JY1/hgt/m/n --> JY1/hgt/bx/n on input line 318.
- (/usr/local/texlive/2018/texmf-dist/tex/platex/japanese-otf/ajmacros.sty
-Package: ajmacros 2005/12/25 13:52 iNOUE Koich! <inoue@ma.ns.musashi-tech.ac.jp>
+ (/usr/local/texlive/2019/texmf-dist/tex/platex/japanese-otf/ajmacros.sty
+Package: ajmacros 2019/04/01 21:00 iNOUE Koich! <inoue@ma.ns.musashi-tech.ac.jp>
 \@tempcntc=\count117
 \@tempcntd=\count118
 \@tempcnte=\count119
 \@tempcntf=\count120
 ))
-\c@Axiom=\count121
-\c@Axiom+=\count122
-\c@Alert+=\count123
+\c@Axiom+=\count121
+\c@Alert+=\count122
  (./RM2019.aux)
 \openout1 = `RM2019.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 111.
+(Font)              scaled to size 9.24683pt on input line 102.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 111.
-\c@lstlisting=\count124
+(Font)              scaled to size 9.24683pt on input line 102.
+\c@lstlisting=\count123
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 15.9785pt on input line 112.
+(Font)              scaled to size 15.9785pt on input line 103.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 15.9785pt on input line 112.
+(Font)              scaled to size 15.9785pt on input line 103.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 112.
+(Font)              scaled to size 11.09619pt on input line 103.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 112.
+(Font)              scaled to size 11.09619pt on input line 103.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 112.
+(Font)              scaled to size 7.39746pt on input line 103.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 112.
-LaTeX Font Info:    Try loading font information for U+msa on input line 112.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+(Font)              scaled to size 5.5481pt on input line 103.
+LaTeX Font Info:    Try loading font information for U+msa on input line 103.
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 112.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+LaTeX Font Info:    Try loading font information for U+msb on input line 103.
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 112.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 103.
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [1
+)
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 104.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 104.
+LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 104.
+LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 104.
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 110.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 110.
+LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 110.
+LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 110.
+LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 114.
+LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 114.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 116.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 116.
+LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 122.
+LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 122.
+LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 122.
+LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 122.
+ [1
 
-] (./RM2019.aux) ) 
+] [2] (./RM2019.aux) ) 
 Here is how much of TeX's memory you used:
- 5616 strings out of 493281
- 70794 string characters out of 6145041
- 141016 words of memory out of 5000000
- 9494 multiletter control sequences out of 15000+600000
- 14415 words of font info for 66 fonts, out of 8000000 for 9000
+ 5618 strings out of 493223
+ 70931 string characters out of 6144415
+ 144133 words of memory out of 5000000
+ 9548 multiletter control sequences out of 15000+600000
+ 19848 words of font info for 97 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 27i,6n,32p,347b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,6n,32p,347b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on RM2019.dvi (1 page, 596 bytes).
+Output written on RM2019.dvi (2 pages, 5444 bytes).

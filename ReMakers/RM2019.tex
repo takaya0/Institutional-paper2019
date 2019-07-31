@@ -26,26 +26,13 @@
 %ここからはコード表です.
 %
 
-\newtheorem{Axiom}{公理}[section]
-\newtheorem{Definition}[Axiom]{定義}
-\newtheorem{Theorem}[Axiom]{定理}
-\newtheorem{Proposition}[Axiom]{命題}
-\newtheorem{Lemma}[Axiom]{補題}
-\newtheorem{Corollary}[Axiom]{系}
-\newtheorem{Example}[Axiom]{例}
-\newtheorem{Claim}[Axiom]{主張}
-\newtheorem{Property}[Axiom]{性質}
-\newtheorem{Attention}[Axiom]{注意}
-\newtheorem{Question}[Axiom]{問}
-\newtheorem{Problem}[Axiom]{問題}
-\newtheorem{Consideration}[Axiom]{考察}
-\newtheorem{Alert}[Axiom]{警告}
+
 
 %%%%%%%%%%%%%%%%%%%%
 
 \newtheorem*{Axiom*}{公理}
 \newtheorem*{Definition*}{定義}
-\newtheorem*{Theorem*}{定理}
+\newtheorem*{Theorem*}{Theorem}
 \newtheorem*{Proposition*}{命題}
 \newtheorem*{Lemma*}{補題}
 \newtheorem*{Example*}{例}
@@ -105,9 +92,43 @@
 \newcommand{\dl}{\delta}
 \newcommand{\pphi}{\varphi}
 \newcommand{\ti}{\tilde}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\K}{\mathbb{K}}
+
 \title{Universal Approximation Theorem of Neural Network}
 \author{数理科学科 3回生 小泉 孝弥}
 \date{}
 \begin{document}
 \maketitle
+\begin{abstract}
+    機械学習という単語を一言で説明するならば, 「関数近似器」である.
+    今回のReMakersの機関紙では機械学習および第3次人工知能ブームの火付け役となった
+    「深層学習」を数学的に定義し, 深層学習の中心となる「ニューラルネットワーク」が万能関数近似器であることを示す.
+    なお, 本機関紙の前提知識は数学科3回生レベルの数学である.
+\end{abstract}
+\section{人口知能・AIについて}
+現在, 人工知能(Artificial Intelligence)の厳密な定義は完成しておらず, 専門家の中でも意見が分かれている。
+なので、この機関紙では人工知能の定義について触れることはせず、現在の, 人工知能の中心技術である「機械学習」について
+説明する.
+\subsection{機械学習・深層学習}
+最初に述べたとおり, 機械学習(Machine Learning)とは関数近似器である. 
+もう少し詳細に述べれば, 入力空間と呼ばれる集合$\X$から出力空間と呼ばれる集合への良い写像$f:\X\to\Y$
+を構成するのが機械学習である.　機械学習は主に, 株価などのあるもの値を予想するモデルである「回帰(Regression)」, 
+あるものがどのクラスに属しているかを予測するモデルである「分類(Classify)」の2つに分けられる.「機械学習の中でも特にあとで定義する, ニューラルネットワークと
+いうものを用いる学習手法を深層学習(Deep Learning)という.
+\subsection{深層学習と万能近似性}
+深層学習は以下の定理から万能関数近似器と呼ばれている. 
+\begin{Definition*}(万能関数近似定理)\\
+    $X$を集合とし$f:X\to\R$を性質の良い関数とする. この時, $f$を
+    任意の精度で近似できるようなニューラルネットワークが存在する.
+\end{Definition*}
+今回の機関紙の目標はこの定理を証明することであるが, 今のままでは曖昧な単語が多すぎるため, 数学の問題として
+扱うことができない. したがって, 今からこの定理を数学的に述べなければならない. しかしながら, 流れの都合上
+この定理を数学的に述べる前に, この定理の照明に不可欠な「ハーン・バナッハの拡張定理」と「リースの表現定理」
+を証明することにする.
+\section{関数解析学}
+リースの表現定理およびハーンバナッハの拡張定理は共に関数解析学(Functional Analysis)
+と呼ばれる分野の定理である. したがって, この説では関数解析学の基礎事項を説明する. なお, 線形空間の
+係数体は実数体または複素数体とし, $\K$で表記する.
 \end{document}
