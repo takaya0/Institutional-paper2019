@@ -95,6 +95,7 @@
 \newcommand{\X}{\mathcal{X}}
 \newcommand{\Y}{\mathcal{Y}}
 \newcommand{\K}{\mathbb{K}}
+\newcommand{\normedsp}{(V, \|\cdot\|)}
 
 \title{Universal Approximation Theorem of Neural Network}
 \author{数理科学科 3回生 小泉 孝弥}
@@ -107,28 +108,57 @@
     「深層学習」を数学的に定義し, 深層学習の中心となる「ニューラルネットワーク」が万能関数近似器であることを示す.
     なお, 本機関紙の前提知識は数学科3回生レベルの数学である.
 \end{abstract}
-\section{人口知能・AIについて}
+\section{人工知能・AIについて}
 現在, 人工知能(Artificial Intelligence)の厳密な定義は完成しておらず, 専門家の中でも意見が分かれている。
 なので、この機関紙では人工知能の定義について触れることはせず、現在の, 人工知能の中心技術である「機械学習」について
 説明する.
 \subsection{機械学習・深層学習}
 最初に述べたとおり, 機械学習(Machine Learning)とは関数近似器である. 
 もう少し詳細に述べれば, 入力空間と呼ばれる集合$\X$から出力空間と呼ばれる集合への良い写像$f:\X\to\Y$
-を構成するのが機械学習である.　機械学習は主に, 株価などのあるもの値を予想するモデルである「回帰(Regression)」, 
-あるものがどのクラスに属しているかを予測するモデルである「分類(Classify)」の2つに分けられる.「機械学習の中でも特にあとで定義する, ニューラルネットワークと
+を構成するのが機械学習である.　機械学習は主に, 株価などのあるものの値を予想するモデルである「回帰(Regression)」, 
+あるものがどのクラスに属しているかを予測するモデルである「分類(Classify)」の2つに分けられる. 機械学習の中でも特に, あとで定義する, ニューラルネットワークと
 いうものを用いる学習手法を深層学習(Deep Learning)という.
 \subsection{深層学習と万能近似性}
 深層学習は以下の定理から万能関数近似器と呼ばれている. 
-\begin{Definition*}(万能関数近似定理)\\
+\begin{Theorem*}(万能関数近似定理)\\
     $X$を集合とし$f:X\to\R$を性質の良い関数とする. この時, $f$を
     任意の精度で近似できるようなニューラルネットワークが存在する.
-\end{Definition*}
+\end{Theorem*}
 今回の機関紙の目標はこの定理を証明することであるが, 今のままでは曖昧な単語が多すぎるため, 数学の問題として
 扱うことができない. したがって, 今からこの定理を数学的に述べなければならない. しかしながら, 流れの都合上
-この定理を数学的に述べる前に, この定理の照明に不可欠な「ハーン・バナッハの拡張定理」と「リースの表現定理」
+この定理を数学的に述べる前に, この定理の証明に不可欠な「ハーン・バナッハの拡張定理」と「リースの表現定理」
 を証明することにする.
-\section{関数解析学}
+\section{関数解析の基礎}
 リースの表現定理およびハーンバナッハの拡張定理は共に関数解析学(Functional Analysis)
-と呼ばれる分野の定理である. したがって, この説では関数解析学の基礎事項を説明する. なお, 線形空間の
+と呼ばれる分野の定理である. したがって, この節では関数解析学の基礎事項を説明する. なお, ベクトル空間の
 係数体は実数体または複素数体とし, $\K$で表記する.
+\begin{Definition+}(ノルム空間)\\
+    $V$をベクトル空間とする. 写像$\|\cdot\|:V\to\R$が以下の性質を満たすとする.
+    \begin{enumerate}
+        \item $\forall v\in V, \|v\| \geq 0$,
+        \item $\forall v\in V, \|v\| = 0 \iff v = 0$,
+        \item $\forall \alpha\in\K, \forall v\in V, \|\alpha v\| = |\alpha|\|v\|$ and 
+        \item $\forall v, w\in V, \|v + w\|\leq \|v\| + \|w\|$.
+    \end{enumerate}
+    この時, $\|\cdot\|$を$V$のノルムといい, $(V, \|\cdot\|)$をノルム空間(normed space)という.
+\end{Definition+}
+\begin{Theorem+}
+    $\normedsp$をノルム空間とする. この時, 以下で定義される写像$d:V\times V\to\R$は$V$上の距離となる.
+    \begin{align*}
+        d(x, y) = \|x - y\|.
+    \end{align*}
+    この距離を, ノルムから入る距離と呼ぶ.
+    \begin{proof}
+        ノルムの定義より明らかである.
+    \end{proof}
+\end{Theorem+}
+この定理より, ノルム空間はノルムから入る距離によって距離空間となる. 次にバナッハ空間を定義していく.
+\begin{Definition+}(完備)\\
+    $(X, d)$を距離空間とする. $X$の任意のコーシー列$\{x_{n}\}_{n\in\N}$が収束する時
+    , $(X, d)$を完備距離空間(complete metric space)または単に, 完備(complete)という.
+\end{Definition+}
+
+\begin{Definition+}(バナッハ空間)\\
+    ノルム空間が距離空間として完備である時, バナッハ空間(Banach space)という.
+\end{Definition+}
 \end{document}
