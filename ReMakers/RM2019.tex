@@ -26,7 +26,7 @@
 %ここからはコード表です.
 %
 
-
+\def\inner<#1>{\langle #1 \rangle}
 
 %%%%%%%%%%%%%%%%%%%%
 
@@ -96,6 +96,7 @@
 \newcommand{\Y}{\mathcal{Y}}
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\normedsp}{(V, \|\cdot\|)}
+\newcommand{\innersp}{(V, \inner<\cdot, \cdot>)}
 
 \title{Universal Approximation Theorem of Neural Network}
 \author{数理科学科 3回生 小泉 孝弥}
@@ -132,6 +133,7 @@
 リースの表現定理およびハーンバナッハの拡張定理は共に関数解析学(Functional Analysis)
 と呼ばれる分野の定理である. したがって, この節では関数解析学の基礎事項を説明する. なお, ベクトル空間の
 係数体は実数体または複素数体とし, $\K$で表記する.
+\subsection{関数解析の基礎空間}
 \begin{Definition+}(ノルム空間)\\
     $V$をベクトル空間とする. 写像$\|\cdot\|:V\to\R$が以下の性質を満たすとする.
     \begin{enumerate}
@@ -160,5 +162,31 @@
 
 \begin{Definition+}(バナッハ空間)\\
     ノルム空間が距離空間として完備である時, バナッハ空間(Banach space)という.
+\end{Definition+}
+次にヒルベルト空間を定義する.
+\begin{Definition+}(内積空間)\\
+    $V$をベクトル空間とする. $\inner<\cdot, \cdot>: V\times V\to\K$が以下の性質を満たすとする.
+    \begin{enumerate}
+        \item $\forall v\in V, \inner<v, v>\geq 0$,
+        \item $\forall v\in V, \inner<v, v> = 0\iff v = 0$,
+        \item $\forall v, w\in V, \inner<v, w> = \overline{\inner<w, v>}$,
+        \item $\forall u, v, w\in V, \inner<u + v, w> = \inner<u, w> + \inner<v, w>$ and
+        \item $\forall v, w\in V, \forall\alpha\in\K, \inner<\alpha v, w> = \alpha\inner<v, w>$.
+    \end{enumerate}
+    との時$\inner<\cdot, \cdot>$を$V$の内積(inner)といい, 組$(V, \inner<\cdot, \cdot>)$を内積空間(inner space)という.
+\end{Definition+}
+\begin{Proposition+}
+    $\innersp$を内積空間とする. この時, 以下で定義される写像$\|\cdot\|:V\to\R$はノルムとなる.
+    \begin{align*}
+        \|x\| = \sqrt{\inner<x, x>}.
+    \end{align*}
+    \begin{proof}
+        内積の定義より明らか.
+    \end{proof}
+\end{Proposition+}
+これにより, 内積空間はノルム空間となる.
+
+\begin{Definition+}(ヒルベルト空間)\\
+    内積空間がバナッハ空間であるとき, ヒルベルト空間(Hilbert space)という.
 \end{Definition+}
 \end{document}
