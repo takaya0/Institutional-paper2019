@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  1 AUG 2019 18:12
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  4 AUG 2019 16:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -398,18 +398,22 @@ LaTeX Font Info:    Font shape `JY1/hmc/bx/it' in size <10> not available
 (Font)              Font shape `JY1/hgt/m/n' tried instead on input line 184.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 9.24683pt on input line 184.
- [3] (./RM2019.aux)
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 206.
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 206.
+ [3] [4] (./RM2019.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5633 strings out of 493223
- 71108 string characters out of 6144415
- 146166 words of memory out of 5000000
- 9561 multiletter control sequences out of 15000+600000
- 20553 words of font info for 99 fonts, out of 8000000 for 9000
+ 5642 strings out of 493223
+ 71192 string characters out of 6144415
+ 146181 words of memory out of 5000000
+ 9569 multiletter control sequences out of 15000+600000
+ 20923 words of font info for 102 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 27i,8n,32p,347b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,10n,32p,347b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on RM2019.dvi (3 pages, 9936 bytes).
+Output written on RM2019.dvi (4 pages, 12580 bytes).

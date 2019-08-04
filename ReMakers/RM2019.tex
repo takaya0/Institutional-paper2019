@@ -144,7 +144,7 @@
     \end{enumerate}
     この時, $\|\cdot\|$を$V$のノルムといい, $(V, \|\cdot\|)$をノルム空間(normed space)という.
 \end{Definition+}
-\begin{Theorem+}
+\begin{Proposition+}
     $\normedsp$をノルム空間とする. この時, 以下で定義される写像$d:V\times V\to\R$は$V$上の距離となる.
     \begin{align*}
         d(x, y) = \|x - y\|.
@@ -153,7 +153,7 @@
     \begin{proof}
         ノルムの定義より明らかである.
     \end{proof}
-\end{Theorem+}
+\end{Proposition+}
 この定理より, ノルム空間はノルムから入る距離によって距離空間となる. 次にバナッハ空間を定義していく.
 \begin{Definition+}(完備)\\
     $(X, d)$を距離空間とする. $X$の任意のコーシー列$\{x_{n}\}_{n\in\N}$が収束する時
@@ -185,8 +185,46 @@
     \end{proof}
 \end{Proposition+}
 これにより, 内積空間はノルム空間となる.
-
 \begin{Definition+}(ヒルベルト空間)\\
     内積空間がバナッハ空間であるとき, ヒルベルト空間(Hilbert space)という.
 \end{Definition+}
+\subsection{有界線形作用素}
+\begin{Definition+}(線形作用素)\\
+    $V$, $W$をベクトル空間とし$f:V\to W$が
+    \begin{enumerate}
+        \item $\forall v, w\in V, f(v + w) = f(v) + f(w)$,
+        \item $\forall\alpha\in\K, f(\alpha v) = \alpha f(v)$.
+    \end{enumerate}
+    を満たす時, $f$を線形作用素(linear operator)という.
+\end{Definition+}
+
+\begin{Definition+}(有界)\\
+    $(V_{1}, \|\cdot\|_{1})$, $(V_{2}, \|\cdot\|_{2})$をノルム空間とし$f$を$V_{1}$から$V_{2}$への写像とする.
+    $f$が,
+    \begin{align*}
+        \exists c\geq 0\text{ s.t. }\forall x\in V_{1}, \|f(x)\|_{2}\leq c\|x\|_{1}
+    \end{align*}
+    を満たす時, $f$は有界(bounded)であるという.
+\end{Definition+}
+
+\begin{Definition+}(有界線形作用素)\\
+    有界であり線形である写像を有界線形作用素(bounded linear operator)という.
+\end{Definition+}
+\newpage
+\begin{Theorem+}
+    $(V_{1}, \|\cdot\|_{1})$, $(V_2. \|\cdot\|_{2})$をノルム空間とし, $T:V_1\to V_2$を有界線形作用素とする.　
+    また集合$C$を以下で定義する.
+    \begin{align*}
+        C = \{c\geq 0~|~\forall x\in V_{1}, \|f(x)\|_{2}\leq c\|x\|_{1}\}.
+    \end{align*}
+    この時, 以下のことが成立する.
+\end{Theorem+}
+
+\begin{thebibliography}{9}
+    \bibitem{neural} https://tutorials.chainer.org/ja/index.html
+    \bibitem{ML} https://github.com/Runnrairu/machinelearning\verb|_|text
+    \bibitem{kernel} カーネル法入門―正定値カーネルによるデータ解析・福水健次・2010
+    \bibitem{ML1} 統計的学習理論・金森 敬文・2015
+    \bibitem{functional} 函数解析 POD版・前田 周一郎・2007
+\end{thebibliography}
 \end{document}
