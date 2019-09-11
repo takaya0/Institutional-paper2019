@@ -94,9 +94,12 @@
 \newcommand{\ti}{\tilde}
 \newcommand{\X}{\mathcal{X}}
 \newcommand{\Y}{\mathcal{Y}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\Hil}{\mathcal{H}}
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\normedsp}{(V, \|\cdot\|)}
 \newcommand{\innersp}{(V, \inner<\cdot, \cdot>)}
+\newcommand{\MLsp}{(\X, \Y, D, \Hil, \L)}
 
 \title{Universal Approximation Theorem of Neural Network}
 \author{数理科学科 3回生 小泉 孝弥}
@@ -110,7 +113,7 @@
     なお, 本機関紙の前提知識は数学科3回生レベルの数学である.
 \end{abstract}
 \section{人工知能・AIについて}
-現在, 人工知能(Artificial Intelligence)の厳密な定義は完成しておらず, 専門家の中でも意見が分かれている。
+現在, 人工知能(Artificial Intelligence)の厳密な定義は完成しておらず, 専門家の中でも意見が分かれている.
 なので、この機関紙では人工知能の定義について触れることはせず、現在の, 人工知能の中心技術である「機械学習」について
 説明する.
 \subsection{機械学習・深層学習}
@@ -193,7 +196,7 @@
     $V$, $W$をベクトル空間とし$f:V\to W$が
     \begin{enumerate}
         \item $\forall v, w\in V, f(v + w) = f(v) + f(w)$,
-        \item $\forall\alpha\in\K, f(\alpha v) = \alpha f(v)$.
+        \item $\forall\alpha\in\K, \forall v\in V, f(\alpha v) = \alpha f(v)$.
     \end{enumerate}
     を満たす時, $f$を線形作用素(linear operator)という.
 \end{Definition+}
@@ -213,12 +216,50 @@
 \newpage
 \begin{Theorem+}
     $(V_{1}, \|\cdot\|_{1})$, $(V_2. \|\cdot\|_{2})$をノルム空間とし, $T:V_1\to V_2$を有界線形作用素とする.　
-    また集合$C$を以下で定義する.
+    また, 集合$C$を以下で定義する.
     \begin{align*}
         C = \{c\geq 0~|~\forall x\in V_{1}, \|f(x)\|_{2}\leq c\|x\|_{1}\}.
     \end{align*}
     この時, 以下のことが成立する.
+    \begin{enumerate}
+        \item $C$には最小値が存在する.
+        \item $C$の最小値を$\|T\|$とすれば, 以下の式が成り立つ.
+         \begin{align*}
+             \|T\| = \sup_{\|x\|_{1}\leq 1}\frac{\|T(x)\|_{2}}{\|x\|_{1}} = \sup_{\|x\|_{1} = 1}\frac{\|T(x)\|_{2}}{\|x\|_{1}}.
+         \end{align*}
+    \end{enumerate}
 \end{Theorem+}
+
+\section{ハーン・バナッハの拡張定理}
+\section{リースの表現定理}
+\section{機械学習の基礎}
+この節では機械学習の数学的な定式化を行う. $\X$と$\Y$を集合とする.
+\begin{Definition+}(仮説空間, 仮説)\\
+    入力空間$\X$から出力空間$\Y$へのなんらかの条件を満たす写像の集まりのことを仮説空間
+    といい$\Hil$と表記する. すなわち,
+    \begin{align*}
+        \Hil = \{f:\X\to\Y~| f\text{ が満たす条件}\}
+    \end{align*}
+    である. (条件の具体例は後に述べる). 仮設空間$\Hil$の元のことを仮説と呼ぶ.
+\end{Definition+}
+
+\begin{Definition+}(データ)\\
+    入力空間$\X$と出力空間$\Y$の直積集合$\X\times\Y$の有限部分集合のことをデータといい
+    $D$で表す.
+\end{Definition+}
+
+\begin{Definition+}(損失関数)\\
+    $\Hil$を仮説空間とする. $\Hil$から$\R$への写像$\L:\Hil\to\R$を損失関数(Loss function)と呼ぶ.
+\end{Definition+}
+\begin{Definition+}(機械学習空間)\\
+    $D$をデータ, $\Hil$を仮説空間, $\L$を損失関数とする. この時5つ組$\MLsp$を機械学習空間という.
+\end{Definition+}
+\section{ニューラルネットワークの万能近似定理}
+いよいよ最終目標であるニューラルネットの万能近似性を示す.
+
+
+
+
 
 \begin{thebibliography}{9}
     \bibitem{neural} https://tutorials.chainer.org/ja/index.html
@@ -227,4 +268,6 @@
     \bibitem{ML1} 統計的学習理論・金森 敬文・2015
     \bibitem{functional} 函数解析 POD版・前田 周一郎・2007
 \end{thebibliography}
+
+
 \end{document}
