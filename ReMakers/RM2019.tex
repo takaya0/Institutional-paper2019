@@ -101,6 +101,7 @@
 \newcommand{\innersp}{(V, \inner<\cdot, \cdot>)}
 \newcommand{\MLsp}{(\X, \Y, D, \Hil, \L)}
 
+
 \title{Universal Approximation Theorem of Neural Network}
 \author{数理科学科 3回生 小泉 孝弥}
 \date{}
@@ -233,7 +234,8 @@
 \section{ハーン・バナッハの拡張定理}
 \section{リースの表現定理}
 \section{機械学習の基礎}
-この節では機械学習の数学的な定式化を行う. $\X$と$\Y$を集合とする.
+この節では機械学習の数学的な定式化および, 機械学習の具体例を紹介する. $\X$と$\Y$を集合とする.
+\subsection{機械学習の基礎空間}
 \begin{Definition+}(仮説空間, 仮説)\\
     $\X$から$\Y$へのなんらかの条件を満たす写像の集まりのことを仮説空間
     といい$\Hil$と表記する. すなわち,
@@ -253,12 +255,11 @@
     $\Hil$を仮説空間とする. $\Hil$から$\R$への写像$\L:\Hil\to\R$を損失関数(Loss function)と呼ぶ.
 \end{Definition+}
 \begin{Definition+}(機械学習空間)\\
-    $D$をデータ, $\Hil$を仮説空間, $\L$を損失関数とする. この時5つ組$\MLsp$を機械学習空間という.
+    $D$をデータ, $\Hil$を仮説空間, $\L$を損失関数とする. この時5つ組$\MLsp$を機械学習空間(Machine Learning sapce)という.
 \end{Definition+}
+
 \section{ニューラルネットワークの万能近似定理}
-いよいよ最終目標であるニューラルネットの万能近似性を示す.
-
-
+いよいよ最終目標であるニューラルネットの万能近似性を示す.\\
 
 
 
