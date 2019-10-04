@@ -258,9 +258,35 @@
     $D$をデータ, $\Hil$を仮説空間, $\L$を損失関数とする. この時5つ組$\MLsp$を機械学習空間(Machine Learning sapce)という.
 \end{Definition+}
 
+\begin{Definition+}(学習, 最適仮説)\\
+    $\Hil$を仮設空間, $\L:\Hil\to\R$を損失関数とする. 
+\end{Definition+}
+
+\begin{Definition+}(機械学習)\\
+    機械学習空間$\MLsp$上での学習を機械学習という.
+\end{Definition+}
+
+\subsection{機械学習の具体例}
+前節では, 機械学習の抽象的な枠組みを紹介したが, この説では機械学習空間の具体例を述べる.
+\subsubsection{単回帰分析}
+最初に機械学習の最も基本的なモデルである単回帰分析を紹介する。
+\begin{Example+}(単回帰分析)\\
+    機械学習空間$\MLsp$を以下のように定義する.\\
+    $\X = \R$, $\Y = \R$,
+    \begin{align*}
+        \Hil = \{f:\X\to\Y~|f(x) = wx, w\in\R\},
+    \end{align*}
+    \begin{align*}
+        \L(f) = \sum_{i = 1}^{N}|f(x_i) - y_i|.
+    \end{align*}
+    この機械学習空間$\MLsp$上での学習を単回帰分析という.
+\end{Example+}
+単回帰分析の最適仮説は
+
+
 \section{ニューラルネットワークの万能近似定理}
 いよいよ最終目標であるニューラルネットの万能近似性を示す.\\
-
+\subsection{ニューラルネット, 深層学習}
 
 
 \begin{thebibliography}{9}

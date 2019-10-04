@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  11 SEP 2019 22:34
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  4 OCT 2019 14:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -408,12 +408,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5644 strings out of 493223
- 71199 string characters out of 6144415
+ 5646 strings out of 493223
+ 71220 string characters out of 6144415
  146197 words of memory out of 5000000
- 9571 multiletter control sequences out of 15000+600000
- 20923 words of font info for 102 fonts, out of 8000000 for 9000
+ 9572 multiletter control sequences out of 15000+600000
+ 21228 words of font info for 103 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  27i,10n,32p,347b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on RM2019.dvi (5 pages, 15356 bytes).
+Output written on RM2019.dvi (5 pages, 16852 bytes).
