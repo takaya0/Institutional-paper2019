@@ -26,7 +26,7 @@
 %ここからはコード表です.
 %
 
-\def\inner<#1>{\langle #1 \rangle}
+%\def\inner<#1>{\langle #1 \rangle}
 
 %%%%%%%%%%%%%%%%%%%%
 
@@ -94,13 +94,15 @@
 \newcommand{\ti}{\tilde}
 \newcommand{\X}{\mathcal{X}}
 \newcommand{\Y}{\mathcal{Y}}
+\renewcommand{\Z}{\mathcal{Z}}
 \renewcommand{\L}{\mathcal{L}}
 \newcommand{\Hil}{\mathcal{H}}
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\normedsp}{(V, \|\cdot\|)}
 \newcommand{\innersp}{(V, \inner<\cdot, \cdot>)}
 \newcommand{\MLsp}{(\X, \Y, D, \Hil, \L)}
-
+\newcommand{\Probsp}{(\Omega, \mathcal{F}, \mathbb{P})}
+\newcommand{\inner}[2]{\lan #1, #2\ran}
 
 \title{Universal Approximation Theorem of Neural Network}
 \author{数理科学科 3回生 小泉 孝弥}
@@ -121,7 +123,7 @@
 最初に述べたとおり, 機械学習(Machine Learning)とは関数近似器である. 
 もう少し詳細に述べれば, 入力空間と呼ばれる集合$\X$から出力空間と呼ばれる集合への良い写像$f:\X\to\Y$
 を構成するのが機械学習である.　機械学習は主に, 株価などのあるものの値を予想するモデルである「回帰(Regression)」, 
-あるものがどのクラスに属しているかを予測するモデルである「分類(Classify)」の2つに分けられる. 機械学習の中でも特に, あとで定義する, ニューラルネットワークと
+あるものがどのクラスに属しているかを予測するモデルである「分類(Classification)」の2つに分けられる. 機械学習の中でも特に, あとで定義する, ニューラルネットワークと
 いうものを用いる学習手法を深層学習(Deep Learning)という.
 \subsection{深層学習と万能近似性}
 深層学習は以下の定理から万能関数近似器と呼ばれている. 
@@ -282,13 +284,23 @@
     この機械学習空間$\MLsp$上での学習を単回帰分析という.
 \end{Example+}
 単回帰分析の最適仮説は
-
-
 \section{ニューラルネットワークの万能近似定理}
 いよいよ最終目標であるニューラルネットの万能近似性を示す.\\
 \subsection{ニューラルネット, 深層学習}
-
-
+\section{Generative Adversarial Networks}
+最後に、ニューラルネットワークの応用としてGANを紹介する.
+\subsection{GANの定式化}
+$\Probsp$を完備な確率空間とする.  
+$\X$, $\Y$を空でない集合とする. 
+\begin{align*}
+    \Hil_1 &= \{G:\Z\to\X~| G\text{はニューラルネット}\},\\
+    \Hil_{2} &= \{D:\X\to [0, 1]~| D\text{はニューラルネット}\}
+\end{align*}
+ここで、$\Z$は潜在空間と呼ばれる, なんらかの確率分布に従う確率変数のrealaizationの集合である. 
+すなわち, 
+\begin{align*}
+    \Z := \{z\in\R^d~|\exists X_{\text{R.V.}}:\Omega\to\R^d, \exists\omega\in\Omega\text{ s.t.} X(\omega) = z\}. 
+\end{align*}
 \begin{thebibliography}{9}
     \bibitem{neural} https://tutorials.chainer.org/ja/index.html
     \bibitem{ML} https://github.com/Runnrairu/machinelearning\verb|_|text
@@ -296,6 +308,5 @@
     \bibitem{ML1} 統計的学習理論・金森 敬文・2015
     \bibitem{functional} 函数解析 POD版・前田 周一郎・2007
 \end{thebibliography}
-
 
 \end{document}
