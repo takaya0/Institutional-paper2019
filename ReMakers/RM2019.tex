@@ -99,7 +99,7 @@
 \newcommand{\Hil}{\mathcal{H}}
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\normedsp}{(V, \|\cdot\|)}
-\newcommand{\innersp}{(V, \inner<\cdot, \cdot>)}
+\newcommand{\innersp}{(V, \inner{\cdot}{\cdot})}
 \newcommand{\MLsp}{(\X, \Y, D, \Hil, \L)}
 \newcommand{\Probsp}{(\Omega, \mathcal{F}, \mathbb{P})}
 \newcommand{\inner}[2]{\lan #1, #2\ran}
@@ -171,7 +171,7 @@
 \end{Definition+}
 次にヒルベルト空間を定義する.
 \begin{Definition+}(内積空間)\\
-    $V$をベクトル空間とする. $\inner<\cdot, \cdot>: V\times V\to\K$が以下の性質を満たすとする.
+    $V$をベクトル空間とする. $\inner{\cdot}{\cdot}: V\times V\to\K$が以下の性質を満たすとする.
     \begin{enumerate}
         \item $\forall v\in V, \inner<v, v>\geq 0$,
         \item $\forall v\in V, \inner<v, v> = 0\iff v = 0$,
