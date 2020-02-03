@@ -123,6 +123,9 @@
 \newcommand{\pphi}{\varphi}
 \newcommand{\ti}{\tilde}
 
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+
 \renewcommand{\P}{\mathbb{P}}
 \newcommand{\Probsp}{(\Omega, \F, \P)}
 
@@ -133,16 +136,16 @@
 %documenet 
 %----------------------------
 % Your main code must be written between begin document and end document.
-\title{Generative Adversarial Networks and Manifold}
+\title{Generative Adversarial Networks}
 \author{小泉 孝弥}
 \date{}
 \begin{document}
 \maketitle
 \section{Intoroduction}
-\section{機械学習の基礎}
-この節では機械学習の数学的な定式化および, 機械学習の具体例を紹介する. $\X$と$\Y$を集合とし, $\Probsp$を
+近年, 機械学習
+\section{Fundermetal concepts of Machine Learning}
+この節では機械学習の数学的な定式化および, 機械学習の具体例を紹介する. $\X$と$\Y$を線型空間とし, $\Probsp$を
 完備な確率空間とする.
-\subsection{機械学習の基礎空間}
 \begin{Definition+}(仮説空間, 仮説)\\
     $\X$から$\Y$へのなんらかの条件を満たす写像の集まりのことを仮説空間
     といい$\Hil$と表記する. すなわち,
@@ -175,45 +178,61 @@
 \end{Definition+}
 \begin{Definition+}(学習, 最適仮説)\\
     $\Hil$を仮設空間, $\Loss:\Hil\to\R$を損失関数とする. 損失関数が最大または, 最小となるような
-    $f^*\in\Hil$を求めることを学習といい, $f^*\in\Hil$を最適化説と呼ぶ.
+    $f^*\in\Hil$を求めること\footnote{機械学習においては厳密に損失関数が最大・最小となる関数が学習されるとは限らないが, そのような関数を求めることも学習の定義に含めるものとする. }を学習といい, $f^*\in\Hil$を最適仮説と呼ぶ.
 \end{Definition+}
 \begin{Definition+}(機械学習)\\
-    機械学習空間$\MLsp$上での学習を機械学習という.
+    機械学習空間$\MLsp$上での学習を機械学習という. 特に, $D$が教師ありデータの時教師あり機械学習と呼び, 
+    教師なしデータの時, 教師なし機械学習と呼ぶ.
 \end{Definition+}
 
-\subsection{機械学習の具体例}
+\section{教師あり機械学習の具体例}
 前節では, 機械学習の抽象的な枠組みを紹介したが, この説では機械学習空間の具体例を述べる.
-\subsubsection{単回帰分析}
+$D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとする.
+
+\subsection{単回帰分析・重回帰分析}
 最初に機械学習の最も基本的なモデルである単回帰分析を紹介する。
 \begin{Example+}(単回帰分析)\\
     機械学習空間$\MLsp$を以下のように定義する.\\
-    $\X = \R$, $\Y = \R$,
+    $\X = \R$, $\Y = \R$, 
     \begin{align*}
         \Hil = \{f:\X\to\Y~|f(x) = wx, w\in\R\},
     \end{align*}
     \begin{align*}
         \Loss(f) = \sum_{i = 1}^{N}|f(x_i) - y_i|^2.
     \end{align*}
-    この機械学習空間$\MLsp$上での学習を単回帰分析という.
+    この機械学習空間$\MLsp$上で,
+    \begin{align*}
+        \argmin_{f\in\Hil}\Loss(f)
+    \end{align*}
+    を解く問題を単回帰分析という. 単回帰分析の最適仮説$f^{*}\in\Hil$は
+    \begin{align*}
+        f^{*}(w) = \frac{\sum_{i = 1}^{N}x_{i}^2}{\sum_{i = 1}^{N}x_{i}y_{i}}w
+    \end{align*}
+    となる. また, $\Hil\simeq\R$である.
 \end{Example+}
-単回帰分析の最適仮説は
+\begin{Example+}(重回帰分析)
+    
+\end{Example+}
 \section{Deep Learning}
 \subsection{Neural Network}
 \subsection{The Universal Theorem of Neural Network}
 \section{Generative Adversarial Networks}
 \subsection{GANの定式化}
 $\Probsp$を完備な確率空間とする.  
-$\X$, $\Y$を空でない集合とする. 
+$\X$, $\Y$を線型空間とする. 
 \begin{align*}
     \Hil_1 &= \{G:\mathcal{Z}\to\X~| G\text{はニューラルネット}\},\\
     \Hil_{2} &= \{D:\X\to [0, 1]~| D\text{はニューラルネット}\}
 \end{align*}
-ここで、$\mathcal{Z}$は潜在空間と呼ばれる$\R^{d}$の線型部分空間である.
-
-
+ここで、$\mathcal{Z}$は潜在空間と呼ばれる$\R^{\dim\X}$の線型部分空間である.
+また, 確率変数$X:\Omega\to\mathcal{Z}$に対し, $g(Z)$が従う確率分布を$\mathbb{P}_{}$
 \section{Applications of GANs}
+
 \begin{thebibliography}{20}
-    \bibitem{GAN} https://arxiv.org/abs/1406.2661
+    \bibitem{GAN} Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde- Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. 
+    Generative adversarial nets. In Advances in Neural Information Processing Systems, 2014.
+    \bibitem{SGAN}Takeru Miyato, Toshiki Kataoka, Masanori Koyama and Yuichi Yoshida, Spectral Normalization for Generative Adversarial Networks, 
+    International Conference on Learning Representations, 2018.
 \end{thebibliography}
 
 \end{document}
