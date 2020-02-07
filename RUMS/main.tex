@@ -96,7 +96,7 @@
 \newtheorem{Problem+}[Axiom+]{Problem}
 \newtheorem{Consideration+}[Axiom+]{Consideration}
 \newtheorem{Alert+}{Alert}
-
+\newtheorem{Remark+}[Axiom+]{Remark}
 %commmand
 %----------------------------
 \newcommand{\N}{\mathbb{N}}
@@ -144,7 +144,7 @@
 \section{Intoroduction}
 近年, 機械学習
 \section{Fundermetal concepts of Machine Learning}
-この節では機械学習の数学的な定式化および, 機械学習の具体例を紹介する. $\X$と$\Y$を有限次元線型空間とし, $\Probsp$を
+この節では機械学習の数学的な定式化を行う. $\X$と$\Y$を有限次元線型空間とし, $\Probsp$を
 完備な確率空間とする.
 \begin{Definition+}(仮説空間, 仮説)\\
     $\X$から$\Y$へのなんらかの条件を満たす写像の集まりのことを仮説空間
@@ -152,7 +152,7 @@
     \begin{align*}
         \Hil = \{f:\X\to\Y~| f\text{ が満たす条件}\}
     \end{align*}
-    である. (条件の具体例は後に述べる). 仮設空間$\Hil$の元のことを仮説と呼ぶ.
+    である. (条件の具体例は後に述べる). 仮設空間$\Hil$の元のことを仮説(またはモデル)と呼ぶ.
     また, この時の$\X$を入力空間, $\Y$を出力空間と呼ぶ. 
 \end{Definition+}
 これ以降, 入力空間を$\R^{d}$出力空間を$\R^{m}$とする.
@@ -181,10 +181,14 @@
     $f^*\in\Hil$を求めること\footnote{機械学習においては厳密に損失関数が最大・最小となる関数が学習されるとは限らないが, そのような関数を求めることも学習の定義に含めるものとする. }を学習といい, $f^*\in\Hil$を最適仮説と呼ぶ.
 \end{Definition+}
 \begin{Definition+}(機械学習)\\
-    機械学習空間$\MLsp$上での学習を機械学習という. 特に, $D$が教師ありデータの時教師あり機械学習と呼び, 
+    機械学習空間$\MLsp$上での学習を機械学習という. 特に, $D$が教師ありデータの時, 教師あり機械学習と呼び, 
     教師なしデータの時, 教師なし機械学習と呼ぶ.
 \end{Definition+}
-
+\begin{Remark+}(訓練データとテストデータ)\\
+    機械学習で学習を行う際は, データ$D$を全て使って学習させるのではなく, 
+    データを訓練データ$D_{\text{Train}}$とテストデータ$D_{\text{Test}}$に分ける. 
+    訓練データはモデルの学習に用いて, テストデータはモデルの制度の確認のために用いる. 
+\end{Remark+}
 \section{教師あり機械学習の具体例}
 前節では, 機械学習の抽象的な枠組みを紹介したが, この説では機械学習空間の具体例を述べる.
 $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとする.
@@ -241,7 +245,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 基底関数と呼ばれる関数列を定義する事で, 非線形データにも対応することができる.
 \begin{Definition+}(基底関数)\\
     $\X$を入力空間とし, 任意に$d\in\N$をとる. $\X$上の連続関数列$\{\phi_{n}\}_{n = 1}^{d}\subset C(\X, \X)$
-    が一次独立であるとき, $\Phi = (\phi_1, \phi_2, \cdots, \phi_d):\X\to\X^{d}$を基底関数(basis function)と呼ぶ.
+    が一次独立であるとき, $\Phi = (\phi_1, \phi_2, \cdots, \phi_d)^{T}:\X\to\X^{d}$を基底関数(basis function)と呼ぶ.
 \end{Definition+}
 \begin{Example+}(多項式回帰)\\
     機械学習空間$\MLsp$を以下のように定義する.\\
@@ -263,6 +267,45 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     である. 
 \end{Example+}
+\begin{Remark+}(ハイパーパラメータと学習パラメータ)\\
+    多項式回帰の多項式の次数$d\in$や基底関数$\{\phi_{n}\}_{n = 1}^{d}$のように
+    コンピュータに学習させるのではなく, 機械学習モデルの設計者が設定するパラメータのことを
+    ハイパーパラメータと呼ぶ. 一方, $W\in\R^{d + 1}$のように, データからコンピュータが自動で学習
+    するパラメータのことを学習パラメータと呼ぶ.
+\end{Remark+}
+\subsection{過学習と正則化}
+前節の多項式回帰で学習を行うと以下のグラフのように, 訓練データに過剰適合してしまい, 未知のデータに関しての汎化性能
+が小さくなってしまうことを過学習(overfitting)という. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 9.0cm]{overfitting_PR.png}
+    \caption{$d = 4$の時の多項式回帰の過学習}
+\end{figure}
+過学習を防ぐための手法が正則化である.
+\begin{Definition+}(正則化)\\
+    $\Loss:\Hil\to\R$を損失関数とする. $\Loss^{R} := \Loss + L^{R}$とする.
+    この時, $\Loss^{R}$を$\Loss$の正則化と呼び, $L^R$を正則化項と呼ぶ.
+\end{Definition+}
+\begin{Example+}(Lasso正則化多項式回帰)\\
+    $\lambda\in\R^{+}$, $d\in\N$を任意にとる.機械学習空間$\MLsp$を以下のように定義する.\\
+    $\X = \R, \Y = \R$, 
+    \begin{align*}
+        \Hil &= \{f:\X\to\Y~| f(x) = W^{T}\Phi(x), W\in\R^{d + 1}\},\\
+        \Loss(f) &= \sum_{i = 1}^{N}|f(x_i) - y_i|^2+\lambda W^TW.\hspace{10pt}　(W\text{は$f$のパラメータ})
+    \end{align*}
+    ここで, $\phi_{n}(x) = x^{n}$, $n\in\{0, 1, \cdots, d\}$とする.\\
+    この機械学習空間$\MLsp$上で
+    \begin{align*}
+        \argmin_{f\in\Hil}\Loss(f)
+    \end{align*}
+    を求める問題をLasso正則化多項式回帰という. 通常の多項式回帰の時と同様に, $X = [\phi_{1}(x_1), \phi_{2}(x_{2}), \cdots, \phi_{N}(x_N)]^{T}\in\R^{N\times d}$とし, 
+    $\mathbf{y} = (y_{1}, y_{2}, \cdots, y_{N})^{T}\in\R^{N}$とする. この時, 最適仮説$f^{*}$は
+    $W = (X^TX + \lambda I)^{-1}X^T\mathbf{y}$とすれば
+    \begin{align*}
+        f^{*}(x) = W^{T}x
+    \end{align*}
+    である. 
+\end{Example+}
 
 \section{Deep Learning}
 \subsection{Neural Network}
@@ -276,11 +319,11 @@ $\X$, $\Y$を線型空間とする.
     \Hil_{2} &= \{D:\X\to [0, 1]~| D\text{はニューラルネット}\}
 \end{align*}
 ここで、$\mathcal{Z}$は潜在空間と呼ばれる$\R^{\dim\X}$の線型部分空間である.
-また, 確率変数$X:\Omega\to\mathcal{Z}$に対し, $g(Z)$が従う確率分布を$\mathbb{P}_{}$
+また, 確率変数$Z:\Omega\to\mathcal{Z}$に対し, $g(Z)$が従う確率分布を$\mathbb{P}_{}$
 \section{Applications of GANs}
 
 \begin{thebibliography}{20}
-    \bibitem{GAN} Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde- Farley, Sherjil Ozair, Aaron Courville and Yoshua Bengio. 
+    \bibitem{GAN} Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville and Yoshua Bengio. 
     Generative adversarial nets. In Advances in Neural Information Processing Systems, 2014.
     \bibitem{SGAN}Takeru Miyato, Toshiki Kataoka, Masanori Koyama and Yuichi Yoshida, Spectral Normalization for Generative Adversarial Networks, 
     International Conference on Learning Representations, 2018.
