@@ -18,7 +18,7 @@ class PolynomialRegression():
         # print(res)
         return res(x)
 
-    def fit(self, x_train, t_train, alpha=600):
+    def fit(self, x_train, t_train, alpha=1000):
         X = np.ones((len(x_train), self.degree + 1))
         for i in range(len(x_train)):
             for k in range(1, self.degree + 1):
@@ -48,8 +48,8 @@ class PolynomialRegression():
 x_train = np.array([1, 3, 5, 10, 17, 25])
 t_train = np.array([8, 25, 40, 55, 34, 70])
 model = PolynomialRegression(degree=4)
-model.fit(x_train, t_train)
+model.fit(x_train, t_train, alpha = 700)
 result = model.score(x_train, t_train)
 model.plot_result(x_train, t_train)
-plt.show()
-# plt.savefig('RUMS/overfitting_PR.png')
+# plt.show()
+plt.savefig('RUMS/regulaer_PR.png')

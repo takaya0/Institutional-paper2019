@@ -30,6 +30,7 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{tikz}
+%\usepackage[dvipdfmx]{hyperref}
 \usepackage[all]{xy}
 \usepackage{amscd}
 \usetikzlibrary{cd}
@@ -141,6 +142,7 @@
 \date{}
 \begin{document}
 \maketitle
+%\tableofcontents
 \section{Intoroduction}
 近年, 機械学習
 \section{Fundermetal concepts of Machine Learning}
@@ -306,7 +308,35 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     である. 
 \end{Example+}
-
+正則化の結果が以下のグラフである.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 7.5cm]{regulaer_PR.png}
+    \caption{$\lambda = 700$, $d = 4$の時のLasso正則化多項式回帰}
+\end{figure}
+このように正則化をすることで, パラメータが大きくなりすぎることを防ぐことで過学習を防ぐことができる.
+\begin{Remark+}(未学習について)\\
+    正則化を行う際にパラメータ$\lambda\in\R^+$\footnote{正則化パラメータという.}は自分で
+    決める必要がある. その際に$\lambda$の値を大きくしすぎると未学習(underfitting)という問題が発生する.
+    未学習とは訓練データに対してモデルが十分に適合できていないことである.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=7.5cm]{underfitting_PR.png}
+        \caption{$\alpha = 30000$, $d = 4$の時のLasso正則化多項式回帰の未学習}
+    \end{figure}
+    このように, 正則化パラメータは適切に選ぶことが大切である. 
+\end{Remark+}
+\subsection{ロジスティック回帰と勾配降下法}
+最後の具体例として, ロジスティック回帰を紹介する. 
+ロジスティック回帰は分類問題を解くための手法の1つである. 
+\begin{Example+}(ロジスティック回帰)\\
+    機械学習空間$\MLsp$を以下のように定義する.\\
+    $\X=\R^d$, $\Y = \R^m$, 
+    \begin{align*}
+        \Hil &= \{f:\X\to\Y | f(x) = \sigma(W^{\top}x), W\in\R^d\},\\
+        \Loss(f) &= \sum_{i = 1}^{N}(-y_{i}\log f(x_{i}) - (1 - y_{i})\log(1 - f(x))).
+    \end{align*}
+\end{Example+}
 \section{Deep Learning}
 \subsection{Neural Network}
 \subsection{The Universal Theorem of Neural Network}
