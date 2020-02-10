@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.sjis) (TeX Live 2019/W32TeX) (preloaded format=platex 2020.2.10)  10 FEB 2020 17:24
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.sjis) (TeX Live 2019/W32TeX) (preloaded format=platex 2020.2.10)  11 FEB 2020 00:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -667,34 +667,34 @@ LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 146.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 146.
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 147.
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 147.
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 147.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 151.
+(Font)              using `JY1/hmc/bx/n' instead on input line 154.
 
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 151.
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 154.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 151.
+(Font)              scaled to size 9.24683pt on input line 154.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 151.
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 154.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 151.
+(Font)              scaled to size 9.24683pt on input line 154.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 156.
-LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 156.
+(Font)              scaled to size 4.62341pt on input line 159.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 161.
+(Font)              using `JY1/hmc/bx/n' instead on input line 164.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 165.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 174.
+(Font)              using `JY1/hmc/bx/n' instead on input line 168.
 
 [1
 
@@ -705,93 +705,97 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 181.
-
-LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 183.
-LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 183.
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 185.
+(Font)              using `JY1/hmc/bx/n' instead on input line 180.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 189.
+(Font)              using `JY1/hmc/bx/n' instead on input line 184.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
+(Font)              using `JY1/hmc/bx/n' instead on input line 188.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
+(Font)              using `JY1/hmc/bx/n' instead on input line 192.
 
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 198.
+(Font)              scaled to size 11.09619pt on input line 201.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 198.
+(Font)              scaled to size 11.09619pt on input line 201.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 201.
+(Font)              using `JY1/hmc/bx/n' instead on input line 204.
 
 [2]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 218.
+(Font)              using `JY1/hmc/bx/n' instead on input line 221.
 
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 238.
+(Font)              scaled to size 6.47278pt on input line 241.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 238.
+(Font)              scaled to size 4.62341pt on input line 241.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 248.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 252.
+(Font)              using `JY1/hmc/bx/n' instead on input line 251.
 
 [3]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 272.
+(Font)              using `JY1/hmc/bx/n' instead on input line 255.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
+(Font)              using `JY1/hmc/bx/n' instead on input line 275.
 
 File: overfitting_PR.png Graphic file (type bmp)
 <overfitting_PR.png>
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 284.
+(Font)              scaled to size 8.32214pt on input line 287.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 284.
+(Font)              scaled to size 8.32214pt on input line 287.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 284.
+(Font)              scaled to size 8.32214pt on input line 287.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 284.
+(Font)              scaled to size 5.5481pt on input line 287.
 [4]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 287.
+(Font)              using `JY1/hmc/bx/n' instead on input line 290.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 291.
+(Font)              using `JY1/hmc/bx/n' instead on input line 294.
 
 File: regulaer_PR.png Graphic file (type bmp)
 <regulaer_PR.png>
 [5]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 318.
+(Font)              using `JY1/hmc/bx/n' instead on input line 321.
 
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 319.
+(Font)              scaled to size 7.39746pt on input line 322.
 File: underfitting_PR.png Graphic file (type bmp)
 <underfitting_PR.png>
 [6]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
-(Font)              using `JY1/hmc/bx/n' instead on input line 332.
+(Font)              using `JY1/hmc/bx/n' instead on input line 337.
 
-[7] (./main.aux) ) 
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' undefined
+(Font)              using `JY1/hmc/bx/n' instead on input line 344.
+
+[7] [8] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 20235 strings out of 481781
- 361755 string characters out of 5935214
- 636784 words of memory out of 5000000
- 35230 multiletter control sequences out of 15000+600000
+ 20236 strings out of 481781
+ 361761 string characters out of 5935214
+ 637785 words of memory out of 5000000
+ 35231 multiletter control sequences out of 15000+600000
  553355 words of font info for 133 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  60i,16n,82p,3271b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (7 pages, 21300 bytes).
+Output written on main.dvi (8 pages, 23436 bytes).

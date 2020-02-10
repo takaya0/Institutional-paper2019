@@ -144,7 +144,10 @@
 \maketitle
 %\tableofcontents
 \section{Intoroduction}
-近年, 機械学習
+皆さんは, GANというものを知っているだろうか. GAN\footnote{「ぎゃん」と読む人と, 「がん」と読む人がいるが, ここでは「ぎゃん」とすることにする.}とは敵対的生成ネットワーク(Generative Adversarial Networks)のこと
+であり, 2014年に登場した人工知能の技術である. 「敵対的」という単語がついている通り, 2つの
+ニューラルネットワークという関数を競わせることで, 学習させていく手法である.　 
+今回の方程では, まず, 機械学習についての説明をする. その後, GANの数学的な定式化の説明をし,最後にGANの学習を安定させる方法について述べる.
 \section{Fundermetal concepts of Machine Learning}
 この節では機械学習の数学的な定式化を行う. $\X$と$\Y$を有限次元線型空間とし, $\Probsp$を
 完備な確率空間とする.
@@ -328,13 +331,22 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \end{Remark+}
 \subsection{ロジスティック回帰と勾配降下法}
 最後の具体例として, ロジスティック回帰を紹介する. 
-ロジスティック回帰は分類問題を解くための手法の1つである. 
+ロジスティック回帰は分類問題を解くための手法の1つである.
+まず, 実数値ベクトルを確率に変換するソフトマックス関数というものを
+導入する. 
+\begin{Definition+}(ソフトマックス関数)\\
+    $\psi:\R^d\to\R^d$を以下で定義する.
+    \begin{align*}
+        \psi(x)_{i} = \frac{\exp(x_i)}{\sum_{k = 1}^d\exp(x_i)}
+    \end{align*}
+    この時, $\psi$をソフトマックス関数と呼ぶ.
+\end{Definition+}
 \begin{Example+}(ロジスティック回帰)\\
     機械学習空間$\MLsp$を以下のように定義する.\\
     $\X=\R^d$, $\Y = \R^m$, 
     \begin{align*}
         \Hil &= \{f:\X\to\Y | f(x) = \sigma(W^{\top}x), W\in\R^d\},\\
-        \Loss(f) &= \sum_{i = 1}^{N}(-y_{i}\log f(x_{i}) - (1 - y_{i})\log(1 - f(x))).
+        \Loss(f) &= \sum_{i = 1}^{N}\left(-y_{i}\log f(x_{i}) - (1 - y_{i})\log(1 - f(x))\right).
     \end{align*}
 \end{Example+}
 \section{Deep Learning}
@@ -343,20 +355,23 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \section{Generative Adversarial Networks}
 \subsection{GANの定式化}
 $\Probsp$を完備な確率空間とする.  
-$\X$, $\Y$を線型空間とする. 
+$\X$を$d$次元線型空間とする. 
 \begin{align*}
     \Hil_1 &= \{G:\mathcal{Z}\to\X~| G\text{はニューラルネット}\},\\
     \Hil_{2} &= \{D:\X\to [0, 1]~| D\text{はニューラルネット}\}
 \end{align*}
-ここで、$\mathcal{Z}$は潜在空間と呼ばれる$\R^{\dim\X}$の線型部分空間である.
+ここで、$\mathcal{Z}$は潜在空間と呼ばれる$\R^{d}$の線型部分空間である.
 また, 確率変数$Z:\Omega\to\mathcal{Z}$に対し, $g(Z)$が従う確率分布を$\mathbb{P}_{}$
 \section{Applications of GANs}
 
 \begin{thebibliography}{20}
     \bibitem{GAN} Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville and Yoshua Bengio. 
     Generative adversarial nets. In Advances in Neural Information Processing Systems, 2014.
+    \bibitem{PGAN}Martin Arjovsky and Leon Bottou, Towards Principled Methods for Training Generative Adversarial Networks,
+    International Conference on Learning Representations, 2017.
     \bibitem{SGAN}Takeru Miyato, Toshiki Kataoka, Masanori Koyama and Yuichi Yoshida, Spectral Normalization for Generative Adversarial Networks, 
     International Conference on Learning Representations, 2018.
+    
 \end{thebibliography}
 
 \end{document}
