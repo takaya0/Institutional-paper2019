@@ -30,6 +30,7 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{tikz}
+\usepackage{mathtools}
 %\usepackage[dvipdfmx]{hyperref}
 \usepackage[all]{xy}
 \usepackage{amscd}
@@ -146,25 +147,28 @@
 \section{Intoroduction}
 皆さんは, GANというものを知っているだろうか. GAN\footnote{「ぎゃん」と読む人と, 「がん」と読む人がいるが, ここでは「ぎゃん」とすることにする.}とは敵対的生成ネットワーク(Generative Adversarial Networks)のこと
 であり, 2014年に登場した人工知能の技術である. 「敵対的」という単語がついている通り, 2つの
-ニューラルネットワークという関数を競わせることで, 学習させていく手法である.　 
+ニューラルネットワークという関数を競わせることで, 学習させていく手法である. 
 今回の方程では, まず, 機械学習についての説明をする. その後, GANの数学的な定式化の説明をし,最後にGANの学習を安定させる方法について述べる.
 \section{Fundermetal concepts of Machine Learning}
-この節では機械学習の数学的な定式化を行う. $\X$と$\Y$を有限次元線型空間とし, $\Probsp$を
-完備な確率空間とする.
+この節では機械学習の数学的な定式化を行う. $\Probsp$を完備な確率空間とする.
+$d$, $m$を自然数とする.
 \begin{Definition+}(仮説空間, 仮説)\\
-    $\X$から$\Y$へのなんらかの条件を満たす写像の集まりのことを仮説空間
+    $\X\coloneqq\R^d$から$\Y\coloneqq\R^m$へのなんらかの条件を満たす写像の集まりのことを仮説空間
     といい$\Hil$と表記する. すなわち,
     \begin{align*}
-        \Hil = \{f:\X\to\Y~| f\text{ が満たす条件}\}
+        \Hil = \{f:\X\to\Y\mid f\text{ が満たす条件}\}
     \end{align*}
     である. (条件の具体例は後に述べる). 仮設空間$\Hil$の元のことを仮説(またはモデル)と呼ぶ.
     また, この時の$\X$を入力空間, $\Y$を出力空間と呼ぶ. 
 \end{Definition+}
-これ以降, 入力空間を$\R^{d}$出力空間を$\R^{m}$とする.
 \begin{Definition+}(データ)\\
     $\X$と$\Y$の直積集合$\X\times\Y$の有限部分集合のことを教師ありデータという.
     また, $\X$の有限部分集合のことを教師なしデータと呼ぶ. 
 \end{Definition+}
+\begin{Remark+}(データについて)\\
+    データ$D$は確率分布$\mathbb{P}_{\X\times\Y}$にしてがって生成されているものとする. すなわち, 
+    $\mathbb{P}_{\X\times\Y}$に従う確率変数列$\{(X_{n}, Y_{n})\}_{n = 1}^{N}$の観測値のことをデータと呼ぶ.
+\end{Remark+}
 \begin{Definition+}(予測損失)\\
     $\Hil$を仮説空間とし, $(X, Y)$をデータの分布$\mathbb{P}_{\X\times\Y}$に従う確率変数と
     する. 以下で定義される$\ell:\Hil\to\R$を予測損失と呼ぶ.
@@ -205,7 +209,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     機械学習空間$\MLsp$を以下のように定義する.\\
     $\X = \R$, $\Y = \R$, 
     \begin{align*}
-        \Hil &= \{f:\X\to\Y~|f(x) = wx, w\in\R\},\\
+        \Hil &= \{f:\X\to\Y\mid f(x) = wx, w\in\R\},\\
         \Loss(f) &= \sum_{i = 1}^{N}|f(x_i) - y_i|^2.
     \end{align*}
     この機械学習空間$\MLsp$上で,
@@ -222,7 +226,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     機械学習空間$\MLsp$を以下のように定義する.\\
     $\X = \R^d(N\geq d)$, $\Y = \R$, 
     \begin{align*}
-        \Hil &= \{f:\X\to\Y~| f(x) = W^{T}x + b, W\in\R^{d}, b\in\R\},\\
+        \Hil &= \{f:\X\to\Y\mid f(x) = W^{\top}x + b, W\in\R^{d}, b\in\R\},\\
         \Loss(f) &= \sum_{i = 1}^{N}|f(x_i) - y_i|^2.
     \end{align*}
     この機械学習空間$\MLsp$上で
@@ -238,10 +242,10 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
             1 & x_{N1} & x_{N2} & \cdots & x_{Nd}
         \end{pmatrix}
     \end{align*}
-    と定義し, $\mathbf{y} = (y_{1}, y_{2}, \cdots, y_{N})^{T}\in\R^{N}$とする. この時, $\mathbf{rank}(X) = d + 1$ならば, 
-    最適仮説$f^*\in\Hil$は$[b~W] = (X^TX)^{-1}X^T\mathbf{y}$とすれば
+    と定義し, $\mathbf{y} = (y_{1}, y_{2}, \cdots, y_{N})^{\top}\in\R^{N}$とする. この時, $\mathbf{rank}(X) = d + 1$ならば, 
+    最適仮説$f^*\in\Hil$は$[b~W] = (X^\top X)^{-1}X^\top\mathbf{y}$とすれば
     \begin{align*}
-        f^{*}(x) = [b~W]^{T}x
+        f^{*}(x) = [b~W]^{\top}x
     \end{align*}
     である.
 \end{Example+}
@@ -250,13 +254,13 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 基底関数と呼ばれる関数列を定義する事で, 非線形データにも対応することができる.
 \begin{Definition+}(基底関数)\\
     $\X$を入力空間とし, 任意に$d\in\N$をとる. $\X$上の連続関数列$\{\phi_{n}\}_{n = 1}^{d}\subset C(\X, \X)$
-    が一次独立であるとき, $\Phi = (\phi_1, \phi_2, \cdots, \phi_d)^{T}:\X\to\X^{d}$を基底関数(basis function)と呼ぶ.
+    が一次独立であるとき, $\Phi = (\phi_1, \phi_2, \cdots, \phi_d)^{\top}:\X\to\X^{d}$を基底関数(basis function)と呼ぶ.
 \end{Definition+}
 \begin{Example+}(多項式回帰)\\
     機械学習空間$\MLsp$を以下のように定義する.\\
     $\X = \R, \Y = \R$, 
     \begin{align*}
-        \Hil &= \{f:\X\to\Y~| f(x) = W^{T}\Phi(x), W\in\R^{d + 1}\},\\
+        \Hil &= \{f:\X\to\Y\mid f(x) = W^{\top}\Phi(x), W\in\R^{d + 1}\},\\
         \Loss(f) &= \sum_{i = 1}^{N}|f(x_i) - y_i|^2.
     \end{align*}
     ここで, $\phi_{n}(x) = x^{n}$, $n\in\{0, 1, \cdots, d\}$とする.\\
@@ -266,9 +270,9 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     を求める問題を多項式回帰という. $X = [\phi_{1}(x_1), \phi_{2}(x_{2}), \cdots, \phi_{N}(x_N)]^{T}\in\R^{N\times d}$とし, 
     $\mathbf{y} = (y_{1}, y_{2}, \cdots, y_{N})^{T}\in\R^{N}$とする. この時, 最適仮説$f^{*}$は
-    重回帰分析と同様に$W = (X^TX)^{-1}X^T\mathbf{y}$とすれば
+    重回帰分析と同様に$W = (X^\top X)^{-1}X^\top\mathbf{y}$とすれば
     \begin{align*}
-        f^{*}(x) = W^{T}x
+        f^{*}(x) = W^{\top}x
     \end{align*}
     である. 
 \end{Example+}
@@ -295,19 +299,19 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     $\lambda\in\R^{+}$, $d\in\N$を任意にとる.機械学習空間$\MLsp$を以下のように定義する.\\
     $\X = \R, \Y = \R$, 
     \begin{align*}
-        \Hil &= \{f:\X\to\Y~| f(x) = W^{T}\Phi(x), W\in\R^{d + 1}\},\\
-        \Loss(f) &= \sum_{i = 1}^{N}|f(x_i) - y_i|^2+\lambda W^TW.\hspace{10pt}　(W\text{は$f$のパラメータ})
+        \Hil &= \{f:\X\to\Y\mid f(x) = W^{\top}\Phi(x), W\in\R^{d + 1}\},\\
+        \Loss(f) &= \sum_{i = 1}^{N}|f(x_i) - y_i|^2+\lambda W^\top W.\hspace{10pt}　(W\text{は$f$のパラメータ})
     \end{align*}
     ここで, $\phi_{n}(x) = x^{n}$, $n\in\{0, 1, \cdots, d\}$とする.\\
     この機械学習空間$\MLsp$上で
     \begin{align*}
         \argmin_{f\in\Hil}\Loss(f)
     \end{align*}
-    を求める問題をLasso正則化多項式回帰という. 通常の多項式回帰の時と同様に, $X = [\phi_{1}(x_1), \phi_{2}(x_{2}), \cdots, \phi_{N}(x_N)]^{T}\in\R^{N\times d}$とし, 
-    $\mathbf{y} = (y_{1}, y_{2}, \cdots, y_{N})^{T}\in\R^{N}$とする. この時, 最適仮説$f^{*}$は
-    $W = (X^TX + \lambda I)^{-1}X^T\mathbf{y}$とすれば
+    を求める問題をLasso正則化多項式回帰という. 通常の多項式回帰の時と同様に, $X = [\phi_{1}(x_1), \phi_{2}(x_{2}), \cdots, \phi_{N}(x_N)]^{\top}\in\R^{N\times d}$とし, 
+    $\mathbf{y} = (y_{1}, y_{2}, \cdots, y_{N})^{\top}\in\R^{N}$とする. この時, 最適仮説$f^{*}$は
+    $W = (X^\top X + \lambda I)^{-1}X^\top\mathbf{y}$とすれば
     \begin{align*}
-        f^{*}(x) = W^{T}x
+        f^{*}(x) = W^{\top}x
     \end{align*}
     である. 
 \end{Example+}
@@ -319,20 +323,20 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \end{figure}
 このように正則化をすることで, パラメータが大きくなりすぎることを防ぐことで過学習を防ぐことができる.
 \begin{Remark+}(未学習について)\\
-    正則化を行う際にパラメータ$\lambda\in\R^+$\footnote{正則化パラメータという.}は自分で
+    正則化を行う際にパラメータ$\lambda\in\R^+$\footnote{正則化パラメータという.}$\coloneqq\{x\in\R\mid x\geq0\}$は自分で
     決める必要がある. その際に$\lambda$の値を大きくしすぎると未学習(underfitting)という問題が発生する.
-    未学習とは訓練データに対してモデルが十分に適合できていないことである.
+    未学習とは訓練データに対してモデルが十分に適合できていないことをいう.
     \begin{figure}[H]
         \centering
         \includegraphics[width=7.5cm]{underfitting_PR.png}
-        \caption{$\alpha = 30000$, $d = 4$の時のLasso正則化多項式回帰の未学習}
+        \caption{$\lambda = 30000$, $d = 4$の時のLasso正則化多項式回帰の未学習}
     \end{figure}
     このように, 正則化パラメータは適切に選ぶことが大切である. 
 \end{Remark+}
 \subsection{ロジスティック回帰と勾配降下法}
 最後の具体例として, ロジスティック回帰を紹介する. 
 ロジスティック回帰は分類問題を解くための手法の1つである.
-まず, 実数値ベクトルを確率に変換するソフトマックス関数というものを
+まず, 実数値ベクトルを確率に変換するソフトマックス関数および, one-hotベクトルというものを
 導入する. 
 \begin{Definition+}(ソフトマックス関数)\\
     $\psi:\R^d\to\R^d$を以下で定義する.
@@ -341,14 +345,125 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     この時, $\psi$をソフトマックス関数と呼ぶ.
 \end{Definition+}
-\begin{Example+}(ロジスティック回帰)\\
+\begin{Definition+}(one-hotベクトル)\\
+    $y\in\R^m$が第$c\in\{1, 2, \cdots, m\}$成分が1であり, 残りの成分が0である時, 
+    $y$をone-hotベクトルという.
+\end{Definition+}
+\begin{Example+}($m$値分類ロジスティック回帰)\\
     機械学習空間$\MLsp$を以下のように定義する.\\
     $\X=\R^d$, $\Y = \R^m$, 
     \begin{align*}
-        \Hil &= \{f:\X\to\Y | f(x) = \sigma(W^{\top}x), W\in\R^d\},\\
-        \Loss(f) &= \sum_{i = 1}^{N}\left(-y_{i}\log f(x_{i}) - (1 - y_{i})\log(1 - f(x))\right).
+        \Hil &= \{f:\X\to\Y\mid f(x) = \psi(Wx + b), W\in\R^{m\times d}, b\in\R^m\},\\
+        \Loss(f) &= -\sum_{n = 1}^{N}\sum_{k = 1}^{m}y_{nk}\log f(x_n)_{k},
     \end{align*}
+    ここで$\psi:\R^m\to\R^m$はソフトマックス関数であり, $y_{n}$はone-hotベクトルである.\\
+    この機械学習空間$\MLsp$上で
+    \begin{align*}
+        \argmin_{f\in\Hil}\Loss(f)
+    \end{align*}
+    を求める問題を$m$値分類ロジスティック回帰という.
 \end{Example+}
+先ほどまでは, 損失関数の最小値を解析的に求めていたが, 今回の損失関数の最小値を解析的に求めることはせず,
+勾配降下法という連続最適化アルゴリズムを用いて求めることにする. 勾配降下法とは$C^{\infty}$関数$F$の
+最小値を求めるためのアルゴリズムである.
+\begin{algorithm}[H]
+    \caption{Gradient Decent}
+    \begin{algorithmic}
+        \REQUIRE F: smooth function on $\R^{d}$
+        \REQUIRE $0<\alpha<1$ : learning rate 
+        \REQUIRE $\theta$: Initial parameter vector
+        \WHILE{$\theta$ not converged} 
+        \STATE $\theta\leftarrow\theta - \alpha\nabla F(\theta)$ 
+        \ENDWHILE
+        \RETURN $\theta$
+    \end{algorithmic}
+\end{algorithm}
+勾配降下法の最適解への収束条件を述べておく.
+\begin{Definition+}($\beta$-Lipschitz連続)\\
+    $(X, d_{X})$, $(Y, d_{Y})$を距離空間とする. $f:X\to Y$が$\beta$-Lipschitz連続
+    であるとは,
+    \begin{align*}
+        \forall x, y\in X, d_{Y}(f(x), f(y))\leq\beta d_{X}(x, y)
+    \end{align*}
+    が成立することである.
+\end{Definition+}
+\begin{Theorem+}(勾配降下法の最適化収束条件)\\
+    $\Hil$をヒルベルト空間とし, $f:\Hil\to\R$を$C^{\infty}$関数とする. 
+    この時, $\nabla f$が$\beta$-Lipschitz連続ならば, 学習率$\alpha\in\left(0, \frac{2}{\beta}\right)$で最適解に弱収束する.
+\end{Theorem+}
+\begin{Example+}(2次関数における勾配降下法)\\
+    $y = x^2$において勾配降下法を適応した結果を以下の図と表に示す.
+    本来の最適値である$x = 0$に近づいているのが分かる.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 8.5cm]{Gradient_Decent.png}
+        \caption{$\alpha = 0.001$とした時の勾配降下法の結果.}
+    \end{figure}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+            イタレーション数 & 0 & 400 & 800 & 1200 & 1600 & 2000 & 2400 & 2800 & 3200 & 3600\\\hline
+            $\theta$の値 & 9.50 & 4.27 & 1.91 & 0.86 & 0.39 & 0.17 & 0.08 & 0.03 & 0.02 & 0.01\\\hline
+        \end{tabular}
+        \caption{値の詳細}
+    \end{table}
+\end{Example+}
+\subsection{MNISTでの実験}
+MNISTとは下記のような0から9までの自然数が書かれた画像のデータセットの名前である. 
+今回は, $m$値分類のロジスティック回帰を用いて、画像に書かれている文字を予測する問題を
+考える. ロジスティック回帰の損失関数$\Loss$を勾配降下法を用いて最小化するため, まずは損失関数の勾配を計算する.
+ここで, $\Hil\simeq\R^{m\times d + 1}$だから, $\Loss$を$\R^{m\times d + 1}$上の関数と考える.\
+\begin{figure}[htbp]
+    \begin{minipage}{0.32\hsize}
+        \centering
+        \includegraphics[width = 6.3cm]{MNIST_sample1.png}
+        \caption{数字の5}
+    \end{minipage}
+    \begin{minipage}{0.32\hsize}
+        \centering
+        \includegraphics[width = 6.3cm]{MNIST_sample2.png}
+        \caption{数字の9}
+    \end{minipage}
+    \begin{minipage}{0.32\hsize}
+        \centering
+        \includegraphics[width = 6.3cm]{MNIST_sample3.png}
+        \caption{数字の6}
+    \end{minipage}
+\end{figure}
+\begin{Lemma+}
+    任意の$i\in\{1, 2, \cdots, m\}, j\in\{1, 2, \cdots, d\}$に対して以下が成立する.
+    \begin{align*}
+        \frac{\partial\Loss}{\partial w_{ij}} &= -\sum_{n = 1}^{N}\left(y_{ni} - f(x_{n})_{i}\right)x_{nj}\\
+        \frac{\partial\Loss}{\partial b_{i}} &= -\sum_{n = 1}^{N}(y_{ni} - f(x_{n})_{i})
+    \end{align*}
+\end{Lemma+}
+この補題より, 
+\begin{align*}
+    \frac{\partial\Loss}{\partial W} &= - 
+    \begin{pmatrix}
+        \sum_{n = 1}^{N}\left(y_{n1} - f(x_{n})_{1}\right)x_{n1} & \cdots & \sum_{n = 1}^{N}\left(y_{n1} - f(x_{n})_{1}\right)x_{nd}\\
+        \vdots & \ddots & \vdots\\
+        \sum_{n = 1}^{N}\left(y_{nm} - f(x_{n})_{m}\right)x_{n1} & \cdots & \sum_{n = 1}^{N}\left(y_{nm} - f(x_{n})_{m}\right)x_{nd}
+    \end{pmatrix}\\ 
+    & = - 
+    \begin{pmatrix}
+        y_{11} - f(x_1)_1 & \cdots & y_{N1} - f(x_N)_m\\
+        \vdots & \ddots & \vdots\\
+        y_{1m} - f(x_1)_m & \cdots & y_{Nm} - f(x_N)_m
+    \end{pmatrix}
+    \begin{pmatrix}
+        x_{11} & \cdots & x_{1d} \\
+        \vdots & \ddots & \vdots \\
+        x_{N1} & \cdots & x_{Nd}
+    \end{pmatrix}\\
+    &= (Y - F)X^{\top},
+\end{align*}
+ここで, $X = [x_{1}, x_{2}, \cdots, x_{N}]$, $Y = [y_1, y_2, \cdots, y_N]$, $F = [f(x_1), f(x_2), \cdots, f(x_N)]$である. この補題より, 
+また, この計算より$\mathbf{1} = [1, 1, \cdots, 1]^{\top}\in\R^{N\times 1}$とすれば,
+\begin{align*}
+    \frac{\partial\Loss}{\partial b} = (Y - F)\mathbf{1}
+\end{align*}
+もいえる. これらを用いて学習した結果を以下に示す. 
 \section{Deep Learning}
 \subsection{Neural Network}
 \subsection{The Universal Theorem of Neural Network}
@@ -357,8 +472,8 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 $\Probsp$を完備な確率空間とする.  
 $\X$を$d$次元線型空間とする. 
 \begin{align*}
-    \Hil_1 &= \{G:\mathcal{Z}\to\X~| G\text{はニューラルネット}\},\\
-    \Hil_{2} &= \{D:\X\to [0, 1]~| D\text{はニューラルネット}\}
+    \Hil_1 &= \{G:\mathcal{Z}\to\X~\mid G\text{はニューラルネット}\},\\
+    \Hil_{2} &= \{D:\X\to [0, 1]~\mid D\text{はニューラルネット}\}
 \end{align*}
 ここで、$\mathcal{Z}$は潜在空間と呼ばれる$\R^{d}$の線型部分空間である.
 また, 確率変数$Z:\Omega\to\mathcal{Z}$に対し, $g(Z)$が従う確率分布を$\mathbb{P}_{}$
@@ -369,9 +484,10 @@ $\X$を$d$次元線型空間とする.
     Generative adversarial nets. In Advances in Neural Information Processing Systems, 2014.
     \bibitem{PGAN}Martin Arjovsky and Leon Bottou, Towards Principled Methods for Training Generative Adversarial Networks,
     International Conference on Learning Representations, 2017.
-    \bibitem{SGAN}Takeru Miyato, Toshiki Kataoka, Masanori Koyama and Yuichi Yoshida, Spectral Normalization for Generative Adversarial Networks, 
+    \bibitem{SNGAN}Takeru Miyato, Toshiki Kataoka, Masanori Koyama and Yuichi Yoshida, Spectral Normalization for Generative Adversarial Networks, 
     International Conference on Learning Representations, 2018.
-    
+    \bibitem{} 矢田部 浩平, 信号処理と最適化, http://www.sp.ipc.i.u-tokyo.ac.jp/\verb|~|saruwatari/SP-Grad2018\verb|_|09ProfYatabe.pdf, 早稲田大学 表現工学科, 2018.
+    \bibitem{} http://darden.hatenablog.com/entry/2018/01/25/222201
 \end{thebibliography}
 
 \end{document}

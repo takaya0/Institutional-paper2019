@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  11 FEB 2020 14:07
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  13 FEB 2020 18:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,7 +297,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks38
 \c@algorithm=\count122
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/algorithms/algorithmic.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \c@ALC@unique=\count123
 \c@ALC@line=\count124
@@ -502,52 +502,82 @@ File: pgfmodulematrix.code.tex 2019/04/04 v3.1.2 (3.1.2)
 \tikz@expandcount=\count148
  (/usr/local/texlive/2019/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2019/04/04 v3.1.2 (3.1.2)
-))) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xy.sty (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing: catcodes, docmode, (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyrecat.tex) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyidioms.tex)
+))) (/usr/local/texlive/2019/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count149
+\calc@Bcount=\count150
+\calc@Adimen=\dimen269
+\calc@Bdimen=\dimen270
+\calc@Askip=\skip58
+\calc@Bskip=\skip59
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count151
+\calc@Cskip=\skip60
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count152
+\l_MT_multwidth_dim=\dimen271
+\origjot=\skip61
+\l_MT_shortvdotswithinadjustabove_dim=\dimen272
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen273
+\l_MT_above_intertext_sep=\dimen274
+\l_MT_below_intertext_sep=\dimen275
+\l_MT_above_shortintertext_sep=\dimen276
+\l_MT_below_shortintertext_sep=\dimen277
+) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xy.sty (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing: catcodes, docmode, (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyrecat.tex) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyidioms.tex)
 
  Xy-pic version 3.8.9 <2013/10/06>
  Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
  Xy-pic is free software: see the User's Guide for details.
 
 Loading kernel: messages; fonts; allocations: state,
-\X@c=\dimen269
-\Y@c=\dimen270
-\U@c=\dimen271
-\D@c=\dimen272
-\L@c=\dimen273
-\R@c=\dimen274
+\X@c=\dimen278
+\Y@c=\dimen279
+\U@c=\dimen280
+\D@c=\dimen281
+\L@c=\dimen282
+\R@c=\dimen283
 \Edge@c=\toks51
-\X@p=\dimen275
-\Y@p=\dimen276
-\U@p=\dimen277
-\D@p=\dimen278
-\L@p=\dimen279
-\R@p=\dimen280
+\X@p=\dimen284
+\Y@p=\dimen285
+\U@p=\dimen286
+\D@p=\dimen287
+\L@p=\dimen288
+\R@p=\dimen289
 \Edge@p=\toks52
-\X@origin=\dimen281
-\Y@origin=\dimen282
-\X@xbase=\dimen283
-\Y@xbase=\dimen284
-\X@ybase=\dimen285
-\Y@ybase=\dimen286
-\X@min=\dimen287
-\Y@min=\dimen288
-\X@max=\dimen289
-\Y@max=\dimen290
+\X@origin=\dimen290
+\Y@origin=\dimen291
+\X@xbase=\dimen292
+\Y@xbase=\dimen293
+\X@ybase=\dimen294
+\Y@ybase=\dimen295
+\X@min=\dimen296
+\Y@min=\dimen297
+\X@max=\dimen298
+\Y@max=\dimen299
 \lastobjectbox@=\box76
 \zerodotbox@=\box77
-\almostz@=\dimen291
+\almostz@=\dimen300
  direction,
-\d@X=\dimen292
-\d@Y=\dimen293
-\K@=\count149
-\KK@=\count150
-\Direction=\count151
-\K@dXdY=\dimen294
-\K@dYdX=\dimen295
+\d@X=\dimen301
+\d@Y=\dimen302
+\K@=\count153
+\KK@=\count154
+\Direction=\count155
+\K@dXdY=\dimen303
+\K@dYdX=\dimen304
 \xyread@=\read4
 \xywrite@=\write5
-\csp@=\count152
-\quotPTK@=\dimen296
+\csp@=\count156
+\quotPTK@=\dimen305
  utility macros; pictures: \xy, positions,
 \swaptoks@@=\toks53
 \connectobjectbox@@=\box78
@@ -558,158 +588,190 @@ Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 )
 Package: xy 2013/10/06 Xy-pic version 3.8.9
  (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf.tex  Xy-pic option: PDF driver v.1.7 loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyall.tex  Xy-pic option: All features v.3.8 (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xycurve.tex  Xy-pic option: Curve and Spline extension v.3.12 curve,
-\crv@cnt@=\count153
+\crv@cnt@=\count157
 \crvpts@=\toks55
 \splinebox@=\box79
-\splineval@=\dimen297
-\splinedepth@=\dimen298
-\splinetol@=\dimen299
-\splinelength@=\dimen300
+\splineval@=\dimen306
+\splinedepth@=\dimen307
+\splinetol@=\dimen308
+\splinelength@=\dimen309
  circles,
-\L@=\dimen301
+\L@=\dimen310
  loaded) Xy-pic pdf driver: `curve' extension support (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyframe.tex  Xy-pic option: Frame and Bracket extension v.3.14 loaded) Xy-pic pdf driver: `frame' extension support (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf-fr.tex loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xycmtip.tex  Xy-pic option: Computer Modern tip extension v.3.7 (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xytips.tex  Xy-pic option: More Tips extension v.3.11 loaded) loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyline.tex  Xy-pic option: Line styles extension v.3.10
-\xylinethick@=\dimen302
+\xylinethick@=\dimen311
  loaded) Xy-pic pdf driver: `line' extension support (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf-li.tex loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyrotate.tex  Xy-pic option: Rotate and Scale extension v.3.8 loaded) Xy-pic pdf driver: `rotate' extension support (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xycolor.tex  Xy-pic option: Colour extension v.3.11 loaded) Xy-pic pdf driver: `color' extension support (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf-co.tex loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xymatrix.tex  Xy-pic option: Matrix feature v.3.14
-\Row=\count154
-\Col=\count155
+\Row=\count158
+\Col=\count159
 \queue@=\toks56
 \queue@@=\toks57
-\qcount@=\count156
-\qcount@@=\count157
-\matrixsize@=\count158
+\qcount@=\count160
+\qcount@@=\count161
+\matrixsize@=\count162
  loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyarrow.tex  Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xygraph.tex  Xy-pic option: Graph feature v.3.11 loaded) loaded)) (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amscd.sty
 Package: amscd 2017/04/14 v2.1 AMS Commutative Diagrams
 \athelp@=\toks58
-\minaw@=\dimen303
-\bigaw@=\dimen304
-\minCDarrowwidth=\dimen305
+\minaw@=\dimen312
+\bigaw@=\dimen313
+\minCDarrowwidth=\dimen314
 ) (/usr/local/texlive/2019/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/local/texlive/2019/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2019/04/04 v3.1.2 (3.1.2)
 ) (/usr/local/texlive/2019/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2019/04/04 v3.1.2 (3.1.2)
 ) (/usr/local/texlive/2019/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2019/04/04 v3.1.2 (3.1.2)
-\pgfarrowinset=\dimen306
-\pgfarrowlength=\dimen307
-\pgfarrowwidth=\dimen308
-\pgfarrowlinewidth=\dimen309
+\pgfarrowinset=\dimen315
+\pgfarrowlength=\dimen316
+\pgfarrowwidth=\dimen317
+\pgfarrowlinewidth=\dimen318
 ))
-\c@Axiom=\count159
-\c@Axiom+=\count160
-\c@Alert+=\count161
- (./main.aux)
+\c@Axiom=\count163
+\c@Axiom+=\count164
+\c@Alert+=\count165
+ (./main.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-\c@lstlisting=\count162
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+\c@lstlisting=\count166
  ABD: EveryShipout initializing macros
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 143.
+(Font)              scaled to size 6.47278pt on input line 144.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 143.
-LaTeX Font Info:    Try loading font information for U+msa on input line 143.
+(Font)              scaled to size 4.62341pt on input line 144.
+LaTeX Font Info:    Try loading font information for U+msa on input line 144.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 143.
+LaTeX Font Info:    Try loading font information for U+msb on input line 144.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 143.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 144.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Package xypdf Info: Line width: 0.39998pt on input line 143.
+Package xypdf Info: Line width: 0.39998pt on input line 144.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 15.9785pt on input line 144.
+(Font)              scaled to size 15.9785pt on input line 145.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 15.9785pt on input line 144.
+(Font)              scaled to size 15.9785pt on input line 145.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 144.
+(Font)              scaled to size 11.09619pt on input line 145.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 144.
+(Font)              scaled to size 11.09619pt on input line 145.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 144.
+(Font)              scaled to size 7.39746pt on input line 145.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 144.
+(Font)              scaled to size 5.5481pt on input line 145.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 146.
+(Font)              scaled to size 13.31541pt on input line 147.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 146.
+(Font)              scaled to size 13.31541pt on input line 147.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 146.
+(Font)              scaled to size 13.31541pt on input line 147.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 146.
+(Font)              scaled to size 13.31541pt on input line 147.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 147.
+(Font)              scaled to size 6.47278pt on input line 148.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 147.
+(Font)              scaled to size 7.39746pt on input line 148.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 147.
+(Font)              scaled to size 5.5481pt on input line 148.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 154.
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 155.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 154.
+(Font)              scaled to size 9.24683pt on input line 155.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 154.
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 155.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 154.
+(Font)              scaled to size 9.24683pt on input line 155.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 159.
+(Font)              scaled to size 4.62341pt on input line 160.
  [1
 
 ]
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 201.
+(Font)              scaled to size 11.09619pt on input line 205.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 201.
+(Font)              scaled to size 11.09619pt on input line 205.
  [2]
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 241.
+(Font)              scaled to size 6.47278pt on input line 245.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 241.
+(Font)              scaled to size 4.62341pt on input line 245.
  [3]
 File: overfitting_PR.png Graphic file (type bmp)
 <overfitting_PR.png>
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 287.
+(Font)              scaled to size 8.32214pt on input line 291.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 287.
+(Font)              scaled to size 8.32214pt on input line 291.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 287.
+(Font)              scaled to size 8.32214pt on input line 291.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 287.
- [4]
+(Font)              scaled to size 5.5481pt on input line 291.
+ [4] [5]
 File: regulaer_PR.png Graphic file (type bmp)
 <regulaer_PR.png>
- [5]
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 322.
+(Font)              scaled to size 7.39746pt on input line 326.
 File: underfitting_PR.png Graphic file (type bmp)
 <underfitting_PR.png>
- [6] [7] [8] (./main.aux) ) 
+ [6] [7]
+File: Gradient_Decent.png Graphic file (type bmp)
+<Gradient_Decent.png>
+ [8]
+File: MNIST_sample1.png Graphic file (type bmp)
+<MNIST_sample1.png>
+
+Overfull \hbox (49.05351pt too wide) in paragraph at lines 419--420
+ [][] 
+ []
+
+File: MNIST_sample2.png Graphic file (type bmp)
+<MNIST_sample2.png>
+
+Overfull \hbox (49.05351pt too wide) in paragraph at lines 424--425
+ [][] 
+ []
+
+File: MNIST_sample3.png Graphic file (type bmp)
+<MNIST_sample3.png>
+
+Overfull \hbox (49.05351pt too wide) in paragraph at lines 429--430
+ [][] 
+ []
+
+[9] [10] [11] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 19639 strings out of 493223
- 354437 string characters out of 6144415
- 453374 words of memory out of 5000000
- 23233 multiletter control sequences out of 15000+600000
- 24657 words of font info for 123 fonts, out of 8000000 for 9000
+ 20231 strings out of 493223
+ 364851 string characters out of 6144415
+ 467682 words of memory out of 5000000
+ 23805 multiletter control sequences out of 15000+600000
+ 24825 words of font info for 124 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  55i,16n,82p,3270b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (8 pages, 23392 bytes).
+Output written on main.dvi (11 pages, 33700 bytes).

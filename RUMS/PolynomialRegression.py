@@ -35,6 +35,10 @@ class PolynomialRegression():
         accuracy = accuracy * (1/len(x_test))
         return 100 - np.sqrt(accuracy)
 
+    def coef(self):
+        print("degree = {}".format(self.degree))
+        print("W = {}".format(self.W))
+
     def plot_result(self, X, Y):
         plt.scatter(X, Y)
         N = np.arange(0.5, 25.5, 0.1)
