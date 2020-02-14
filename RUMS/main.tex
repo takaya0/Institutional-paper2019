@@ -1,4 +1,3 @@
-% -----------------------
 % preamble
 % -----------------------
 % Don't change preamble code yourself. If you add something(usepackage, newtheorem, newcommand, renewcommand),
@@ -430,14 +429,14 @@ MNISTとは下記のような0から9までの自然数が書かれた画像の�
         \caption{数字の6}
     \end{minipage}
 \end{figure}
-\begin{Lemma+}
+\begin{Lemma+}\label{test}
     任意の$i\in\{1, 2, \cdots, m\}, j\in\{1, 2, \cdots, d\}$に対して以下が成立する.
     \begin{align*}
         \frac{\partial\Loss}{\partial w_{ij}} &= -\sum_{n = 1}^{N}\left(y_{ni} - f(x_{n})_{i}\right)x_{nj}\\
         \frac{\partial\Loss}{\partial b_{i}} &= -\sum_{n = 1}^{N}(y_{ni} - f(x_{n})_{i})
     \end{align*}
 \end{Lemma+}
-この補題より, 
+この補題$\ref{test}$より, 
 \begin{align*}
     \frac{\partial\Loss}{\partial W} &= - 
     \begin{pmatrix}
@@ -456,18 +455,80 @@ MNISTとは下記のような0から9までの自然数が書かれた画像の�
         \vdots & \ddots & \vdots \\
         x_{N1} & \cdots & x_{Nd}
     \end{pmatrix}\\
-    &= (Y - F)X^{\top},
+    &= -(Y - F)X^{\top},
 \end{align*}
-ここで, $X = [x_{1}, x_{2}, \cdots, x_{N}]$, $Y = [y_1, y_2, \cdots, y_N]$, $F = [f(x_1), f(x_2), \cdots, f(x_N)]$である. この補題より, 
+ここで, $X = [x_{1}, x_{2}, \cdots, x_{N}]$, $Y = [y_1, y_2, \cdots, y_N]$, $F = [f(x_1), f(x_2), \cdots, f(x_N)]$である. 
 また, この計算より$\mathbf{1} = [1, 1, \cdots, 1]^{\top}\in\R^{N\times 1}$とすれば,
 \begin{align*}
-    \frac{\partial\Loss}{\partial b} = (Y - F)\mathbf{1}
+    \frac{\partial\Loss}{\partial b} = -(Y - F)\mathbf{1}
 \end{align*}
 もいえる. これらを用いて学習した結果を以下に示す. 
 \section{Deep Learning}
+ここから、高い表現能力を持つとされるニューラルネットワークについて説明する. 
+ニューラルネットワークとはアフィン変換と活性化関数と呼ばれる関数の合成関数である. 前節と同様に
+$D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとする.
 \subsection{Neural Network}
+\begin{Definition+}(活性化関数)\\
+    $\sigma:\R^{d}\to\R^{d}$を非線形かつ, Lipschitz連続な関数とする. 
+    この時, $\sigma$を活性化関数(activation function)という.
+\end{Definition+}
+\begin{Example+}(活性化関数の具体例)\\
+    活性化関数の具体例をいくつか述べる. 
+    \begin{align*}
+        \sigma(x)_{i} &= \frac{1}{1 + \exp(-x_{i})},\\
+        \text{ReLU}(x_{i}) &= \max(x_{i}, 0).
+    \end{align*}
+    $\sigma$をシグモイド関数(sigmoid function), $\text{ReLU}$を正規化線形関数(Rectified Linear Unit)
+    という.
+\end{Example+}
+\begin{Definition+}(回帰型ニューラルネットワーク)\\
+    機械学習空間$\MLsp$を以下のように定義する. $L = \{L_{1}, L_{2}, \cdots, L_{K}\}$を自然数列とする.
+    $\X = \R^d$, $\Y = \R$, 
+    \begin{align*}
+        \Hil &= \left\{f:\X\to\Y~\middle|
+        \begin{array}{l}
+            f(x) = W^{\top}g_{K}\circ g_{K - 1}\cdots\circ g_{1}(x) - b, g_{i} = \mu(W_{i}x + b_{i})\\
+            W_{i}\in\R^{L_{i}\times L_{i - 1}}, b_{i}\in\R^{L_{i}}, W\in\R^{L_{K}}, b\in\R
+        \end{array}
+        \right\},\\
+        \Loss(f) &= \frac{1}{N}\sum_{i = 1}^{N}|f(x_i) - y_i|^2,
+    \end{align*}
+    ここで$\mu$は活性化関数である. $f\in\Hil$を回帰型(全結合)ニューラルネットワーク(Full-connected Neural Network for Regression)
+    と呼ぶ. 
+\end{Definition+}
+\begin{Definition+}(分類型ニューラルネットワーク)\\
+    機械学習空間$\MLsp$を以下のように定義する. $L = \{L_{1}, L_{2}, \cdots, L_{K}\}$を自然数列とする.
+    $\X = \R^d$, $\Y = \R^{m}$, 
+    \begin{align*}
+        \Hil &= \left\{f:\X\to\Y~\middle|
+        \begin{array}{l}
+            f(x) = \psi(W g_{K}\circ g_{K - 1}\cdots\circ g_{1}(x) - b), g_{i} = \mu(W_{i}x + b_{i})\\
+            W_{i}\in\R^{L_{i}\times L_{i - 1}}, b_{i}\in\R^{L_{i}}, W\in\R^{m\times L_{K}}, b\in\R^{m}
+        \end{array}
+        \right\},\\
+        \Loss(f) &= -\sum_{n = 1}^{N}\sum_{k = 1}^{m}y_{nk}\log f(x_n)_{k},
+    \end{align*}
+    ここで$\mu$は活性化関数, $y_{i}$はone-hotベクトル, $\psi$はソフトマックス関数である. $f\in\Hil$を分類型(全結合)ニューラルネットワーク(Full-connected Neural Network for Classification)
+    と呼ぶ. 
+\end{Definition+}
+分類, 回帰ニューラルネットワークが$K > 1$の時に
+\begin{align*}
+    \argmin_{f\in\Hil}\Loss(f)
+\end{align*}
+を求める問題を深層学習と呼ぶ.
 \subsection{The Universal Theorem of Neural Network}
+
 \section{Generative Adversarial Networks}
+GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法である. 
+その後, WGAN, DCGANといった様々な亜種が登場し, 現在も様々な手法が提案されている.
+冒頭でも述べたが, GANは2つのニューラルネットワークを戦わせる手法である. これは, よく, 警察と
+泥棒の偽札造りに例えられる. $G$を泥棒, $D$を警察とした時, 以下の作業を繰り返すことで, 偽札の本物具合をあげていく.
+\begin{enumerate}
+    \item 泥棒$G$が偽札を作る.
+    \item 警察$D$が偽札であると見破る.
+    \item 泥棒$G$はなぜ,警察$D$に偽札であるとバレたのかを考え, より本物に近い偽札を作れるようになる.
+\end{enumerate}
+これらは以下のように$\min$-$\max$ゲームとして定式化される.
 \subsection{GANの定式化}
 $\Probsp$を完備な確率空間とする.  
 $\X$を$d$次元線型空間とする. 
