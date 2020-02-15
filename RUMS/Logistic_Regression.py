@@ -6,7 +6,7 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from matplotlib import pyplot as plt
 import pandas as pd
-ITER_NUM = 10
+ITER_NUM = 2500
 Clasfication_number = 10
 
 
@@ -23,7 +23,7 @@ class Logstic_Regression():
     def __init__(self):
         self.train_Log = []
         self.Val_Log = []
-        self.alpha = 0.001
+        self.alpha = 0.0001
 
     def softmax(self, Z):
         """
@@ -73,9 +73,15 @@ class Logstic_Regression():
 
     def save_coef(self, file_name='coef.csv'):
         df_W = pd.DataFrame(self.W)
-        df_b = pd.DataFrame(self.b)
-        df = pd.concat([df_W, df_b], axis=1)
+        df_b = pd.DataFrame(self.b.T)
+        df = pd.concat([df_W, df_b])
         df.to_csv(file_name)
+
+    def load_coef(self, file_name='coef.csv'):
+        load_df = np.array(pd.read_csv(file_name, index_col=0).values.tolist())
+        shape = load_df.shape
+        self.W = load_df[0:shape[0] - 1]
+        self.b = load_df[shape[0] - 1].T
 
     def get_Log(self, log_type='train'):
         if log_type == 'train':
@@ -105,6 +111,7 @@ def main():
         X, Y, test_size=0.3, random_state=0)
     model = Logstic_Regression()
     model.train(x_train, t_train, test_x=x_test, test_y=t_test)
+    """
     train_log_data = model.get_Log(log_type='train')
     val_log_data = model.get_Log(log_type='test')
     plt.plot(train_log_data, label='train_loss',
@@ -113,8 +120,10 @@ def main():
     plt.xlabel('Iteration number')
     plt.ylabel('Accuracy score')
     plt.legend()
+    """
     model.save_coef()
-    plt.show()
+    # model.load_coef()
+    # plt.show()
 
 
 if __name__ == "__main__":
