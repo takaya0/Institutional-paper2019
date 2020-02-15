@@ -5,8 +5,8 @@ from scipy.special import softmax
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from matplotlib import pyplot as plt
-
-ITER_NUM = 300
+import pandas as pd
+ITER_NUM = 10
 Clasfication_number = 10
 
 
@@ -23,7 +23,7 @@ class Logstic_Regression():
     def __init__(self):
         self.train_Log = []
         self.Val_Log = []
-        self.alpha = 0.03
+        self.alpha = 0.001
 
     def softmax(self, Z):
         """
@@ -38,25 +38,16 @@ class Logstic_Regression():
         one_vec = np.ones((N, 1))
         X = copy(train_x.T)
         Y = train_y.T
-        self.W = np.random.randint(-10, 10,
+        self.W = np.random.randint(-30, 30,
                                    (Clasfication_number, len(train_x[0])))
         self.b = np.random.randint(-50, 50, (Clasfication_number, 1))
-        for z in range(ITER_NUM):
+        for z in tqdm(range(ITER_NUM)):
             Z = np.dot(self.W, X) + self.b
             F = self.softmax(Z)
             self.W = self.W - self.alpha * np.dot(F - Y, X.T)
             self.b = self.b - self.alpha * np.dot(F - Y, one_vec)
-            """
-            for k in range(N):
-                acc_Z = np.dot(self.W, train_x[k].T).T + self.b.T
-                acc_Z = self.softmax(acc_Z.T)
-                print("{}番目のデータの予測値は{}, 本当は{}".format(
-                    k + 1, np.argmax(acc_Z), np.argmax(train_y[k])))
-            """
             acc_train = self.score(train_x, train_y)
             self.train_Log.append(acc_train)
-            if z % 10 == 0:
-                print('acc_score is {}'.format(acc_train))
             if len(test_x) != 0 and len(test_y) != 0:
                 self.Val_Log.append(self.score(test_x, test_y))
 
@@ -68,11 +59,23 @@ class Logstic_Regression():
     def score(self, test_x, test_y):
         N = len(test_x)
         acc = 0
+        """
         for k in range(N):
             # print(self.predict(test_x[k].T))
             if self.predict(test_x[k].T) == np.argmax(test_y[k]):
                 acc = acc+1
+        print(self.predict(test_x))
+        """
+        d = np.array([self.predict(test_x[k]) == np.argmax(test_y[k])
+                      for k in range(N)])
+        acc = np.count_nonzero(d)
         return acc/N
+
+    def save_coef(self, file_name='coef.csv'):
+        df_W = pd.DataFrame(self.W)
+        df_b = pd.DataFrame(self.b)
+        df = pd.concat([df_W, df_b], axis=1)
+        df.to_csv(file_name)
 
     def get_Log(self, log_type='train'):
         if log_type == 'train':
@@ -104,9 +107,13 @@ def main():
     model.train(x_train, t_train, test_x=x_test, test_y=t_test)
     train_log_data = model.get_Log(log_type='train')
     val_log_data = model.get_Log(log_type='test')
-    plt.plot(train_log_data, label='train_loss', color='red')
+    plt.plot(train_log_data, label='train_loss',
+             color='red', linestyle='dashed')
     plt.plot(val_log_data, label='test_loss')
+    plt.xlabel('Iteration number')
+    plt.ylabel('Accuracy score')
     plt.legend()
+    model.save_coef()
     plt.show()
 
 

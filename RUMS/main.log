@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  14 FEB 2020 18:20
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  15 FEB 2020 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -742,36 +742,39 @@ File: Gradient_Decent.png Graphic file (type bmp)
 File: MNIST_sample1.png Graphic file (type bmp)
 <MNIST_sample1.png>
 
-Overfull \hbox (49.05351pt too wide) in paragraph at lines 418--419
+Overfull \hbox (26.29121pt too wide) in paragraph at lines 418--419
  [][] 
  []
 
 File: MNIST_sample2.png Graphic file (type bmp)
 <MNIST_sample2.png>
 
-Overfull \hbox (49.05351pt too wide) in paragraph at lines 423--424
+Overfull \hbox (26.29121pt too wide) in paragraph at lines 423--424
  [][] 
  []
 
 File: MNIST_sample3.png Graphic file (type bmp)
 <MNIST_sample3.png>
 
-Overfull \hbox (49.05351pt too wide) in paragraph at lines 428--429
+Overfull \hbox (26.29121pt too wide) in paragraph at lines 428--429
  [][] 
  []
 
-[9] [10] [11] [12] (./main.aux)
+[9]
+File: Logstic_regression_MNIST.png Graphic file (type bmp)
+<Logstic_regression_MNIST.png>
+ [10] [11] [12] [13] (./main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 20232 strings out of 493223
- 364857 string characters out of 6144415
- 467693 words of memory out of 5000000
- 23806 multiletter control sequences out of 15000+600000
+ 20236 strings out of 493223
+ 365005 string characters out of 6144415
+ 465693 words of memory out of 5000000
+ 23808 multiletter control sequences out of 15000+600000
  24825 words of font info for 124 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  55i,16n,82p,3270b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (12 pages, 39824 bytes).
+Output written on main.dvi (13 pages, 40620 bytes).

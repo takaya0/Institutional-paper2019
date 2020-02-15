@@ -202,8 +202,8 @@ $d$, $m$を自然数とする.
 $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとする.
 
 \subsection{単回帰分析・重回帰分析}
-最初に機械学習の最も基本的なモデルである単回帰分析を紹介する. その後
-その多変数拡張である重回帰分析を紹介する.
+最初に機械学習の最も基本的なモデルである単回帰分析を紹介する. その後, 
+多変数拡張である重回帰分析を紹介する.
 \begin{Example+}(単回帰分析)\\
     機械学習空間$\MLsp$を以下のように定義する.\\
     $\X = \R$, $\Y = \R$, 
@@ -415,17 +415,17 @@ MNISTとは下記のような0から9までの自然数が書かれた画像の�
 \begin{figure}[htbp]
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 6.3cm]{MNIST_sample1.png}
+        \includegraphics[width = 5.5cm]{MNIST_sample1.png}
         \caption{数字の5}
     \end{minipage}
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 6.3cm]{MNIST_sample2.png}
+        \includegraphics[width = 5.5cm]{MNIST_sample2.png}
         \caption{数字の9}
     \end{minipage}
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 6.3cm]{MNIST_sample3.png}
+        \includegraphics[width = 5.5cm]{MNIST_sample3.png}
         \caption{数字の6}
     \end{minipage}
 \end{figure}
@@ -463,6 +463,11 @@ MNISTとは下記のような0から9までの自然数が書かれた画像の�
     \frac{\partial\Loss}{\partial b} = -(Y - F)\mathbf{1}
 \end{align*}
 もいえる. これらを用いて学習した結果を以下に示す. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 10.0cm]{Logstic_regression_MNIST.png}
+    \caption{$\alpha = 0.001$とした時の, MNSIT実験の結果}
+\end{figure}
 \section{Deep Learning}
 ここから、高い表現能力を持つとされるニューラルネットワークについて説明する. 
 ニューラルネットワークとはアフィン変換と活性化関数と呼ばれる関数の合成関数である. 前節と同様に
@@ -476,7 +481,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     活性化関数の具体例をいくつか述べる. 
     \begin{align*}
         \sigma(x)_{i} &= \frac{1}{1 + \exp(-x_{i})},\\
-        \text{ReLU}(x_{i}) &= \max(x_{i}, 0).
+        \text{ReLU}(x)_{i} &= \max(x_{i}, 0).
     \end{align*}
     $\sigma$をシグモイド関数(sigmoid function), $\text{ReLU}$を正規化線形関数(Rectified Linear Unit)
     という.
@@ -511,18 +516,21 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     ここで$\mu$は活性化関数, $y_{i}$はone-hotベクトル, $\psi$はソフトマックス関数である. $f\in\Hil$を分類型(全結合)ニューラルネットワーク(Full-connected Neural Network for Classification)
     と呼ぶ. 
 \end{Definition+}
-分類, 回帰ニューラルネットワークが$K > 1$の時に
-\begin{align*}
-    \argmin_{f\in\Hil}\Loss(f)
-\end{align*}
-を求める問題を深層学習と呼ぶ.
+以下, ニューラルネットと書けば, 分類, 回帰ニューラルネットワークのいずれかを表すものとする. 
+\begin{Definition+}(深層学習)\\
+    ニューラルネットワークが$K > 1$の時に
+    \begin{align*}
+        \argmin_{f\in\Hil}\Loss(f)
+    \end{align*}
+    を求める問題を深層学習と呼ぶ.
+\end{Definition+}
 \subsection{The Universal Theorem of Neural Network}
 
 \section{Generative Adversarial Networks}
 GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法である. 
 その後, WGAN, DCGANといった様々な亜種が登場し, 現在も様々な手法が提案されている.
 冒頭でも述べたが, GANは2つのニューラルネットワークを戦わせる手法である. これは, よく, 警察と
-泥棒の偽札造りに例えられる. $G$を泥棒, $D$を警察とした時, 以下の作業を繰り返すことで, 偽札の本物具合をあげていく.
+泥棒の偽札造りに例えられる. $G$を泥棒, $D$を警察とした時, 以下の作業を繰り返すことで, 偽札の本物具合をあげていくといったものである.
 \begin{enumerate}
     \item 泥棒$G$が偽札を作る.
     \item 警察$D$が偽札であると見破る.
