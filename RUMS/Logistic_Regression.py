@@ -6,8 +6,8 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from matplotlib import pyplot as plt
 import pandas as pd
-ITER_NUM = 2500
-Clasfication_number = 10
+ITER_NUM = 3000
+Classification_number = 10
 
 
 def one_hot_vectorize(data, class_num):
@@ -39,8 +39,8 @@ class Logstic_Regression():
         X = copy(train_x.T)
         Y = train_y.T
         self.W = np.random.randint(-30, 30,
-                                   (Clasfication_number, len(train_x[0])))
-        self.b = np.random.randint(-50, 50, (Clasfication_number, 1))
+                                   (Classification_number, len(train_x[0])))
+        self.b = np.random.randint(-50, 50, (Classification_number, 1))
         for z in tqdm(range(ITER_NUM)):
             Z = np.dot(self.W, X) + self.b
             F = self.softmax(Z)
@@ -106,24 +106,22 @@ def main():
         plt.imshow(Photo.reshape(28, 28), cmap='gist_gray')
         plt.savefig("MNIST_sample{}.png".format(i + 1))
     """
-    Y = one_hot_vectorize(Y, Clasfication_number)
+    Y = one_hot_vectorize(Y, Classification_number)
     x_train, x_test, t_train, t_test = train_test_split(
         X, Y, test_size=0.3, random_state=0)
     model = Logstic_Regression()
     model.train(x_train, t_train, test_x=x_test, test_y=t_test)
-    """
     train_log_data = model.get_Log(log_type='train')
     val_log_data = model.get_Log(log_type='test')
-    plt.plot(train_log_data, label='train_loss',
+    plt.plot(train_log_data, label='train_score',
              color='red', linestyle='dashed')
-    plt.plot(val_log_data, label='test_loss')
+    plt.plot(val_log_data, label='test_score')
     plt.xlabel('Iteration number')
     plt.ylabel('Accuracy score')
     plt.legend()
-    """
     model.save_coef()
     # model.load_coef()
-    # plt.show()
+    plt.savefig('Logistic_Regression_MNIST.png')
 
 
 if __name__ == "__main__":

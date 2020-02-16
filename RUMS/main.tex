@@ -386,7 +386,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     が成立することである.
 \end{Definition+}
-\begin{Theorem+}(勾配降下法の最適化収束条件)\\
+\begin{Theorem+}(勾配降下法の最適化収束条件$\cite{GD}$)\\
     $\Hil$をヒルベルト空間とし, $f:\Hil\to\R$を$C^{\infty}$関数とする. 
     この時, $\nabla f$が$\beta$-Lipschitz連続ならば, 学習率$\alpha\in\left(0, \frac{2}{\beta}\right)$で最適解に弱収束する.
 \end{Theorem+}
@@ -408,28 +408,28 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{table}
 \end{Example+}
 \subsection{MNISTでの実験}
-MNISTとは下記のような0から9までの自然数が書かれた画像のデータセットの名前である. 
+MNISTとは下記のような0から9までの自然数が書かれた$28\times28$ピクセル画像のデータセットの名前である. 
 今回は, $m$値分類のロジスティック回帰を用いて、画像に書かれている文字を予測する問題を
 考える. ロジスティック回帰の損失関数$\Loss$を勾配降下法を用いて最小化するため, まずは損失関数の勾配を計算する.
 ここで, $\Hil\simeq\R^{m\times d + 1}$だから, $\Loss$を$\R^{m\times d + 1}$上の関数と考える.\
 \begin{figure}[htbp]
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 5.5cm]{MNIST_sample1.png}
+        \includegraphics[width = 5.3cm]{MNIST_sample1.png}
         \caption{数字の5}
     \end{minipage}
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 5.5cm]{MNIST_sample2.png}
+        \includegraphics[width = 5.3cm]{MNIST_sample2.png}
         \caption{数字の9}
     \end{minipage}
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 5.5cm]{MNIST_sample3.png}
+        \includegraphics[width = 5.3cm]{MNIST_sample3.png}
         \caption{数字の6}
     \end{minipage}
 \end{figure}
-\begin{Lemma+}\label{test}
+\begin{Lemma+}($\cite{MLR}$)\\\label{test}
     任意の$i\in\{1, 2, \cdots, m\}, j\in\{1, 2, \cdots, d\}$に対して以下が成立する.
     \begin{align*}
         \frac{\partial\Loss}{\partial w_{ij}} &= -\sum_{n = 1}^{N}\left(y_{ni} - f(x_{n})_{i}\right)x_{nj}\\
@@ -462,11 +462,12 @@ MNISTとは下記のような0から9までの自然数が書かれた画像の�
 \begin{align*}
     \frac{\partial\Loss}{\partial b} = -(Y - F)\mathbf{1}
 \end{align*}
-もいえる. これらを用いて学習した結果を以下に示す. 
+もいえる. これらを用いて学習した結果を以下に示す. また, この例からもわかるように機械学習においてパラメータの次元は
+非常に高次元なものとなる. (今回は$10\times784 + 10 = 7850$次元).
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 10.0cm]{Logstic_regression_MNIST.png}
-    \caption{$\alpha = 0.001$とした時の, MNSIT実験の結果}
+    \includegraphics[width = 10.0cm]{Logistic_Regression_MNIST.png}
+    \caption{$\alpha = 0.0001$とした時の, MNSIT実験の結果}
 \end{figure}
 \section{Deep Learning}
 ここから、高い表現能力を持つとされるニューラルネットワークについて説明する. 
@@ -492,7 +493,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \begin{align*}
         \Hil &= \left\{f:\X\to\Y~\middle|
         \begin{array}{l}
-            f(x) = W^{\top}g_{K}\circ g_{K - 1}\cdots\circ g_{1}(x) - b, g_{i} = \mu(W_{i}x + b_{i})\\
+            f(x) = W^{\top}g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) - b, g_{i} = \mu(W_{i}x + b_{i})\\
             W_{i}\in\R^{L_{i}\times L_{i - 1}}, b_{i}\in\R^{L_{i}}, W\in\R^{L_{K}}, b\in\R
         \end{array}
         \right\},\\
@@ -507,7 +508,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \begin{align*}
         \Hil &= \left\{f:\X\to\Y~\middle|
         \begin{array}{l}
-            f(x) = \psi(W g_{K}\circ g_{K - 1}\cdots\circ g_{1}(x) - b), g_{i} = \mu(W_{i}x + b_{i})\\
+            f(x) = \psi(W g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) - b), g_{i} = \mu(W_{i}x + b_{i})\\
             W_{i}\in\R^{L_{i}\times L_{i - 1}}, b_{i}\in\R^{L_{i}}, W\in\R^{m\times L_{K}}, b\in\R^{m}
         \end{array}
         \right\},\\
@@ -522,9 +523,23 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \begin{align*}
         \argmin_{f\in\Hil}\Loss(f)
     \end{align*}
-    を求める問題を深層学習と呼ぶ.
+    を求める問題を深層学習(Deep Learning)と呼ぶ.
 \end{Definition+}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 9.0cm, angle=90]{NN.png}
+    \caption{ニューラルネットワークの図}
+\end{figure}
+\begin{Remark+}(フレームワーク)\\
+    現在はニューラルネットワークを簡単に実装するための深層学習フレームワークという
+    ものがいくつか存在する. 代表なものとして, FacebookのPytorchや, GoogleのTensorflowなどがある.
+\end{Remark+}
 \subsection{The Universal Theorem of Neural Network}
+冒頭でも述べたが, 深層学習は前説まで紹介してきた機械学習の手法と
+比べて, 精度がよくなる. しかしながら, その数学的な理由については現在も研究途中である. 
+一方で, ニューラルネットの表現能力についてはいくつかの成果が出ており, その一つである
+普遍性定理を紹介する.
+
 
 \section{Generative Adversarial Networks}
 GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法である. 
@@ -549,14 +564,18 @@ $\X$を$d$次元線型空間とする.
 \section{Applications of GANs}
 
 \begin{thebibliography}{20}
+    \bibitem{UAT} G. Cybenko, Approximation by Superpositions of a Sigmoidal Function, Mathmatics of control, signal and systems, vol. 2, no. 4, 1989
     \bibitem{GAN} Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville and Yoshua Bengio. 
     Generative adversarial nets. In Advances in Neural Information Processing Systems, 2014.
     \bibitem{PGAN}Martin Arjovsky and Leon Bottou, Towards Principled Methods for Training Generative Adversarial Networks,
     International Conference on Learning Representations, 2017.
     \bibitem{SNGAN}Takeru Miyato, Toshiki Kataoka, Masanori Koyama and Yuichi Yoshida, Spectral Normalization for Generative Adversarial Networks, 
     International Conference on Learning Representations, 2018.
-    \bibitem{} 矢田部 浩平, 信号処理と最適化, http://www.sp.ipc.i.u-tokyo.ac.jp/\verb|~|saruwatari/SP-Grad2018\verb|_|09ProfYatabe.pdf, 早稲田大学 表現工学科, 2018.
-    \bibitem{} http://darden.hatenablog.com/entry/2018/01/25/222201
+    \bibitem{GD} 矢田部 浩平, 信号処理と最適化, http://www.sp.ipc.i.u-tokyo.ac.jp/\verb|~|saruwatari/SP-Grad2018\verb|_|09ProfYatabe.pdf, 早稲田大学 表現工学科, 2018.
+    \bibitem{MLR} darden, 多クラス分類ロジスティック回帰, \\
+    http://darden.hatenablog.com/entry/2018/01/25/222201, Pythonと機械学習, 2018
+    \bibitem{} Preferred Networks, ディープラーニング入門 Chainer チュートリアル,\\
+     https://tutorials.chainer.org/ja/index.html, 2019
 \end{thebibliography}
 
 \end{document}
