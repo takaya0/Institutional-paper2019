@@ -500,7 +500,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
         \Loss(f) &= \frac{1}{N}\sum_{i = 1}^{N}|f(x_i) - y_i|^2,
     \end{align*}
     ここで$\eta$は活性化関数である. $f\in\Hil$を回帰型(全結合)ニューラルネットワーク(Full-connected Neural Network for Regression)
-    と呼ぶ. 
+    と呼び, 各$g_{i}$を$f$の第$i$層(layer)と呼ぶ.
 \end{Definition+}
 \begin{Definition+}(分類型ニューラルネットワーク)\\
     機械学習空間$\MLsp$を以下のように定義する. $L = \{L_{1}, L_{2}, \cdots, L_{K}\}$を自然数列とする.
@@ -515,7 +515,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
         \Loss(f) &= -\sum_{n = 1}^{N}\sum_{k = 1}^{m}y_{nk}\log f(x_n)_{k},
     \end{align*}
     ここで$\eta$は活性化関数, $y_{i}$はone-hotベクトル, $\psi$はソフトマックス関数である. $f\in\Hil$を分類型(全結合)ニューラルネットワーク(Full-connected Neural Network for Classification)
-    と呼ぶ. 
+    と呼び, 回帰型の時と同様に各$g_{i}$を$f$の第$i$層と呼ぶ.
 \end{Definition+}
 以下, ニューラルネットと書けば, 分類, 回帰ニューラルネットワークのいずれかを表すものとする. 
 \begin{Definition+}(深層学習)\\
@@ -586,6 +586,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     が成立する. 
 \end{Theorem+}
+この定理からもわかる通り, ニューラルネットは1つの層で
 \section{Generative Adversarial Networks}
 GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法である. 
 その後, WGAN, DCGANといった様々な亜種が登場し, 現在も様々な手法が提案されている.
