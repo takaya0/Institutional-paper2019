@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  17 FEB 2020 01:08
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  17 FEB 2020 20:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -714,8 +714,8 @@ LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 244.
  [3]
-File: overfitting_PR.png Graphic file (type bmp)
-<overfitting_PR.png>
+File: Images/overfitting_PR.png Graphic file (type bmp)
+<Images/overfitting_PR.png>
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 290.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
@@ -725,51 +725,51 @@ LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 290.
  [4] [5]
-File: regulaer_PR.png Graphic file (type bmp)
-<regulaer_PR.png>
+File: Images/regulaer_PR.png Graphic file (type bmp)
+<Images/regulaer_PR.png>
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 7.39746pt on input line 325.
-File: underfitting_PR.png Graphic file (type bmp)
-<underfitting_PR.png>
+File: Images/underfitting_PR.png Graphic file (type bmp)
+<Images/underfitting_PR.png>
  [6] [7]
-File: Gradient_Decent.png Graphic file (type bmp)
-<Gradient_Decent.png>
+File: Images/Gradient_Decent.png Graphic file (type bmp)
+<Images/Gradient_Decent.png>
  [8]
-File: MNIST_sample1.png Graphic file (type bmp)
-<MNIST_sample1.png>
+File: Images/MNIST_sample1.png Graphic file (type bmp)
+<Images/MNIST_sample1.png>
 
 Overfull \hbox (20.60075pt too wide) in paragraph at lines 418--419
  [][] 
  []
 
-File: MNIST_sample2.png Graphic file (type bmp)
-<MNIST_sample2.png>
+File: Images/MNIST_sample2.png Graphic file (type bmp)
+<Images/MNIST_sample2.png>
 
 Overfull \hbox (20.60075pt too wide) in paragraph at lines 423--424
  [][] 
  []
 
-File: MNIST_sample3.png Graphic file (type bmp)
-<MNIST_sample3.png>
+File: Images/MNIST_sample3.png Graphic file (type bmp)
+<Images/MNIST_sample3.png>
 
 Overfull \hbox (20.60075pt too wide) in paragraph at lines 428--429
  [][] 
  []
 
 [9]
-File: Logistic_Regression_MNIST.png Graphic file (type bmp)
-<Logistic_Regression_MNIST.png>
+File: Images/Logistic_Regression_MNIST.png Graphic file (type bmp)
+<Images/Logistic_Regression_MNIST.png>
  [10] [11]
-File: NN.png Graphic file (type bmp)
-<NN.png>
- [12] [13] [14] (./main.aux) ) 
+File: Images/NN.png Graphic file (type bmp)
+<Images/NN.png>
+ [12] [13] [14] [15] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 20243 strings out of 493223
- 365083 string characters out of 6144415
- 465663 words of memory out of 5000000
- 23813 multiletter control sequences out of 15000+600000
+ 20237 strings out of 493223
+ 364892 string characters out of 6144415
+ 465667 words of memory out of 5000000
+ 23814 multiletter control sequences out of 15000+600000
  24825 words of font info for 124 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  55i,16n,82p,3270b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (14 pages, 42924 bytes).
+Output written on main.dvi (15 pages, 46844 bytes).

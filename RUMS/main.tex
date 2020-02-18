@@ -286,7 +286,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 が小さくなってしまうことを過学習(overfitting)という. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 9.0cm]{overfitting_PR.png}
+    \includegraphics[width = 9.0cm]{Images/overfitting_PR.png}
     \caption{$d = 4$の時の多項式回帰の過学習}
 \end{figure}
 過学習を防ぐための手法が正則化である.
@@ -294,7 +294,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     $\Loss:\Hil\to\R$を損失関数とする. $\Loss^{R} := \Loss + L^{R}$とする.
     この時, $\Loss^{R}$を$\Loss$の正則化と呼び, $L^R$を正則化項と呼ぶ.
 \end{Definition+}
-\begin{Example+}(Lasso正則化多項式回帰)\\
+\begin{Example+}(Ridge正則化多項式回帰)\\
     $\lambda\in\R^{+}$, $d\in\N$を任意にとる.機械学習空間$\MLsp$を以下のように定義する.\\
     $\X = \R, \Y = \R$, 
     \begin{align*}
@@ -306,7 +306,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \begin{align*}
         \argmin_{f\in\Hil}\Loss(f)
     \end{align*}
-    を求める問題をLasso正則化多項式回帰という. 通常の多項式回帰の時と同様に, $X = [\phi_{1}(x_1), \phi_{2}(x_{2}), \cdots, \phi_{N}(x_N)]^{\top}\in\R^{N\times d}$とし, 
+    を求める問題をRidge正則化多項式回帰という. 通常の多項式回帰の時と同様に, $X = [\phi_{1}(x_1), \phi_{2}(x_{2}), \cdots, \phi_{N}(x_N)]^{\top}\in\R^{N\times d}$とし, 
     $\mathbf{y} = (y_{1}, y_{2}, \cdots, y_{N})^{\top}\in\R^{N}$とする. この時, 最適仮説$f^{*}$は
     $W = (X^\top X + \lambda I)^{-1}X^\top\mathbf{y}$とすれば
     \begin{align*}
@@ -317,8 +317,8 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 正則化の結果が以下のグラフである.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 7.5cm]{regulaer_PR.png}
-    \caption{$\lambda = 700$, $d = 4$の時のLasso正則化多項式回帰}
+    \includegraphics[width = 7.5cm]{Images/regulaer_PR.png}
+    \caption{$\lambda = 700$, $d = 4$の時のRidge正則化多項式回帰}
 \end{figure}
 このように正則化をすることで, パラメータが大きくなりすぎることを防ぐことで過学習を防ぐことができる.
 \begin{Remark+}(未学習について)\\
@@ -327,8 +327,8 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     未学習とは訓練データに対してモデルが十分に適合できていないことをいう.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=7.5cm]{underfitting_PR.png}
-        \caption{$\lambda = 30000$, $d = 4$の時のLasso正則化多項式回帰の未学習}
+        \includegraphics[width=7.5cm]{Images/underfitting_PR.png}
+        \caption{$\lambda = 30000$, $d = 4$の時のRidge正則化多項式回帰の未学習}
     \end{figure}
     このように, 正則化パラメータは適切に選ぶことが大切である. 
 \end{Remark+}
@@ -395,7 +395,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     本来の最適値である$x = 0$に近づいているのが分かる.
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 8.5cm]{Gradient_Decent.png}
+        \includegraphics[width = 8.5cm]{Images/Gradient_Decent.png}
         \caption{$\alpha = 0.001$とした時の勾配降下法の結果.}
     \end{figure}
     \begin{table}[H]
@@ -415,17 +415,17 @@ MNISTとは下記のような0から9までの自然数が書かれた$28\times2
 \begin{figure}[htbp]
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 5.3cm]{MNIST_sample1.png}
+        \includegraphics[width = 5.3cm]{Images/MNIST_sample1.png}
         \caption{数字の5}
     \end{minipage}
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 5.3cm]{MNIST_sample2.png}
+        \includegraphics[width = 5.3cm]{Images/MNIST_sample2.png}
         \caption{数字の9}
     \end{minipage}
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 5.3cm]{MNIST_sample3.png}
+        \includegraphics[width = 5.3cm]{Images/MNIST_sample3.png}
         \caption{数字の6}
     \end{minipage}
 \end{figure}
@@ -466,7 +466,7 @@ MNISTとは下記のような0から9までの自然数が書かれた$28\times2
 非常に高次元なものとなる. (今回は$10\times784 + 10 = 7850$次元).
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 10.0cm]{Logistic_Regression_MNIST.png}
+    \includegraphics[width = 10.0cm]{Images/Logistic_Regression_MNIST.png}
     \caption{$\alpha = 0.0001$とした時の, MNSIT実験の結果}
 \end{figure}
 \section{Deep Learning}
@@ -493,13 +493,13 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \begin{align*}
         \Hil &= \left\{f:\X\to\Y~\middle|
         \begin{array}{l}
-            f(x) = W^{\top}g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) - b, g_{i} = \mu(W_{i}x + b_{i})\\
+            f(x) = W^{\top}g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) - b, g_{i} = \eta(W_{i}x + b_{i})\\
             W_{i}\in\R^{L_{i}\times L_{i - 1}}, b_{i}\in\R^{L_{i}}, W\in\R^{L_{K}}, b\in\R
         \end{array}
         \right\},\\
         \Loss(f) &= \frac{1}{N}\sum_{i = 1}^{N}|f(x_i) - y_i|^2,
     \end{align*}
-    ここで$\mu$は活性化関数である. $f\in\Hil$を回帰型(全結合)ニューラルネットワーク(Full-connected Neural Network for Regression)
+    ここで$\eta$は活性化関数である. $f\in\Hil$を回帰型(全結合)ニューラルネットワーク(Full-connected Neural Network for Regression)
     と呼ぶ. 
 \end{Definition+}
 \begin{Definition+}(分類型ニューラルネットワーク)\\
@@ -508,18 +508,18 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \begin{align*}
         \Hil &= \left\{f:\X\to\Y~\middle|
         \begin{array}{l}
-            f(x) = \psi(W g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) - b), g_{i} = \mu(W_{i}x + b_{i})\\
+            f(x) = \psi(W g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) - b), g_{i} = \eta(W_{i}x + b_{i})\\
             W_{i}\in\R^{L_{i}\times L_{i - 1}}, b_{i}\in\R^{L_{i}}, W\in\R^{m\times L_{K}}, b\in\R^{m}
         \end{array}
         \right\},\\
         \Loss(f) &= -\sum_{n = 1}^{N}\sum_{k = 1}^{m}y_{nk}\log f(x_n)_{k},
     \end{align*}
-    ここで$\mu$は活性化関数, $y_{i}$はone-hotベクトル, $\psi$はソフトマックス関数である. $f\in\Hil$を分類型(全結合)ニューラルネットワーク(Full-connected Neural Network for Classification)
+    ここで$\eta$は活性化関数, $y_{i}$はone-hotベクトル, $\psi$はソフトマックス関数である. $f\in\Hil$を分類型(全結合)ニューラルネットワーク(Full-connected Neural Network for Classification)
     と呼ぶ. 
 \end{Definition+}
 以下, ニューラルネットと書けば, 分類, 回帰ニューラルネットワークのいずれかを表すものとする. 
 \begin{Definition+}(深層学習)\\
-    ニューラルネットワークが$K > 1$の時に
+    ニューラルネットワークが$K \geq 3$の時に
     \begin{align*}
         \argmin_{f\in\Hil}\Loss(f)
     \end{align*}
@@ -527,7 +527,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \end{Definition+}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 9.0cm, angle=90]{NN.png}
+    \includegraphics[width = 9.0cm, angle=90]{Images/NN.png}
     \caption{ニューラルネットワークの図}
 \end{figure}
 \begin{Remark+}(フレームワーク)\\
@@ -538,9 +538,54 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 冒頭でも述べたが, 深層学習は前説まで紹介してきた機械学習の手法と
 比べて, 精度がよくなる. しかしながら, その数学的な理由については現在も研究途中である. 
 一方で, ニューラルネットの表現能力についてはいくつかの成果が出ており, その一つである
-普遍性定理を紹介する.
-
-
+普遍性定理を紹介する. 証明については$\cite{UAT}$や$\cite{DUAT}$を見て欲しい.
+\begin{Definition+}(符号付き測度)\\
+    $(X, \F)$を可測空間とする. $\mu:\F\to\R$が, 任意の互いに素な$\{A_{n}\}_{n\in\N}\subset\F$に対して
+    \begin{align*}
+        \mu\left(\bigcup_{n\in\N}A_{n}\right) = \sum_{n\in\N}\mu(A_{n})
+    \end{align*}
+    を満たすとき, $\mu$を符号付き測度という. 
+\end{Definition+}
+\begin{Definition+}(正則Borel測度)\\
+    $(X, \mathcal{O})$を位相空間とする. Borel集合族$\mathcal{B}(X)$上のBorel測度$\mu$が
+    \begin{align*}
+        \forall A\in\mathcal{B}(X), \mu(A) &= \inf\{\mu(U)\mid U\supset A, U\in\mathcal{O}\} \\
+                                           &= \sup\{\mu(K)\mid K\subset A, K\text{ is compact and closed}\}
+    \end{align*}
+    を満たす時, 正則Borel測度という. 
+\end{Definition+}
+\begin{Definition+}(正則符号付きBorel測度)\\
+    $(X, \mathcal{O})$を位相空間とする. $(X, \mathcal{B}(X))$上の符号付き測度$\mu$が
+    正則符号付きBorel測度であるとは, 以下で定義される$\mathcal{B}(X)$上の有限測度$\mu^{+}$, $\mu^{-}$が
+    共に正則Borel測度になることである.
+    \begin{align*}
+        \mu^{+}(A) &= \sup\{\mu(B)\mid B\in\mathcal{B}(X), B\subset A\},\\
+        \mu^{-}(A) &= -\inf\{\mu(B)\mid B\in\mathcal{B}(X), B\subset A\}.
+    \end{align*}
+    また, $X$上の正則符号付き測度全体の集合を$M(X)$と表記する.
+\end{Definition+}
+\begin{Definition+}(Sigmoidal)\\
+    関数$\sigma:\R\to\R$がシグモイド的関数であるとは
+    \begin{align*}
+        \lim_{t\to+\infty} \sigma(t) = 1\hspace{10pt}\lim_{t\to-\infty} \sigma(t) = 0
+    \end{align*}
+    を満たすことである.
+\end{Definition+}
+\begin{Definition+}(discriminatory)\\
+    $X$を$\R^n$の部分空間とする. 関数$\sigma:\R\to\R$がdiscriminatory関数であるとは
+    \begin{align*}
+        \forall\mu\in M(X), \left(\forall y\in\R^n, \theta\in\R, \int_{X}\sigma(\inner<x, y> + \theta)d\mu(x)\right)\Longrightarrow\mu = 0
+    \end{align*}
+    が成立することである. 
+\end{Definition+}
+\begin{Theorem+}(普遍性定理)\\
+    $X\subset\R^n$をコンパクト連結部分空間とし, $\Hil$を$K = 1$の時の回帰型ニューラルネットの仮説空間とする. 
+    この時, 活性化関数$\eta$がシグモイド的関数ならば, 
+    \begin{align*}
+        \forall f\in C(X), \forall\e> 0, \exists G\in\Hil\text{ s.t. } \sup_{x\in X}|f(x) - G(x)| < \e
+    \end{align*}
+    が成立する. 
+\end{Theorem+}
 \section{Generative Adversarial Networks}
 GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法である. 
 その後, WGAN, DCGANといった様々な亜種が登場し, 現在も様々な手法が提案されている.
@@ -564,6 +609,8 @@ $\X$を$d$次元線型空間とする.
 \section{Applications of GANs}
 
 \begin{thebibliography}{20}
+    \bibitem{MLR} darden, 多クラス分類ロジスティック回帰, \\
+    http://darden.hatenablog.com/entry/2018/01/25/222201, Pythonと機械学習, 2018
     \bibitem{UAT} G. Cybenko, Approximation by Superpositions of a Sigmoidal Function, Mathmatics of control, signal and systems, vol. 2, no. 4, 1989
     \bibitem{GAN} Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville and Yoshua Bengio. 
     Generative adversarial nets. In Advances in Neural Information Processing Systems, 2014.
@@ -572,8 +619,8 @@ $\X$を$d$次元線型空間とする.
     \bibitem{SNGAN}Takeru Miyato, Toshiki Kataoka, Masanori Koyama and Yuichi Yoshida, Spectral Normalization for Generative Adversarial Networks, 
     International Conference on Learning Representations, 2018.
     \bibitem{GD} 矢田部 浩平, 信号処理と最適化, http://www.sp.ipc.i.u-tokyo.ac.jp/\verb|~|saruwatari/SP-Grad2018\verb|_|09ProfYatabe.pdf, 早稲田大学 表現工学科, 2018.
-    \bibitem{MLR} darden, 多クラス分類ロジスティック回帰, \\
-    http://darden.hatenablog.com/entry/2018/01/25/222201, Pythonと機械学習, 2018
+    \bibitem{DUAT} mochimochidog, ニューラルネットワークの普遍性定理, \\
+    https://qiita.com/mochimochidog/items/ca04bf3df7071041561a, Qiita, 2020.
     \bibitem{} Preferred Networks, ディープラーニング入門 Chainer チュートリアル,\\
      https://tutorials.chainer.org/ja/index.html, 2019
 \end{thebibliography}
