@@ -12,7 +12,7 @@
 %------------------------
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage[psamsfonts]{amssymb}
+%\usepackage[psamsfonts]{amssymb}
 \usepackage{color}
 \usepackage{ascmac}
 \usepackage{amsfonts}
@@ -371,6 +371,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
         \REQUIRE F: smooth function on $\R^{d}$
         \REQUIRE $0<\alpha<1$ : learning rate 
         \REQUIRE $\theta$: Initial parameter vector
+        \STATE $\theta\leftarrow\theta_{0}$
         \WHILE{$\theta$ not converged} 
         \STATE $\theta\leftarrow\theta - \alpha\nabla F(\theta)$ 
         \ENDWHILE
@@ -536,7 +537,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \end{Remark+}
 \subsection{The Universal Theorem of Neural Network}
 冒頭でも述べたが, 深層学習は前説まで紹介してきた機械学習の手法と
-比べて, 精度がよくなる. しかしながら, その数学的な理由については現在も研究途中である. 
+比べて, 精度がよくなることが知られている. しかしながら, その数学的な理由については現在も研究途中である. 
 一方で, ニューラルネットの表現能力についてはいくつかの成果が出ており, その一つである
 普遍性定理を紹介する. 証明については$\cite{UAT}$や$\cite{DUAT}$を見て欲しい.
 \begin{Definition+}(符号付き測度)\\
@@ -586,7 +587,58 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     が成立する. 
 \end{Theorem+}
-この定理からもわかる通り, ニューラルネットは1つの層で
+この定理からもわかる通り, ニューラルネットは1つの層でどんな連続関数でも近似できるほどの高い近似能力
+を持つ. しかしながら実用上は, 実際に構成するのは非常に困難であるため, 層を増やすことで
+表現能力を向上させる.
+\subsection{確率的最適化}
+前節でも述べてきたが, 機械学習において10000を超えるパラメータの勾配を求めなければならないことも珍しくはない.
+そこで, 確率的最適化というものを用いて計算量を減らすことを考える.　
+確率的最適化手法には様々なものが存在するが,ここではSGDやAdam$\cite{Adam}$について紹介する.
+\begin{Definition+}(ミニバッチ)\\
+    データ$D$に対して, 分割部分集合列$\{D_{k}\}_{k = 1}^{K}$のことを
+    $D$のミニバッチと呼び, $K$をバッチサイズ(batch size)とよぶ. 
+\end{Definition+}
+以下, $\MLsp$を機械学習空間とする. 
+\begin{algorithm}[H]
+    \caption{Stchastic Gradient Decent}
+    \begin{algorithmic}
+        \STATE $0 < \alpha\leq 1$: learning rate
+        \REQUIRE $\theta_{0}$: Initial parameter vector
+        \STATE $\theta\leftarrow\theta_{0}$
+        \WHILE{$\theta$ not converged}
+        \STATE decompose $D$ to mini batch $D_{batch}$ randomly.
+        \FOR{$D_{batch}$ in $D$}
+        \STATE $\theta\leftarrow\theta - \alpha\nabla_{\theta}\mathcal{L}_{D_{batch}}$
+        \ENDFOR
+        \ENDWHILE
+        \RETURN $\theta$
+    \end{algorithmic}
+\end{algorithm}
+\begin{algorithm}[H]
+    \caption{Adaptive Moment Estimation}
+    \begin{algorithmic}
+        \REQUIRE $0<\alpha\leq 1$ : learning rate
+        \REQUIRE $\beta_{1}, \beta_{2}\in[0, 1)$
+        \REQUIRE $\theta_{t}$: Initial parameter vector
+        \STATE $m_{0}\leftarrow 0$
+        \STATE $v_{0}\leftarrow 0$
+        \STATE $t\leftarrow 0$
+        \WHILE{$\theta_{0}$ not converged}
+        \STATE $t\leftarrow t + 1$
+        \STATE decompose $D$ to mini batch $D_{batch}$ randomly.
+        \FOR{$D_{batch}$ in $D$}
+        \STATE $g_{t}\leftarrow \nabla_{\theta}\mathcal{L}_{D_{batch}}$
+        \STATE $m_{t}\leftarrow\beta_{1} m_{t - 1} + (1 - \beta_{1})g_{t}$
+        \STATE $v_{t}\leftarrow\beta_{2} v_{t - 1} + (1 - \beta_{2})g_{t}^{2}$
+        \STATE $\hat{m_{t}}\leftarrow m_{t}/(1 - \beta_{1}^{t})$
+        \STATE $\hat{v_{t}}\leftarrow v_{t}/(1 - \beta_{2}^{t})$
+        \STATE $\theta_{t}\leftarrow\theta_{t - 1}\hat{m_{t}}/(\sqrt{\hat{v_{t}}} + \e)$
+        \ENDFOR
+        \STATE $\theta\leftarrow\theta_{t}$
+        \ENDWHILE
+        \RETURN $\theta$
+    \end{algorithmic}
+\end{algorithm}
 \section{Generative Adversarial Networks}
 GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法である. 
 その後, WGAN, DCGANといった様々な亜種が登場し, 現在も様々な手法が提案されている.
@@ -612,6 +664,8 @@ $\X$を$d$次元線型空間とする.
 \begin{thebibliography}{20}
     \bibitem{MLR} darden, 多クラス分類ロジスティック回帰, \\
     http://darden.hatenablog.com/entry/2018/01/25/222201, Pythonと機械学習, 2018
+    \bibitem{Adam} Diederik P. Kingma and Jimmy Ba, Adam: A Method for Stochastic Optimization, 
+    International Conference on Learning Representations, 2015.
     \bibitem{UAT} G. Cybenko, Approximation by Superpositions of a Sigmoidal Function, Mathmatics of control, signal and systems, vol. 2, no. 4, 1989
     \bibitem{GAN} Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville and Yoshua Bengio. 
     Generative adversarial nets. In Advances in Neural Information Processing Systems, 2014.
@@ -623,7 +677,7 @@ $\X$を$d$次元線型空間とする.
     \bibitem{DUAT} mochimochidog, ニューラルネットワークの普遍性定理, \\
     https://qiita.com/mochimochidog/items/ca04bf3df7071041561a, Qiita, 2020.
     \bibitem{} Preferred Networks, ディープラーニング入門 Chainer チュートリアル,\\
-     https://tutorials.chainer.org/ja/index.html, 2019
+    https://tutorials.chainer.org/ja/index.html, 2019
 \end{thebibliography}
 
 \end{document}

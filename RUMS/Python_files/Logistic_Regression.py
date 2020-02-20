@@ -6,7 +6,7 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from matplotlib import pyplot as plt
 import pandas as pd
-ITER_NUM = 3000
+ITER_NUM = 30
 Classification_number = 10
 
 
@@ -23,7 +23,7 @@ class Logstic_Regression():
     def __init__(self):
         self.train_Log = []
         self.Val_Log = []
-        self.alpha = 0.0001
+        self.alpha = 0.001
 
     def softmax(self, Z):
         """
@@ -41,7 +41,7 @@ class Logstic_Regression():
         self.W = np.random.randint(-30, 30,
                                    (Classification_number, len(train_x[0])))
         self.b = np.random.randint(-50, 50, (Classification_number, 1))
-        for z in tqdm(range(ITER_NUM)):
+        for _ in tqdm(range(ITER_NUM)):
             Z = np.dot(self.W, X) + self.b
             F = self.softmax(Z)
             self.W = self.W - self.alpha * np.dot(F - Y, X.T)
@@ -119,9 +119,10 @@ def main():
     plt.xlabel('Iteration number')
     plt.ylabel('Accuracy score')
     plt.legend()
-    model.save_coef()
+    plt.show()
+    # model.save_coef()
     # model.load_coef()
-    plt.savefig('Logistic_Regression_MNIST.png')
+    # plt.savefig('Logistic_Regression_MNIST.png')
 
 
 if __name__ == "__main__":

@@ -3,8 +3,25 @@ from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 
+ITER_NUM = 1000
+
+
 def Func(x):
-    return np.power(x[0], 2)
+    return np.sin(x) + np.power(x, 2)
+
+
+def gradient_func(x):
+    return np.cos(x) + 2 * x
+
+
+class Gradient_Decent_Method():
+    def Gradient_Decent(self, alpha=0.001):
+        theta = np.random.randint(1, 100)
+        Log = [theta]
+        for _ in range(ITER_NUM):
+            theta = theta - alpha * gradient_func(theta)
+            Log.append(theta)
+        self.Log = np.array(Log)
 
 
 class Optimaization_Method():

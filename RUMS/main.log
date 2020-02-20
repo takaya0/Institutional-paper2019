@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  18 FEB 2020 14:56
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  20 FEB 2020 15:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -113,19 +113,7 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@postskip=\skip48
 \thm@headsep=\skip49
 \dth@everypar=\toks25
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-
-
-Package amsfonts Warning: The 'psamsfonts' option is obsolete in AMSFonts v3.
-
-\symAMSa=\mathgroup5
-\symAMSb=\mathgroup6
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 105.
-)) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
  (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -156,9 +144,17 @@ Package: tascmac 2018/03/09 v2.0h ascmac package (community edition)
 \@@bwsp=\box54
 \@bcal=\count104
 \shaderule=\dimen138
-)) (/usr/local/texlive/2019/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+)) (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 105.
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup7
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
@@ -738,21 +734,21 @@ File: Images/Gradient_Decent.png Graphic file (type bmp)
 File: Images/MNIST_sample1.png Graphic file (type bmp)
 <Images/MNIST_sample1.png>
 
-Overfull \hbox (20.60075pt too wide) in paragraph at lines 418--419
+Overfull \hbox (20.60075pt too wide) in paragraph at lines 419--420
  [][] 
  []
 
 File: Images/MNIST_sample2.png Graphic file (type bmp)
 <Images/MNIST_sample2.png>
 
-Overfull \hbox (20.60075pt too wide) in paragraph at lines 423--424
+Overfull \hbox (20.60075pt too wide) in paragraph at lines 424--425
  [][] 
  []
 
 File: Images/MNIST_sample3.png Graphic file (type bmp)
 <Images/MNIST_sample3.png>
 
-Overfull \hbox (20.60075pt too wide) in paragraph at lines 428--429
+Overfull \hbox (20.60075pt too wide) in paragraph at lines 429--430
  [][] 
  []
 
@@ -762,14 +758,14 @@ File: Images/Logistic_Regression_MNIST.png Graphic file (type bmp)
  [10] [11]
 File: Images/NN.png Graphic file (type bmp)
 <Images/NN.png>
- [12] [13] [14] [15] (./main.aux) ) 
+ [12] [13] [14] [15] [16] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 20237 strings out of 493223
- 364892 string characters out of 6144415
- 465667 words of memory out of 5000000
- 23814 multiletter control sequences out of 15000+600000
+ 20238 strings out of 493223
+ 364898 string characters out of 6144415
+ 465649 words of memory out of 5000000
+ 23815 multiletter control sequences out of 15000+600000
  24825 words of font info for 124 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  55i,16n,82p,3270b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (15 pages, 47148 bytes).
+Output written on main.dvi (16 pages, 52096 bytes).
