@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  20 FEB 2020 15:23
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  22 FEB 2020 19:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -758,14 +758,31 @@ File: Images/Logistic_Regression_MNIST.png Graphic file (type bmp)
  [10] [11]
 File: Images/NN.png Graphic file (type bmp)
 <Images/NN.png>
- [12] [13] [14] [15] [16] (./main.aux) ) 
+ [12] [13] [14] [15] [16]
+
+LaTeX Font Warning: Font shape `JT1/hmc/m/it' undefined
+(Font)              using `JT1/hmc/m/n' instead on input line 700.
+
+
+LaTeX Font Warning: Font shape `JY1/hmc/m/it' undefined
+(Font)              using `JY1/hmc/m/n' instead on input line 700.
+
+LaTeX Font Info:    Font shape `JT1/hmc/m/it' will be
+(Font)              scaled to size 9.24683pt on input line 721.
+LaTeX Font Info:    Font shape `JY1/hmc/m/it' will be
+(Font)              scaled to size 9.24683pt on input line 721.
+[17] [18] (./main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 20238 strings out of 493223
- 364898 string characters out of 6144415
- 465649 words of memory out of 5000000
- 23815 multiletter control sequences out of 15000+600000
- 24825 words of font info for 124 fonts, out of 8000000 for 9000
+ 20246 strings out of 493223
+ 364985 string characters out of 6144415
+ 466684 words of memory out of 5000000
+ 23822 multiletter control sequences out of 15000+600000
+ 25171 words of font info for 125 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  55i,16n,82p,3270b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (16 pages, 52096 bytes).
+Output written on main.dvi (18 pages, 60484 bytes).

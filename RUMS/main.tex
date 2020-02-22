@@ -137,7 +137,7 @@
 %documenet 
 %----------------------------
 % Your main code must be written between begin document and end document.
-\title{Generative Adversarial Networks}
+\title{Generative Adversarial Networks and its Instability}
 \author{小泉 孝弥}
 \date{}
 \begin{document}
@@ -147,7 +147,7 @@
 皆さんは, GANというものを知っているだろうか. GAN\footnote{「ぎゃん」と読む人と, 「がん」と読む人がいるが, ここでは「ぎゃん」とすることにする.}とは敵対的生成ネットワーク(Generative Adversarial Networks)のこと
 であり, 2014年に登場した人工知能の技術である. 「敵対的」という単語がついている通り, 2つの
 ニューラルネットワークという関数を競わせることで, 学習させていく手法である. 
-今回の方程では, まず, 機械学習についての説明をする. その後, GANの数学的な定式化の説明をし,最後にGANの学習を安定させる方法について述べる.
+今回の方程では, まず, 機械学習についての説明をする. その後, GANの数学的な定式化及び学習の不安定性について述べる.
 \section{Fundermetal concepts of Machine Learning}
 この節では機械学習の数学的な定式化を行う. $\Probsp$を完備な確率空間とする.
 $d$, $m$を自然数とする.
@@ -195,9 +195,9 @@ $d$, $m$を自然数とする.
 \begin{Remark+}(訓練データとテストデータ)\\
     機械学習で学習を行う際は, データ$D$を全て使って学習させるのではなく, 
     データを訓練データ$D_{\text{Train}}$とテストデータ$D_{\text{Test}}$に分ける. 
-    訓練データはモデルの学習に用いて, テストデータはモデルの制度の確認のために用いる. 
+    訓練データはモデルの学習に用いて, テストデータはモデルの精度の確認のために用いる. 
 \end{Remark+}
-\section{教師あり機械学習の具体例}
+\section{Some Examples}
 前節では, 機械学習の抽象的な枠組みを紹介したが, この説では機械学習空間の具体例を述べる.
 $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとする.
 
@@ -217,7 +217,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     を求める問題を単回帰分析という. 単回帰分析の最適仮説$f^{*}\in\Hil$は
     \begin{align*}
-        f^{*}(w) = \frac{\sum_{i = 1}^{N}x_{i}y_{i}}{\sum_{i = 1}^{N}x_{i}^2}w
+        f^{*}(x) = \frac{\sum_{i = 1}^{N}x_{i}y_{i}}{\sum_{i = 1}^{N}x_{i}^2}w
     \end{align*}
     となる. また, $\Hil\simeq\R$である.
 \end{Example+}
@@ -276,7 +276,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     である. 
 \end{Example+}
 \begin{Remark+}(ハイパーパラメータと学習パラメータ)\\
-    多項式回帰の多項式の次数$d\in$や基底関数$\{\phi_{n}\}_{n = 1}^{d}$のように
+    多項式回帰の多項式の次数$d\in\N$や基底関数$\{\phi_{n}\}_{n = 1}^{d}$のように
     コンピュータに学習させるのではなく, 機械学習モデルの設計者が設定するパラメータのことを
     ハイパーパラメータと呼ぶ. 一方, $W\in\R^{d + 1}$のように, データからコンピュータが自動で学習
     するパラメータのことを学習パラメータと呼ぶ.
@@ -470,6 +470,8 @@ MNISTとは下記のような0から9までの自然数が書かれた$28\times2
     \includegraphics[width = 10.0cm]{Images/Logistic_Regression_MNIST.png}
     \caption{$\alpha = 0.0001$とした時の, MNSIT実験の結果}
 \end{figure}
+この例からもわかる通り, 機械学習において$\R^d$上の関数を学習するのではなく
+意味のある$\R^d$の部分集合上の関数(今回なら$[0, 1]^d$)を学習していることがほとんどである.
 \section{Deep Learning}
 ここから、高い表現能力を持つとされるニューラルネットワークについて説明する. 
 ニューラルネットワークとはアフィン変換と活性化関数と呼ばれる関数の合成関数である. 前節と同様に
@@ -619,11 +621,11 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \begin{algorithmic}
         \REQUIRE $0<\alpha\leq 1$ : learning rate
         \REQUIRE $\beta_{1}, \beta_{2}\in[0, 1)$
-        \REQUIRE $\theta_{t}$: Initial parameter vector
+        \REQUIRE $\theta_{0}$: Initial parameter vector
         \STATE $m_{0}\leftarrow 0$
         \STATE $v_{0}\leftarrow 0$
         \STATE $t\leftarrow 0$
-        \WHILE{$\theta_{0}$ not converged}
+        \WHILE{$\theta_{t}$ not converged}
         \STATE $t\leftarrow t + 1$
         \STATE decompose $D$ to mini batch $D_{batch}$ randomly.
         \FOR{$D_{batch}$ in $D$}
@@ -651,15 +653,88 @@ GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法であ
 \end{enumerate}
 これらは以下のように$\min$-$\max$ゲームとして定式化される.
 \subsection{GANの定式化}
-$\Probsp$を完備な確率空間とする.  
-$\X$を$d$次元線型空間とする. 
+この節では$D$は教師なしデータとする. また, データの確率分布を$\mathbb{P}_{data}$とする. 
+\begin{Definition+}(Generative Adversarial Networks)\\
+    機械学習空間$\MLsp$を以下のように定義する$\cite{SNGAN}$. \\ 
+    $\X\text{は}\R^{d}\text{の部分空間}$, $\Y = [0, 1]$, 
+    \begin{align*}
+        \Hil_{G} &= \{G:\mathcal{Z}\to\X~\mid G\text{はニューラルネット}\},\\
+        \Hil_{D} &= \{D:\X\to\Y~\mid D\text{はニューラルネット}\},\\
+        \Loss(D, G) &= \mathbb{E}_{x\sim \mathbb{P}_{data}}[\log D(x)] + \mathbb{E}_{x^{\prime}\sim \mathbb{P}_{G}}[\log(1 - D(x^{\prime}))],
+    \end{align*}
+    ここで, $\mathcal{Z}$は潜在空間と呼ばれる$\R^d$の部分空間である. 
+    また, $G\in\Hil_{1}$と一様分布(または正規分布)に従う確率変数$Z:\Omega\to\mathcal{Z}$に対し, $G(Z)$が従う確率分布を$\mathbb{P}_{G}$とする. $G\in\Hil_{G}$を
+    Generatorと呼び, $D\in\Hil_{D}$をDiscrimatorと呼ぶ.
+    $\Hil = \Hil_{D}\times\Hil_{G}$とした時, 機械学習空間$\MLsp$を敵対的生成ネットワークという. 
+\end{Definition+}
+\begin{Remark+}(Discrimatorの定義域について)\\
+    GANの定義上の$\X$はただの部分空間ではなく, 以下の条件を満たすものとする.
+    \begin{align*}
+        \forall G\in\Hil_{G}, D(\X)\subset\text{supp}(p_{data})\cap\text{supp}(p_{G})
+    \end{align*}
+    ここで, $\text{supp}(f) \coloneqq\{x\in\X\mid f(x)\neq0\}$である.
+\end{Remark+}
+GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることである. そのために, 以下のmin-maxゲームを解くことを考える. 
 \begin{align*}
-    \Hil_1 &= \{G:\mathcal{Z}\to\X~\mid G\text{はニューラルネット}\},\\
-    \Hil_{2} &= \{D:\X\to [0, 1]~\mid D\text{はニューラルネット}\}
+    \argmin_{D\in\Hil_{D}}\argmax_{G\in\Hil_{G}}\Loss.
 \end{align*}
-ここで、$\mathcal{Z}$は潜在空間と呼ばれる$\R^{d}$の線型部分空間である.
-また, 確率変数$Z:\Omega\to\mathcal{Z}$に対し, $g(Z)$が従う確率分布を$\mathbb{P}_{}$
-\section{Applications of GANs}
+\begin{Remark+}(GeneratorとDiscrimatorの役割について)\\
+    Generator $G\in\Hil_{G}$の役割は, $z\in\mathcal{Z}$からデータとよく似た偽物$G(z)\in\X$を
+    作成することである. 一方, Discrimator $D\in\Hil_{D}$の役割は, $x\in\X$が本物のデータなのかGeneratorが
+    作った偽物であるのかを判断することである. そのために, $X\sim\mathbb{P}_{\X}$が本物である確率を学習する.(すなわち, $\X$上の確率測度の近似)
+\end{Remark+}
+\begin{Definition+}(最適Discrimator)\\
+    $\MLsp$をGANとし, $G\in\Hil_{G}$とする. $D_{G}^{*}\in\Hil_{D}$が
+    \begin{align*}
+        \forall D\in\Hil_{D}, \Loss(D_{G}^{*}, G) \geq \Loss(D, G)
+    \end{align*}
+    を満たす時, $G$に関しての最適Discrimatorであるという.
+\end{Definition+}
+\begin{Proposition+}($\cite{GAN}$)\label{ODis}\\
+    $\MLsp$をGANとし, $G\in\Hil_{G}$とする. この時, $\text{supp}(p_{data})\cup\text{supp}(p_{G})$上の最適Discrimatorは以下で与えられる.
+    \begin{align*}
+        D_{G}^{*}(x) = \frac{p_{data}(x)}{p_{data}(x) + p_{G}(x)},
+    \end{align*}
+    ここで, $p_{data}$は$\mathbb{P}_{data}$の確率密度関数であり, $p_{G}$は$\mathbb{P}_{G}$の確率密度関数である.
+\begin{proof}
+    期待値の計算から
+    \begin{align*}
+        \Loss(G, D) &= \int_{\X}p_{data}(x)\log(D(x))dx + \int_{\X}p_{G}(x)\log(1 - D(x))dx\\
+                    &= \int_{\X}p_{data}(x)\log(D(x)) + p_{G}(x)\log(1 - D(x))dx
+    \end{align*}
+    を得る. ここで, 関数$F(a, b)(y) = a\log(y) + b\log(1 - y)$について, 
+    \begin{align*}
+        \argmax_{(a, b)\in\R^{2}- \{(0, 0)\}}F(a, b)= \frac{a}{a + b}
+    \end{align*}
+    であることを用いれば主張が従う.
+\end{proof}
+\end{Proposition+}
+この命題$\ref{ODis}$より$\Hil_{G}$上の関数$C:\Hil_{G}\to\R$が
+\begin{align*}
+    C(G) = \mathbb{E}_{x\sim\mathbb{P}_{data}}\left[ \log\frac{p_{data}(x)}{p_{data}(x) + p_{G}(x)} \right] + \mathbb{E}_{x^{\prime}\sim\mathbb{P}_{G}}\left[ \log\frac{p_{G}(x^{\prime})}{p_{data}(x^{\prime}) + p_{G}(x^{\prime})} \right]
+\end{align*}
+で定まる. 関数$C$を仮想訓練基準(virtual training criterion)と呼ぶ. 
+\begin{Theorem+}(GANの最小性$\cite{GAN}$)\\
+    $\MLsp$をGAN, $C$を仮想訓練基準とする. $C$が最小値$-\log4$を取るための必要十分条件は
+    $\mathbb{P}_{data} = \mathbb{P}_{G}$となることである.
+    \begin{proof}
+        $\mathbb{P}_{data} = \mathbb{P}_{G}$とする. この時, 
+        \begin{align*}
+            C(G) &= \mathbb{E}_{x\sim\mathbb{P}_{data}}\left[ \log\frac{p_{data}(x)}{p_{data}(x) + p_{G}(x)} \right] + \mathbb{E}_{x^{\prime}\sim\mathbb{P}_{G}}\left[ \log\frac{p_{G}(x^{\prime})}{p_{data}(x^{\prime}) + p_{G}(x^{\prime})} \right]\\
+                 &= \mathbb{E}_{x\sim\mathbb{P}_{data}}\left[ \log\frac{1}{2} \right] + \mathbb{E}_{x^{\prime}\sim\mathbb{P}_{G}}\left[ \log\frac{1}{2} \right]\\
+                 &= -\log2 -\log2 = -\log4
+        \end{align*}
+        であるから, $C$は常に最小値$-\log4$をとる. 逆に$C$の最小値が$-\log4$であるとする. JSDをJensen-Shannon Divergenceとし, $C$を変形すると
+        \begin{align*}
+            C(G) = -\log4 + JSD\left(\mathbb{P}_{data}\|\mathbb{P}_{G}\right)
+        \end{align*}
+        となる. ここで$JSD\left(\mathbb{P}_{data}\|\mathbb{P}_{G}\right) = 0$と$\mathbb{P}_{data}=\mathbb{P}_{G}$は
+        同値だから$\mathbb{P}_{data}=\mathbb{P}_{G}$である. 
+    \end{proof}
+\end{Theorem+}
+\subsection{Training Instability of GAN}
+
+\section{Conclusion}
 
 \begin{thebibliography}{20}
     \bibitem{MLR} darden, 多クラス分類ロジスティック回帰, \\
@@ -670,6 +745,8 @@ $\X$を$d$次元線型空間とする.
     \bibitem{GAN} Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville and Yoshua Bengio. 
     Generative adversarial nets. In Advances in Neural Information Processing Systems, 2014.
     \bibitem{PGAN}Martin Arjovsky and Leon Bottou, Towards Principled Methods for Training Generative Adversarial Networks,
+    International Conference on Learning Representations, 2017.
+    \bibitem{WGAN} Martin Arjovsky, Soumith Chintala and Leon Bottou, Wasserstein GAN, 
     International Conference on Learning Representations, 2017.
     \bibitem{SNGAN}Takeru Miyato, Toshiki Kataoka, Masanori Koyama and Yuichi Yoshida, Spectral Normalization for Generative Adversarial Networks, 
     International Conference on Learning Representations, 2018.
