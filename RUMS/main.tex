@@ -30,7 +30,8 @@
 \usepackage{algorithmic}
 \usepackage{tikz}
 \usepackage{mathtools}
-%\usepackage[dvipdfmx]{hyperref}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
 \usepackage[all]{xy}
 \usepackage{amscd}
 \usetikzlibrary{cd}
@@ -656,24 +657,17 @@ GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法であ
 この節では$D$は教師なしデータとする. また, データの確率分布を$\mathbb{P}_{data}$とする. 
 \begin{Definition+}(Generative Adversarial Networks)\\
     機械学習空間$\MLsp$を以下のように定義する$\cite{SNGAN}$. \\ 
-    $\X\text{は}\R^{d}\text{の部分空間}$, $\Y = [0, 1]$, 
+    $\X\text{は}\R^{d}\text{のコンパクト部分集合}$, $\Y = [0, 1]$, 
     \begin{align*}
         \Hil_{G} &= \{G:\mathcal{Z}\to\X~\mid G\text{はニューラルネット}\},\\
         \Hil_{D} &= \{D:\X\to\Y~\mid D\text{はニューラルネット}\},\\
         \Loss(D, G) &= \mathbb{E}_{x\sim \mathbb{P}_{data}}[\log D(x)] + \mathbb{E}_{x^{\prime}\sim \mathbb{P}_{G}}[\log(1 - D(x^{\prime}))],
     \end{align*}
     ここで, $\mathcal{Z}$は潜在空間と呼ばれる$\R^d$の部分空間である. 
-    また, $G\in\Hil_{1}$と一様分布(または正規分布)に従う確率変数$Z:\Omega\to\mathcal{Z}$に対し, $G(Z)$が従う確率分布を$\mathbb{P}_{G}$とする. $G\in\Hil_{G}$を
+    また, $G\in\Hil_{1}$と確率分布$\mathbb{P}_{Z}$(一様分布や正規分布)に従う確率変数$Z:\Omega\to\mathcal{Z}$に対し, $G(Z)$が誘導する確率分布を$\mathbb{P}_{G}$とする. $G\in\Hil_{G}$を
     Generatorと呼び, $D\in\Hil_{D}$をDiscrimatorと呼ぶ.
     $\Hil = \Hil_{D}\times\Hil_{G}$とした時, 機械学習空間$\MLsp$を敵対的生成ネットワークという. 
 \end{Definition+}
-\begin{Remark+}(Discrimatorの定義域について)\\
-    GANの定義上の$\X$はただの部分空間ではなく, 以下の条件を満たすものとする.
-    \begin{align*}
-        \forall G\in\Hil_{G}, D(\X)\subset\text{supp}(p_{data})\cap\text{supp}(p_{G})
-    \end{align*}
-    ここで, $\text{supp}(f) \coloneqq\{x\in\X\mid f(x)\neq0\}$である.
-\end{Remark+}
 GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることである. そのために, 以下のmin-maxゲームを解くことを考える. 
 \begin{align*}
     \argmin_{D\in\Hil_{D}}\argmax_{G\in\Hil_{G}}\Loss.
@@ -691,7 +685,7 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
     を満たす時, $G$に関しての最適Discrimatorであるという.
 \end{Definition+}
 \begin{Proposition+}($\cite{GAN}$)\label{ODis}\\
-    $\MLsp$をGANとし, $G\in\Hil_{G}$とする. この時, $\text{supp}(p_{data})\cup\text{supp}(p_{G})$上の最適Discrimatorは以下で与えられる.
+    $\MLsp$をGANとし, $G\in\Hil_{G}$とする. この時, 最適Discrimatorは以下で与えられる.
     \begin{align*}
         D_{G}^{*}(x) = \frac{p_{data}(x)}{p_{data}(x) + p_{G}(x)},
     \end{align*}
@@ -733,9 +727,84 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
     \end{proof}
 \end{Theorem+}
 \subsection{Training Instability of GAN}
-
+前節ではGANの定式化及び, いくつかの命題を証明した. ここではGANの学習の不安定性についてのべる. 詳しくは$\cite{PGAN}$を参照してほしい.
+\begin{Theorem+}(The Perfect Discrimator Theorem)\\
+    $\MLsp$をGANとし, $p_{data}$を$\mathbb{P}_{data}$の確率密度関数, $p_{G}$は$\mathbb{P}_{G}$の確率密度関数とする. この時, 
+    \begin{align*}
+        \exists M, P\subset\X:\text{compact s.t. }M\cap P = \emptyset, \text{supp}(p_{data})\subset M\text{ かつ }\text{supp}(p_{G})\subset P
+    \end{align*}
+    が成立するならば, 以下の性質を満たすsmoothな最適Discrimator $D_{G}^{*}$が存在する. 
+    \begin{enumerate}
+        \item $\mathbb{P}_{data}(D = 1) = 1\text{ かつ }\mathbb{P}_{G}(D = 0) = 1$
+        \item $\forall x\in M\cup P, \nabla_{x}D_{G}^{*}(x) = 0$.
+    \end{enumerate}
+    \begin{proof}
+        $P\cap M = \emptyset$だから, $\delta = d(P, M)$とすれば$\delta > 0$である. 
+        ここで, 
+        \begin{align*}
+            \hat{M} &= \{x\in\X\mid d(x, M) \leq\delta/3\},\\
+            \hat{P} &= \{x\in\X\mid d(x, P)\leq\delta/3\}
+        \end{align*}
+        と定義する. $M$, $P$がコンパクトであることと, $\delta$の定義より$\hat{M}$, $\hat{P}$は
+        共にコンパクトであり, $\hat{M}\cap\hat{P}=\emptyset$である. したがって, Urysohn's smooth lemmaより
+        \begin{align*}
+            \exists D_{G}^{*}\in\Hil_{D}:\text{smooth s.t. } D_{G}^{*}|_{\hat{M}} = 1\text{ かつ }D_{G}^{*}|_{\hat{P}} = 0
+        \end{align*}
+        が成立する. 任意の$x\in\text{supp}(p_{data})$に対して, $D_{G}^{*}(x) = 1$だから, $\log D_{G}^{*}(x) = 1$である. 
+        また, 任意の$x\in\text{supp}(p_{G})$に対して, $D_{G}^{*}(x) = 0$だから, $\log (1 - D_{G}^{*}(x)) = 1$である. これより
+        $D_{G}^{*}$が最適Discrimatorであること, 及び1.が従う. また$D_{G}^{*}$は$M\cup P$上で定値写像だから2.が成立する. 
+    \end{proof}
+\end{Theorem+}
+\begin{Definition+}（Discrimatorノルム）\\
+    $\MLsp$をGANとする. $D\in\Hil_{D}\subset C^{1}(\X)$に対して, 
+    \begin{align*}
+        \|D\| = \sup_{x\in\X}|D(x)| + \|\nabla_{x}D(x)\|_{2}
+    \end{align*}
+    とする. この時, $\|\cdot\|$の$\Hil_{D}$に制限したノルム$\|\cdot\|_{\Hil_{D}}$をDiscrimatorノルムという.
+\end{Definition+}
+\begin{Theorem+}(Vanishing gradient on the Generator)\\
+    $\MLsp$をGANとする. $G_{\theta}\in\Hil_{G}$とし, $p_{data}$を$\mathbb{P}_{data}$の確率密度関数, $p_{G}$は$\mathbb{P}_{G}$の確率密度関数とする. この時, 
+    \begin{align*}
+        \exists M, P\subset\X:\text{compact s.t. }M\cap P = \emptyset, \text{supp}(p_{data})\subset M\text{ かつ }\text{supp}(p_{G})\subset P
+    \end{align*}
+    が成立し, 
+    \begin{align*}
+        \exists\delta\in\R^{+}-\{1\}, \exists M\in\R^{+}\text{ s.t. }\forall D\in\Hil_{D}, \|D_{G} - D_{G}^{*}\| <\delta\text{ かつ }\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\|J_{\theta}G_{\theta}(z)\|_{2}^{2}] \leq M^{2}
+    \end{align*}
+    が成立するとする. この時, 
+    \begin{align*}
+        \forall D\in\Hil_{D}, \|\nabla_{\theta}\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\log(1 - D(G_{\theta}(z)))]\|_{2} < M\frac{\delta}{1 - \delta}
+    \end{align*}
+    が成立する.
+    \begin{proof}
+        $\|\cdot\|^{2}$が凸であることと, Jensenの不等式より
+        \begin{align*}
+            \|\nabla_{\theta}\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\log(1 - D(G_{\theta}(z)))]\|_{2}^{2} &\leq\mathbb{P}_{z\sim\mathbb{P}_{Z}}\left[ \frac{\|\nabla_{\theta}D(G_{\theta}(z))\|_{2}^{2}}{|1 - D(G_{\theta}(z))|^{2}} \right]\\
+                                                                                                    &\leq\mathbb{P}_{z\sim\mathbb{P}_{Z}}\left[ \frac{\|\nabla_{x}D(G_{\theta}(z))\|_{2}^{2}\|J_{\theta}G_{\theta}(z)\|_{2}^{2}}{|1 - D(G_{\theta}(z))|^{2}} \right]\\
+                                                                                                    &\leq\mathbb{P}_{z\sim\mathbb{P}_{Z}}\left[ \frac{(\|\nabla_{x}D^{*}(G_{\theta}(z))\|_{2} + \delta)^{2}\|J_{\theta}G_{\theta}(z)\|_{2}^{2}}{(|1 - D^{*}(G_{\theta}(z))| - \delta)^{2}} \right]\\
+                                                                                                    &\leq\mathbb{P}_{z\sim\mathbb{P}_{Z}}\left[ \frac{\delta^{2}\|J_{\theta}G_{\theta}(z)\|_{2}^{2}}{(1 - \delta)^{2}} \right]\\
+                                                                                                    &\leq M^{2}\frac{\delta^{2}}{(1 - \delta)^{2}}
+        \end{align*}
+        となる. 両辺の平方をとれば題意が従う. 
+    \end{proof}
+\end{Theorem+}
+\begin{Corollary+}
+    $\MLsp$をGANとする. $G_{\theta}\in\Hil_{G}$とし, $p_{data}$を$\mathbb{P}_{data}$の確率密度関数, $p_{G}$は$\mathbb{P}_{G}$の確率密度関数とする. この時, 
+    \begin{align*}
+        \exists M, P\subset\X:\text{compact s.t. }M\cap P = \emptyset, \text{supp}(p_{data})\subset M\text{ かつ }\text{supp}(p_{G})\subset P
+    \end{align*}
+    が成立し, 
+    \begin{align*}
+        \exists\delta\in\R^{+}-\{1\}, \exists M\in\R^{+}\text{ s.t. }\forall D\in\Hil_{D}, \|D_{G} - D_{G}^{*}\| <\delta\text{ かつ }\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\|J_{\theta}G_{\theta}(z)\|_{2}^{2}] \leq M^{2}
+    \end{align*}
+    が成立するとする. この時, 
+    \begin{align*}
+        \lim_{\|D - D^{*}\|}\to0\nabla_{\theta}\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\log(1 - D(G_{\theta}(z)))] = 0
+    \end{align*}
+    が成立する. 
+\end{Corollary+}
+これらの定理・系からDiscrimatorが最適解に近づけば近づくほど, Generatorの勾配が0に近づき学習が安定しないことがわかる.
 \section{Conclusion}
-
 \begin{thebibliography}{20}
     \bibitem{MLR} darden, 多クラス分類ロジスティック回帰, \\
     http://darden.hatenablog.com/entry/2018/01/25/222201, Pythonと機械学習, 2018
