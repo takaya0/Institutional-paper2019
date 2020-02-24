@@ -800,7 +800,7 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
     \end{align*}
     が成立するとする. この時, 
     \begin{align*}
-        \lim_{\|D - D^{*}\|}\to0\nabla_{\theta}\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\log(1 - D(G_{\theta}(z)))] = 0
+        \lim_{\|D - D^{*}\|_{\Hil_{D}}\to0}\nabla_{\theta}\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\log(1 - D(G_{\theta}(z)))] = 0
     \end{align*}
     が成立する. 
 \end{Corollary+}
