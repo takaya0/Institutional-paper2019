@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  23 FEB 2020 21:40
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  24 FEB 2020 15:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -891,27 +891,34 @@ LaTeX Font Info:    Font shape `JT1/hmc/m/it' will be
 (Font)              scaled to size 9.24683pt on input line 715.
 LaTeX Font Info:    Font shape `JY1/hmc/m/it' will be
 (Font)              scaled to size 9.24683pt on input line 715.
- [17] [18] [19] [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 829.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 829.
+ [17] [18]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 812.
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 812.
+ [19] [20]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 843.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 843.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 829.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 829.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 843.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 843.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 84CE0AF24EA8AF5F817C9A50F007408A;1122.
+(rerunfilecheck)             Checksum: 4CE0D52F3E61CECDBF49BAA7849B92A8;1199.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 829.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 843.
  ) 
 Here is how much of TeX's memory you used:
- 24491 strings out of 493223
- 428548 string characters out of 6144415
- 559252 words of memory out of 5000000
- 28019 multiletter control sequences out of 15000+600000
+ 24508 strings out of 493223
+ 428850 string characters out of 6144415
+ 559320 words of memory out of 5000000
+ 28033 multiletter control sequences out of 15000+600000
  25171 words of font info for 125 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  55i,16n,82p,3270b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (20 pages, 81016 bytes).
+Output written on main.dvi (20 pages, 83152 bytes).

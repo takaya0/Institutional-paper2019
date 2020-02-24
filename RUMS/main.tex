@@ -280,7 +280,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     多項式回帰の多項式の次数$d\in\N$や基底関数$\{\phi_{n}\}_{n = 1}^{d}$のように
     コンピュータに学習させるのではなく, 機械学習モデルの設計者が設定するパラメータのことを
     ハイパーパラメータと呼ぶ. 一方, $W\in\R^{d + 1}$のように, データからコンピュータが自動で学習
-    するパラメータのことを学習パラメータと呼ぶ.
+    するパラメータのことを学習パラメータと呼び, $\Theta$と表す.
 \end{Remark+}
 \subsection{過学習と正則化}
 前節の多項式回帰で学習を行うと以下のグラフのように, 訓練データに過剰適合してしまい, 未知のデータに関しての汎化性能
@@ -293,7 +293,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 過学習を防ぐための手法が正則化である.
 \begin{Definition+}(正則化)\\
     $\Loss:\Hil\to\R$を損失関数とする. $\Loss^{R} := \Loss + L^{R}$とする.
-    この時, $\Loss^{R}$を$\Loss$の正則化と呼び, $L^R$を正則化項と呼ぶ.
+    この時, $\Loss^{R}$を$\Loss$の正則化と呼び, $L^R:\Theta\to\R$を正則化項と呼ぶ.
 \end{Definition+}
 \begin{Example+}(Ridge正則化多項式回帰)\\
     $\lambda\in\R^{+}$, $d\in\N$を任意にとる.機械学習空間$\MLsp$を以下のように定義する.\\
@@ -645,7 +645,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \section{Generative Adversarial Networks}
 GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法である. 
 その後, WGAN, DCGANといった様々な亜種が登場し, 現在も様々な手法が提案されている.
-冒頭でも述べたが, GANは2つのニューラルネットワークを戦わせる手法である. これは, よく, 警察と
+冒頭でも述べたが, GANは警察と
 泥棒の偽札造りに例えられる. $G$を泥棒, $D$を警察とした時, 以下の作業を繰り返すことで, 偽札の本物具合をあげていくといったものである.
 \begin{enumerate}
     \item 泥棒$G$が偽札を作る.
@@ -726,6 +726,7 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
         同値だから$\mathbb{P}_{data}=\mathbb{P}_{G}$である. 
     \end{proof}
 \end{Theorem+}
+これらからわかる通り, GANとはデータの確率密度関数をニューラルネットを用いて近似する機構である. 
 \subsection{Training Instability of GAN}
 前節ではGANの定式化及び, いくつかの命題を証明した. ここではGANの学習の不安定性についてのべる. 詳しくは$\cite{PGAN}$を参照してほしい.
 \begin{Theorem+}(The Perfect Discrimator Theorem)\\
@@ -769,7 +770,7 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
     \end{align*}
     が成立し, 
     \begin{align*}
-        \exists\delta\in\R^{+}-\{1\}, \exists M\in\R^{+}\text{ s.t. }\forall D\in\Hil_{D}, \|D_{G} - D_{G}^{*}\| <\delta\text{ かつ }\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\|J_{\theta}G_{\theta}(z)\|_{2}^{2}] \leq M^{2}
+        \exists\delta\in\R^{+}-\{1\}, \exists M\in\R^{+}\text{ s.t. }\forall D\in\Hil_{D}, \|D_{G} - D_{G}^{*}\|_{\Hil_{D}} <\delta\text{ かつ }\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\|J_{\theta}G_{\theta}(z)\|_{2}^{2}] \leq M^{2}
     \end{align*}
     が成立するとする. この時, 
     \begin{align*}
@@ -804,7 +805,20 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
     が成立する. 
 \end{Corollary+}
 これらの定理・系からDiscrimatorが最適解に近づけば近づくほど, Generatorの勾配が0に近づき学習が安定しないことがわかる.
+\subsection{GANの安定化について}
+今回は, 著者の力不足により紹介することができなかったが, 前節で議論したGANの不安定性の議論に基づき, 
+GANの学習を安定させるための手法がいくつか提案されている. それらについて興味のある読者は
+\begin{itemize}
+    \item Wasserstein GAN$\cite{WGAN}$
+    \item Spectral Normalization for Generative Adversarial Networks$\cite{SNGAN}$
+\end{itemize}
+を読んでみてほしい. 
 \section{Conclusion}
+3回生の方程では去年から書きたいと思っていた「機械学習」についてまとめるができた. 
+しかし, まだまだ数学的には不厳密な部分が残っている為, 定義の改良をしていく必要はあると感じた. 
+その為, 今後も数理機械学習の勉強を続けていき, 完成度の高い定義を完成させていきたいと考えている. 
+最後に, 今回の子の機関紙の添削・推敲に協力していただいた方々, GANという素晴らしい技術やその数学的な
+側面を研究されている皆様に感謝を申し上げると共に, 2019年度の方程を完了とする. 
 \begin{thebibliography}{20}
     \bibitem{MLR} darden, 多クラス分類ロジスティック回帰, \\
     http://darden.hatenablog.com/entry/2018/01/25/222201, Pythonと機械学習, 2018

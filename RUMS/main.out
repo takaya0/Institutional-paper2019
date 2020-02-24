@@ -14,4 +14,5 @@
 \BOOKMARK [1][-]{section.5}{Generative Adversarial Networks}{}% 13
 \BOOKMARK [2][-]{subsection.5.1}{GANの定式化}{section.5}% 14
 \BOOKMARK [2][-]{subsection.5.2}{Training Instability of GAN}{section.5}% 15
-\BOOKMARK [1][-]{section.6}{Conclusion}{}% 16
+\BOOKMARK [2][-]{subsection.5.3}{GANの安定化について}{section.5}% 16
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 17
