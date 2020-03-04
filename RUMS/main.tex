@@ -173,7 +173,7 @@ $d$, $m$を自然数とする.
     $\Hil$を仮説空間とし, $(X, Y)$をデータの分布$\mathbb{P}_{\X\times\Y}$に従う確率変数と
     する. 以下で定義される$\ell:\Hil\to\R$を予測損失と呼ぶ.
     \begin{align*}
-        \ell(f) = \mathbb{E}[\|f(X) - Y\|].
+        \ell(f) = \mathbb{E}_{(X, Y)\sim\mathbb{P}_{\X\times\Y}}[\|f(X) - Y\|].
     \end{align*}
 \end{Definition+}
 予測損失が最小となるような$f\in\Hil$を求めることが機械学習の目標である. しかし, 一般にデータの分布は未知であるため
@@ -187,14 +187,14 @@ $d$, $m$を自然数とする.
 \end{Definition+}
 \begin{Definition+}(学習, 最適仮説)\\
     $\Hil$を仮設空間, $\Loss:\Hil\to\R$を損失関数とする. 損失関数が最大または, 最小となるような
-    $f^*\in\Hil$を求めること\footnote{機械学習においては厳密に損失関数が最大・最小となる関数が学習されるとは限らないが, そのような関数を求めることも学習の定義に含めるものとする. }を学習といい, $f^*\in\Hil$を最適仮説と呼ぶ.
+    $f^*\in\Hil$を求めること\footnote{機械学習においては厳密に損失関数が最大・最小となる関数が得られるとは限らないが, そのような関数を求めることも学習の定義に含めるものとする. }を学習といい, $f^*\in\Hil$を最適仮説と呼ぶ.
 \end{Definition+}
 \begin{Definition+}(機械学習)\\
     機械学習空間$\MLsp$上での学習を機械学習という. 特に, $D$が教師ありデータの時, 教師あり機械学習と呼び, 
     教師なしデータの時, 教師なし機械学習と呼ぶ.
 \end{Definition+}
 \begin{Remark+}(訓練データとテストデータ)\\
-    機械学習で学習を行う際は, データ$D$を全て使って学習させるのではなく, 
+    機械学習を行う際は, データ$D$を全て使って学習させるのではなく, 
     データを訓練データ$D_{\text{Train}}$とテストデータ$D_{\text{Test}}$に分ける. 
     訓練データはモデルの学習に用いて, テストデータはモデルの精度の確認のために用いる. 
 \end{Remark+}
@@ -296,13 +296,13 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     この時, $\Loss^{R}$を$\Loss$の正則化と呼び, $L^R:\Theta\to\R$を正則化項と呼ぶ.
 \end{Definition+}
 \begin{Example+}(Ridge正則化多項式回帰)\\
-    $\lambda\in\R^{+}$, $d\in\N$を任意にとる.機械学習空間$\MLsp$を以下のように定義する.\\
+    $\lambda\in\R^{+}\coloneqq\{x\in\R\mid x\geq0\}$, $d\in\N$を任意にとる.機械学習空間$\MLsp$を以下のように定義する.\\
     $\X = \R, \Y = \R$, 
     \begin{align*}
         \Hil &= \{f:\X\to\Y\mid f(x) = W^{\top}\Phi(x), W\in\R^{d + 1}\},\\
         \Loss(f) &= \sum_{i = 1}^{N}|f(x_i) - y_i|^2+\lambda W^\top W.\hspace{10pt}　(W\text{は$f$のパラメータ})
     \end{align*}
-    ここで, $\phi_{n}(x) = x^{n}$, $n\in\{0, 1, \cdots, d\}$とする.\\
+    ここで, $\phi_{n}(x) = x^{n}$, $n\in\{0, 1, \cdots, d\}$とする($\lambda W^{\top}W$が正則化項である).\\
     この機械学習空間$\MLsp$上で
     \begin{align*}
         \argmin_{f\in\Hil}\Loss(f)
@@ -323,7 +323,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \end{figure}
 このように正則化をすることで, パラメータが大きくなりすぎることを防ぐことで過学習を防ぐことができる.
 \begin{Remark+}(未学習について)\\
-    正則化を行う際にパラメータ$\lambda\in\R^+$\footnote{正則化パラメータという.}$\coloneqq\{x\in\R\mid x\geq0\}$は自分で
+    正則化を行う際にパラメータ\footnote{正則化パラメータという.}$\lambda\in\R^+$は自分で
     決める必要がある. その際に$\lambda$の値を大きくしすぎると未学習(underfitting)という問題が発生する.
     未学習とは訓練データに対してモデルが十分に適合できていないことをいう.
     \begin{figure}[H]
@@ -341,7 +341,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \begin{Definition+}(ソフトマックス関数)\\
     $\psi:\R^d\to\R^d$を以下で定義する.
     \begin{align*}
-        \psi(x)_{i} = \frac{\exp(x_i)}{\sum_{k = 1}^d\exp(x_i)}
+        \psi(x)_{i} = \frac{\exp(x_i)}{\sum_{k = 1}^d\exp(x_k)}
     \end{align*}
     この時, $\psi$をソフトマックス関数と呼ぶ.
 \end{Definition+}
@@ -578,7 +578,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \begin{Definition+}(discriminatory)\\
     $X$を$\R^n$の部分空間とする. 関数$\sigma:\R\to\R$がdiscriminatory関数であるとは
     \begin{align*}
-        \forall\mu\in M(X), \left(\forall y\in\R^n, \theta\in\R, \int_{X}\sigma(\inner<x, y> + \theta)d\mu(x)\right)\Longrightarrow\mu = 0
+        \forall\mu\in M(X), \left(\forall y\in\R^n, \theta\in\R, \int_{X}\sigma(\inner<x, y> + \theta)d\mu(x) = 0\right)\Longrightarrow\mu = 0
     \end{align*}
     が成立することである. 
 \end{Definition+}
@@ -664,7 +664,7 @@ GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法であ
         \Loss(D, G) &= \mathbb{E}_{x\sim \mathbb{P}_{data}}[\log D(x)] + \mathbb{E}_{x^{\prime}\sim \mathbb{P}_{G}}[\log(1 - D(x^{\prime}))],
     \end{align*}
     ここで, $\mathcal{Z}$は潜在空間と呼ばれる$\R^d$の部分空間である. 
-    また, $G\in\Hil_{1}$と確率分布$\mathbb{P}_{Z}$(一様分布や正規分布)に従う確率変数$Z:\Omega\to\mathcal{Z}$に対し, $G(Z)$が誘導する確率分布を$\mathbb{P}_{G}$とする. $G\in\Hil_{G}$を
+    また, $G\in\Hil_{1}$と確率分布$\mathbb{P}_{Z}$(一様分布や正規分布)に従う確率変数$Z:\Omega\to\mathcal{Z}$に対し, $G(Z)$が従う確率分布を$\mathbb{P}_{G}$とする. $G\in\Hil_{G}$を
     Generatorと呼び, $D\in\Hil_{D}$をDiscrimatorと呼ぶ.
     $\Hil = \Hil_{D}\times\Hil_{G}$とした時, 機械学習空間$\MLsp$を敵対的生成ネットワークという. 
 \end{Definition+}
@@ -751,8 +751,8 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
         \begin{align*}
             \exists D_{G}^{*}\in\Hil_{D}:\text{smooth s.t. } D_{G}^{*}|_{\hat{M}} = 1\text{ かつ }D_{G}^{*}|_{\hat{P}} = 0
         \end{align*}
-        が成立する. 任意の$x\in\text{supp}(p_{data})$に対して, $D_{G}^{*}(x) = 1$だから, $\log D_{G}^{*}(x) = 1$である. 
-        また, 任意の$x\in\text{supp}(p_{G})$に対して, $D_{G}^{*}(x) = 0$だから, $\log (1 - D_{G}^{*}(x)) = 1$である. これより
+        が成立する. 任意の$x\in\text{supp}(p_{data})$に対して, $D_{G}^{*}(x) = 1$だから, $\log D_{G}^{*}(x) = 0$である. 
+        また, 任意の$x\in\text{supp}(p_{G})$に対して, $D_{G}^{*}(x) = 0$だから, $\log (1 - D_{G}^{*}(x)) = 0$である. これより
         $D_{G}^{*}$が最適Discrimatorであること, 及び1.が従う. また$D_{G}^{*}$は$M\cup P$上で定値写像だから2.が成立する. 
     \end{proof}
 \end{Theorem+}
@@ -817,7 +817,7 @@ GANの学習を安定させるための手法がいくつか提案されてい�
 3回生の方程では去年から書きたいと思っていた「機械学習」についてまとめるができた. 
 しかし, まだまだ数学的には不厳密な部分が残っている為, 定義の改良をしていく必要はあると感じた. 
 その為, 今後も数理機械学習の勉強を続けていき, 完成度の高い定義を完成させていきたいと考えている. 
-最後に, 今回の子の機関紙の添削・推敲に協力していただいた方々, GANという素晴らしい技術やその数学的な
+最後に, 今回のこの機関紙の添削・推敲に協力していただいた方々, GANという素晴らしい技術やその数学的な
 側面を研究されている皆様に感謝を申し上げると共に, 2019年度の方程を完了とする. 
 \begin{thebibliography}{20}
     \bibitem{MLR} darden, 多クラス分類ロジスティック回帰, \\
