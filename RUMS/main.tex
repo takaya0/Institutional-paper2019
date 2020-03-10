@@ -167,7 +167,7 @@ $d$, $m$を自然数とする.
 \end{Definition+}
 \begin{Remark+}(データについて)\\
     データ$D$は確率分布$\mathbb{P}_{\X\times\Y}$にしてがって生成されているものとする. すなわち, 
-    $\mathbb{P}_{\X\times\Y}$に従う確率変数列$\{(X_{n}, Y_{n})\}_{n = 1}^{N}$の観測値のことをデータと呼ぶ.
+    $\mathbb{P}_{\X\times\Y}$に従う独立な確率変数列$\{(X_{n}, Y_{n})\}_{n = 1}^{N}$の観測値のことをデータと呼ぶ.
 \end{Remark+}
 \begin{Definition+}(予測損失)\\
     $\Hil$を仮説空間とし, $(X, Y)$をデータの分布$\mathbb{P}_{\X\times\Y}$に従う確率変数と
@@ -575,8 +575,8 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     を満たすことである.
 \end{Definition+}
-\begin{Definition+}(discriminatory)\\
-    $X$を$\R^n$の部分空間とする. 関数$\sigma:\R\to\R$がdiscriminatory関数であるとは
+\begin{Definition+}(Discriminatorminatory)\\
+    $X$を$\R^n$の部分空間とする. 関数$\sigma:\R\to\R$がDiscriminatorminatory関数であるとは
     \begin{align*}
         \forall\mu\in M(X), \left(\forall y\in\R^n, \theta\in\R, \int_{X}\sigma(\inner<x, y> + \theta)d\mu(x) = 0\right)\Longrightarrow\mu = 0
     \end{align*}
@@ -665,27 +665,27 @@ GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法であ
     \end{align*}
     ここで, $\mathcal{Z}$は潜在空間と呼ばれる$\R^d$の部分空間である. 
     また, $G\in\Hil_{1}$と確率分布$\mathbb{P}_{Z}$(一様分布や正規分布)に従う確率変数$Z:\Omega\to\mathcal{Z}$に対し, $G(Z)$が従う確率分布を$\mathbb{P}_{G}$とする. $G\in\Hil_{G}$を
-    Generatorと呼び, $D\in\Hil_{D}$をDiscrimatorと呼ぶ.
+    Generatorと呼び, $D\in\Hil_{D}$をDiscriminatorと呼ぶ.
     $\Hil = \Hil_{D}\times\Hil_{G}$とした時, 機械学習空間$\MLsp$を敵対的生成ネットワークという. 
 \end{Definition+}
 GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることである. そのために, 以下のmin-maxゲームを解くことを考える. 
 \begin{align*}
     \argmin_{D\in\Hil_{D}}\argmax_{G\in\Hil_{G}}\Loss.
 \end{align*}
-\begin{Remark+}(GeneratorとDiscrimatorの役割について)\\
+\begin{Remark+}(GeneratorとDiscriminatorの役割について)\\
     Generator $G\in\Hil_{G}$の役割は, $z\in\mathcal{Z}$からデータとよく似た偽物$G(z)\in\X$を
-    作成することである. 一方, Discrimator $D\in\Hil_{D}$の役割は, $x\in\X$が本物のデータなのかGeneratorが
+    作成することである. 一方, Discriminator $D\in\Hil_{D}$の役割は, $x\in\X$が本物のデータなのかGeneratorが
     作った偽物であるのかを判断することである. そのために, $X\sim\mathbb{P}_{\X}$が本物である確率を学習する.(すなわち, $\X$上の確率測度の近似)
 \end{Remark+}
-\begin{Definition+}(最適Discrimator)\\
+\begin{Definition+}(最適Discriminator)\\
     $\MLsp$をGANとし, $G\in\Hil_{G}$とする. $D_{G}^{*}\in\Hil_{D}$が
     \begin{align*}
         \forall D\in\Hil_{D}, \Loss(D_{G}^{*}, G) \geq \Loss(D, G)
     \end{align*}
-    を満たす時, $G$に関しての最適Discrimatorであるという.
+    を満たす時, $G$に関しての最適Discriminatorであるという.
 \end{Definition+}
 \begin{Proposition+}($\cite{GAN}$)\label{ODis}\\
-    $\MLsp$をGANとし, $G\in\Hil_{G}$とする. この時, 最適Discrimatorは以下で与えられる.
+    $\MLsp$をGANとし, $G\in\Hil_{G}$とする. この時, 最適Discriminatorは以下で与えられる.
     \begin{align*}
         D_{G}^{*}(x) = \frac{p_{data}(x)}{p_{data}(x) + p_{G}(x)},
     \end{align*}
@@ -729,12 +729,12 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
 これらからわかる通り, GANとはデータの確率密度関数をニューラルネットを用いて近似する機構である. 
 \subsection{Training Instability of GAN}
 前節ではGANの定式化及び, いくつかの命題を証明した. ここではGANの学習の不安定性についてのべる. 詳しくは$\cite{PGAN}$を参照してほしい.
-\begin{Theorem+}(The Perfect Discrimator Theorem)\\
+\begin{Theorem+}(The Perfect Discriminator Theorem)\\
     $\MLsp$をGANとし, $p_{data}$を$\mathbb{P}_{data}$の確率密度関数, $p_{G}$は$\mathbb{P}_{G}$の確率密度関数とする. この時, 
     \begin{align*}
         \exists M, P\subset\X:\text{compact s.t. }M\cap P = \emptyset, \text{supp}(p_{data})\subset M\text{ かつ }\text{supp}(p_{G})\subset P
     \end{align*}
-    が成立するならば, 以下の性質を満たすsmoothな最適Discrimator $D_{G}^{*}$が存在する. 
+    が成立するならば, 以下の性質を満たすsmoothな最適Discriminator $D_{G}^{*}$が存在する. 
     \begin{enumerate}
         \item $\mathbb{P}_{data}(D = 1) = 1\text{ かつ }\mathbb{P}_{G}(D = 0) = 1$
         \item $\forall x\in M\cup P, \nabla_{x}D_{G}^{*}(x) = 0$.
@@ -753,15 +753,15 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
         \end{align*}
         が成立する. 任意の$x\in\text{supp}(p_{data})$に対して, $D_{G}^{*}(x) = 1$だから, $\log D_{G}^{*}(x) = 0$である. 
         また, 任意の$x\in\text{supp}(p_{G})$に対して, $D_{G}^{*}(x) = 0$だから, $\log (1 - D_{G}^{*}(x)) = 0$である. これより
-        $D_{G}^{*}$が最適Discrimatorであること, 及び1.が従う. また$D_{G}^{*}$は$M\cup P$上で定値写像だから2.が成立する. 
+        $D_{G}^{*}$が最適Discriminatorであること, 及び1.が従う. また$D_{G}^{*}$は$M\cup P$上で定値写像だから2.が成立する. 
     \end{proof}
 \end{Theorem+}
-\begin{Definition+}（Discrimatorノルム）\\
+\begin{Definition+}（Discriminatorノルム）\\
     $\MLsp$をGANとする. $D\in\Hil_{D}\subset C^{1}(\X)$に対して, 
     \begin{align*}
         \|D\| = \sup_{x\in\X}|D(x)| + \|\nabla_{x}D(x)\|_{2}
     \end{align*}
-    とする. この時, $\|\cdot\|$の$\Hil_{D}$に制限したノルム$\|\cdot\|_{\Hil_{D}}$をDiscrimatorノルムという.
+    とする. この時, $\|\cdot\|$の$\Hil_{D}$に制限したノルム$\|\cdot\|_{\Hil_{D}}$をDiscriminatorノルムという.
 \end{Definition+}
 \begin{Theorem+}(Vanishing gradient on the Generator)\\
     $\MLsp$をGANとする. $G_{\theta}\in\Hil_{G}$とし, $p_{data}$を$\mathbb{P}_{data}$の確率密度関数, $p_{G}$は$\mathbb{P}_{G}$の確率密度関数とする. この時, 
@@ -796,7 +796,7 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
     \end{align*}
     が成立し, 
     \begin{align*}
-        \exists\delta\in\R^{+}-\{1\}, \exists M\in\R^{+}\text{ s.t. }\forall D\in\Hil_{D}, \|D_{G} - D_{G}^{*}\| <\delta\text{ かつ }\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\|J_{\theta}G_{\theta}(z)\|_{2}^{2}] \leq M^{2}
+        \exists\delta\in\R^{+}-\{1\}, \exists M\in\R^{+}\text{ s.t. }\forall D\in\Hil_{D}, \|D_{G} - D_{G}^{*}\|_{\Hil_{D}} <\delta\text{ かつ }\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\|J_{\theta}G_{\theta}(z)\|_{2}^{2}] \leq M^{2}
     \end{align*}
     が成立するとする. この時, 
     \begin{align*}
@@ -804,7 +804,7 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
     \end{align*}
     が成立する. 
 \end{Corollary+}
-これらの定理・系からDiscrimatorが最適解に近づけば近づくほど, Generatorの勾配が0に近づき学習が安定しないことがわかる.
+これらの定理・系からDiscriminatorが最適解に近づけば近づくほど, Generatorの勾配が0に近づき学習が安定しないことがわかる.
 \subsection{GANの安定化について}
 今回は, 著者の力不足により紹介することができなかったが, 前節で議論したGANの不安定性の議論に基づき, 
 GANの学習を安定させるための手法がいくつか提案されている. それらについて興味のある読者は
