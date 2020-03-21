@@ -52,7 +52,6 @@ def main():
     model = Optimaization_Method()
     Log = model.Gradient_Decent(Func)[0::400]
     X = np.arange(-10, 10, 0.2)
-    print(Log)
     Y = []
     Log_Y = []
     for x in X:
@@ -63,7 +62,7 @@ def main():
     Log_Y = np.array(Log_Y)
     plt.plot(X, Y)
     plt.scatter(Log, Log_Y)
-    plt.savefig('Gradient_Decent.png')
+    plt.savefig('../Images/Gradient_Decent.eps')
 
 
 if __name__ == "__main__":

@@ -153,7 +153,7 @@
 この節では機械学習の数学的な定式化を行う. $\Probsp$を完備な確率空間とする.
 $d$, $m$を自然数とする.
 \begin{Definition+}(仮説空間, 仮説)\\
-    $\X\coloneqq\R^d$から$\Y\coloneqq\R^m$へのなんらかの条件を満たす写像の集まりのことを仮説空間
+    $\X\subset\R^d$から$\Y\subset\R^m$へのなんらかの条件を満たす写像の集まりのことを仮説空間
     といい$\Hil$と表記する. すなわち,
     \begin{align*}
         \Hil = \{f:\X\to\Y\mid f\text{ が満たす条件}\}
@@ -287,7 +287,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 が小さくなってしまうことを過学習(overfitting)という. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 9.0cm]{Images/overfitting_PR.png}
+    \includegraphics[width = 9.0cm]{Images/overfitting_PR.eps}
     \caption{$d = 4$の時の多項式回帰の過学習}
 \end{figure}
 過学習を防ぐための手法が正則化である.
@@ -318,7 +318,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 正則化の結果が以下のグラフである.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 7.5cm]{Images/regulaer_PR.png}
+    \includegraphics[width = 7.5cm]{Images/regulared_PR.eps}
     \caption{$\lambda = 700$, $d = 4$の時のRidge正則化多項式回帰}
 \end{figure}
 このように正則化をすることで, パラメータが大きくなりすぎることを防ぐことで過学習を防ぐことができる.
@@ -328,7 +328,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     未学習とは訓練データに対してモデルが十分に適合できていないことをいう.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=7.5cm]{Images/underfitting_PR.png}
+        \includegraphics[width=7.5cm]{Images/underfitting_PR.eps}
         \caption{$\lambda = 30000$, $d = 4$の時のRidge正則化多項式回帰の未学習}
     \end{figure}
     このように, 正則化パラメータは適切に選ぶことが大切である. 
@@ -397,7 +397,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     本来の最適値である$x = 0$に近づいているのが分かる.
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 8.5cm]{Images/Gradient_Decent.png}
+        \includegraphics[width = 8.5cm]{Images/Gradient_Decent.eps}
         \caption{$\alpha = 0.001$とした時の勾配降下法の結果.}
     \end{figure}
     \begin{table}[H]
@@ -417,17 +417,17 @@ MNISTとは下記のような0から9までの自然数が書かれた$28\times2
 \begin{figure}[htbp]
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 5.3cm]{Images/MNIST_sample1.png}
+        \includegraphics[width = 5.3cm]{Images/MNIST_sample1.eps}
         \caption{数字の5}
     \end{minipage}
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 5.3cm]{Images/MNIST_sample2.png}
+        \includegraphics[width = 5.3cm]{Images/MNIST_sample2.eps}
         \caption{数字の9}
     \end{minipage}
     \begin{minipage}{0.32\hsize}
         \centering
-        \includegraphics[width = 5.3cm]{Images/MNIST_sample3.png}
+        \includegraphics[width = 5.3cm]{Images/MNIST_sample3.eps}
         \caption{数字の6}
     \end{minipage}
 \end{figure}
@@ -468,7 +468,7 @@ MNISTとは下記のような0から9までの自然数が書かれた$28\times2
 非常に高次元なものとなる. (今回は$10\times784 + 10 = 7850$次元).
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 10.0cm]{Images/Logistic_Regression_MNIST.png}
+    \includegraphics[width = 10.0cm]{Images/MNIST_Experiment.eps}
     \caption{$\alpha = 0.0001$とした時の, MNSIT実験の結果}
 \end{figure}
 この例からもわかる通り, 機械学習において$\R^d$上の関数を学習するのではなく
@@ -531,7 +531,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
 \end{Definition+}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 9.0cm, angle=90]{Images/NN.png}
+    \includegraphics[width = 9.0cm, angle=90]{Images/NN.eps}
     \caption{ニューラルネットワークの図}
 \end{figure}
 \begin{Remark+}(フレームワーク)\\

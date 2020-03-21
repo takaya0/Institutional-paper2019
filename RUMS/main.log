@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  9 MAR 2020 15:54
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.7.24)  20 MAR 2020 15:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -828,8 +828,8 @@ LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 245.
  [3]
-File: Images/overfitting_PR.png Graphic file (type bmp)
-<Images/overfitting_PR.png>
+File: Images/overfitting_PR.eps Graphic file (type eps)
+<Images/overfitting_PR.eps>
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 291.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
@@ -839,44 +839,44 @@ LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 291.
  [4] [5]
-File: Images/regulaer_PR.png Graphic file (type bmp)
-<Images/regulaer_PR.png>
+File: Images/regulared_PR.eps Graphic file (type eps)
+<Images/regulared_PR.eps>
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 7.39746pt on input line 326.
-File: Images/underfitting_PR.png Graphic file (type bmp)
-<Images/underfitting_PR.png>
+File: Images/underfitting_PR.eps Graphic file (type eps)
+<Images/underfitting_PR.eps>
  [6] [7]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 370.
-File: Images/Gradient_Decent.png Graphic file (type bmp)
-<Images/Gradient_Decent.png>
+File: Images/Gradient_Decent.eps Graphic file (type eps)
+<Images/Gradient_Decent.eps>
  [8]
-File: Images/MNIST_sample1.png Graphic file (type bmp)
-<Images/MNIST_sample1.png>
+File: Images/MNIST_sample1.eps Graphic file (type eps)
+<Images/MNIST_sample1.eps>
 
 Overfull \hbox (20.60075pt too wide) in paragraph at lines 420--421
  [][] 
  []
 
-File: Images/MNIST_sample2.png Graphic file (type bmp)
-<Images/MNIST_sample2.png>
+File: Images/MNIST_sample2.eps Graphic file (type eps)
+<Images/MNIST_sample2.eps>
 
 Overfull \hbox (20.60075pt too wide) in paragraph at lines 425--426
  [][] 
  []
 
-File: Images/MNIST_sample3.png Graphic file (type bmp)
-<Images/MNIST_sample3.png>
+File: Images/MNIST_sample3.eps Graphic file (type eps)
+<Images/MNIST_sample3.eps>
 
 Overfull \hbox (20.60075pt too wide) in paragraph at lines 430--431
  [][] 
  []
 
 [9]
-File: Images/Logistic_Regression_MNIST.png Graphic file (type bmp)
-<Images/Logistic_Regression_MNIST.png>
+File: Images/MNIST_Experiment.eps Graphic file (type eps)
+<Images/MNIST_Experiment.eps>
  [10] [11]
-File: Images/NN.png Graphic file (type bmp)
-<Images/NN.png>
+File: Images/NN.eps Graphic file (type eps)
+<Images/NN.eps>
  [12] [13] [14] [15]
 
 LaTeX Font Warning: Font shape `JT1/hmc/m/it' undefined
@@ -913,12 +913,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 843.
  ) 
 Here is how much of TeX's memory you used:
- 24508 strings out of 493223
- 428850 string characters out of 6144415
+ 24506 strings out of 493223
+ 428788 string characters out of 6144415
  559320 words of memory out of 5000000
  28033 multiletter control sequences out of 15000+600000
  25171 words of font info for 125 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  55i,16n,82p,3270b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (20 pages, 83380 bytes).
+Output written on main.dvi (20 pages, 83348 bytes).

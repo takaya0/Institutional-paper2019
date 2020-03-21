@@ -31,7 +31,7 @@ class Logistic_Regression():
     def __init__(self):
         self.train_Log = []
         self.Val_Log = []
-        self.alpha = 0.001
+        self.alpha = 0.0001
 
     def softmax(self, X):
         return softmax(X, axis=0)
@@ -124,22 +124,16 @@ def main():
     MNIST = datasets.fetch_openml(Used_dataset)
     X = MNIST.data/255.0
     Y = MNIST.target
-    """
-    X = np.array([[1, 2, 10, 4], [3, 4, 2, 14], [
-                 2, 5, 6, 7], [32, 5, 14, 17], [11, 23, 16, 5], [18, 31, 7, 6]])
-    Y = np.array([0, 2, 1, 0, 1, 2])
     for i in range(3):
         Photo = X[i + 32 * i]
         plt.imshow(Photo.reshape(28, 28), cmap='gist_gray')
-        plt.savefig("MNIST_sample{}.png".format(i + 1))
+        plt.savefig("../Images/MNIST_sample{}.eps".format(i + 1))
     """
-    print(one_hot_vectorize(Z, Classification_number))
     Y = one_hot_vectorize(Y, Classification_number)
     x_train, x_test, t_train, t_test = train_test_split(
         X, Y, test_size=0.3, random_state=0)
     model = Logistic_Regression()
-    model.SGD_train(x_train, t_train, test_x=x_test, test_y=t_test)
-    print(model.W)
+    model.train(x_train, t_train, test_x=x_test, test_y=t_test)
     train_log_data = model.get_Log(log_type='train')
     val_log_data = model.get_Log(log_type='test')
     plt.plot(train_log_data, label='train_score',
@@ -147,10 +141,11 @@ def main():
     plt.plot(val_log_data, label='test_score')
     plt.xlabel('Epoch number')
     plt.ylabel('Accuracy score')
-    plt.title("Logistic Regression with SGD")
+    plt.title("Logistic Regression with GD")
     plt.legend()
     # plt.show()
-    plt.savefig('MNIST_Experiment2.png')
+    plt.savefig('../Images/MNIST_Experiment.eps')
+    """
 
 
 if __name__ == "__main__":

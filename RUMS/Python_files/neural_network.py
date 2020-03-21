@@ -51,4 +51,4 @@ for i in range(len(nodeList)):
     node.set_color('royalblue')
     node.set_style('filled')
 # 書き出し
-g.write_png("NN.png", prog='dot')
+g.write_png("../Images/NN.png", prog='dot')
