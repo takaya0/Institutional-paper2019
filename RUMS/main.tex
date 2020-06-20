@@ -177,7 +177,7 @@ $d$, $m$を自然数とする.
     \end{align*}
 \end{Definition+}
 予測損失が最小となるような$f\in\Hil$を求めることが機械学習の目標である. しかし, 一般にデータの分布は未知であるため
-この式を解くことができない. そこで、損失関数というものを定義し、それを最適化することを考える.
+この式を解くことができない. そこで、損失関数というものを定義し, それを最適化することを考える.
 \begin{Definition+}(損失関数)\\
     $\Hil$を仮説空間とする. $\Hil$から$\R$への写像$\Loss:\Hil\to\R$を損失関数(Loss function)と呼ぶ.
 \end{Definition+}
@@ -364,12 +364,12 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     を求める問題を$m$値分類ロジスティック回帰という.
 \end{Example+}
 先ほどまでは, 損失関数の最小値を解析的に求めていたが, 今回の損失関数の最小値を解析的に求めることはせず,
-勾配降下法という連続最適化アルゴリズムを用いて求めることにする. 勾配降下法とは$C^{\infty}$関数$F$の
+勾配降下法という連続最適化アルゴリズムを用いて求めることにする. 勾配降下法とは$C^{1}$関数$F$の
 最小値を求めるためのアルゴリズムである.
 \begin{algorithm}[H]
     \caption{Gradient Decent}
     \begin{algorithmic}
-        \REQUIRE F: smooth function on $\R^{d}$
+        \REQUIRE F: $C^1$ function on $\R^{d}$
         \REQUIRE $0<\alpha<1$ : learning rate 
         \REQUIRE $\theta$: Initial parameter vector
         \STATE $\theta\leftarrow\theta_{0}$
@@ -780,10 +780,10 @@ GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることで�
     \begin{proof}
         $\|\cdot\|^{2}$が凸であることと, Jensenの不等式より
         \begin{align*}
-            \|\nabla_{\theta}\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\log(1 - D(G_{\theta}(z)))]\|_{2}^{2} &\leq\mathbb{P}_{z\sim\mathbb{P}_{Z}}\left[ \frac{\|\nabla_{\theta}D(G_{\theta}(z))\|_{2}^{2}}{|1 - D(G_{\theta}(z))|^{2}} \right]\\
-                                                                                                    &\leq\mathbb{P}_{z\sim\mathbb{P}_{Z}}\left[ \frac{\|\nabla_{x}D(G_{\theta}(z))\|_{2}^{2}\|J_{\theta}G_{\theta}(z)\|_{2}^{2}}{|1 - D(G_{\theta}(z))|^{2}} \right]\\
-                                                                                                    &\leq\mathbb{P}_{z\sim\mathbb{P}_{Z}}\left[ \frac{(\|\nabla_{x}D^{*}(G_{\theta}(z))\|_{2} + \delta)^{2}\|J_{\theta}G_{\theta}(z)\|_{2}^{2}}{(|1 - D^{*}(G_{\theta}(z))| - \delta)^{2}} \right]\\
-                                                                                                    &\leq\mathbb{P}_{z\sim\mathbb{P}_{Z}}\left[ \frac{\delta^{2}\|J_{\theta}G_{\theta}(z)\|_{2}^{2}}{(1 - \delta)^{2}} \right]\\
+            \|\nabla_{\theta}\mathbb{E}_{z\sim\mathbb{P}_{Z}}[\log(1 - D(G_{\theta}(z)))]\|_{2}^{2} &\leq\mathbb{E}_{z\sim\mathbb{P}_{Z}}\left[ \frac{\|\nabla_{\theta}D(G_{\theta}(z))\|_{2}^{2}}{|1 - D(G_{\theta}(z))|^{2}} \right]\\
+                                                                                                    &\leq\mathbb{E}_{z\sim\mathbb{P}_{Z}}\left[ \frac{\|\nabla_{x}D(G_{\theta}(z))\|_{2}^{2}\|J_{\theta}G_{\theta}(z)\|_{2}^{2}}{|1 - D(G_{\theta}(z))|^{2}} \right]\\
+                                                                                                    &\leq\mathbb{E}_{z\sim\mathbb{P}_{Z}}\left[ \frac{(\|\nabla_{x}D^{*}(G_{\theta}(z))\|_{2} + \delta)^{2}\|J_{\theta}G_{\theta}(z)\|_{2}^{2}}{(|1 - D^{*}(G_{\theta}(z))| - \delta)^{2}} \right]\\
+                                                                                                    &\leq\mathbb{E}_{z\sim\mathbb{P}_{Z}}\left[ \frac{\delta^{2}\|J_{\theta}G_{\theta}(z)\|_{2}^{2}}{(1 - \delta)^{2}} \right]\\
                                                                                                     &\leq M^{2}\frac{\delta^{2}}{(1 - \delta)^{2}}
         \end{align*}
         となる. 両辺の平方をとれば題意が従う. 
