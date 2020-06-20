@@ -218,7 +218,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \end{align*}
     を求める問題を単回帰分析という. 単回帰分析の最適仮説$f^{*}\in\Hil$は
     \begin{align*}
-        f^{*}(x) = \frac{\sum_{i = 1}^{N}x_{i}y_{i}}{\sum_{i = 1}^{N}x_{i}^2}w
+        f^{*}(x) = \frac{\sum_{i = 1}^{N}x_{i}y_{i}}{\sum_{i = 1}^{N}x_{i}^2}x
     \end{align*}
     となる. また, $\Hil\simeq\R$である.
 \end{Example+}
@@ -497,7 +497,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \begin{align*}
         \Hil &= \left\{f:\X\to\Y~\middle|
         \begin{array}{l}
-            f(x) = W^{\top}g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) - b, g_{i} = \eta(W_{i}x + b_{i})\\
+            f(x) = W^{\top}g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) + b, g_{i} = \eta(W_{i}x + b_{i})\\
             W_{i}\in\R^{L_{i}\times L_{i - 1}}, b_{i}\in\R^{L_{i}}, W\in\R^{L_{K}}, b\in\R
         \end{array}
         \right\},\\
@@ -512,7 +512,7 @@ $D = \{(x_i, y_i)\}_{i = 1}^{N}\subset\X\times\Y$を教師ありデータとす�
     \begin{align*}
         \Hil &= \left\{f:\X\to\Y~\middle|
         \begin{array}{l}
-            f(x) = \psi(W g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) - b), g_{i} = \eta(W_{i}x + b_{i})\\
+            f(x) = \psi(W g_{K}\circ g_{K - 1}\circ\cdots\circ g_{1}(x) + b), g_{i} = \eta(W_{i}x + b_{i})\\
             W_{i}\in\R^{L_{i}\times L_{i - 1}}, b_{i}\in\R^{L_{i}}, W\in\R^{m\times L_{K}}, b\in\R^{m}
         \end{array}
         \right\},\\
@@ -670,7 +670,7 @@ GAN$\cite{GAN}$は2014年にGoodfellowらによって提案された手法であ
 \end{Definition+}
 GANの目的は, $\mathbb{P}_{G}$を$\mathbb{P}_{data}$に近づけることである. そのために, 以下のmin-maxゲームを解くことを考える. 
 \begin{align*}
-    \argmin_{D\in\Hil_{D}}\argmax_{G\in\Hil_{G}}\Loss.
+    \argmin_{D\in\Hil_{D}}\argmax_{G\in\Hil_{G}}\Loss(D, G).
 \end{align*}
 \begin{Remark+}(GeneratorとDiscriminatorの役割について)\\
     Generator $G\in\Hil_{G}$の役割は, $z\in\mathcal{Z}$からデータとよく似た偽物$G(z)\in\X$を
